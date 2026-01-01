@@ -1,0 +1,105 @@
+/* reviews.css */
+
+.reviews-section {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #fff;
+  border: 2px solid #4f463e;   /* как у SEO блока */
+  border-radius: 10px;          /* как у SEO блока */
+}
+
+/* Фон — как у SEO блока: ::before с текстурой + лёгкое размытие */
+.reviews-section::before {
+  content: "";
+  position: absolute;
+  inset: 2px;                 /* не перекрывать рамку 2px */
+  z-index: 0;
+  background-image: url('/static/deps/images/seo-text-bg.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px) saturate(.85) contrast(.92);
+  opacity: 0.88;
+  transform: scale(1.02);
+  will-change: filter, transform;
+  border-radius: 8px;          /* внутренняя скруглённость */
+}
+
+/* Виньетка — как у SEO блока: ::after */
+.reviews-section::after {
+  content: "";
+  position: absolute;
+  inset: 2px;                 /* не перекрывать рамку 2px */
+  z-index: 1;
+  pointer-events: none;
+  background:
+      /* ещё темнее общее затемнение */
+      linear-gradient(0deg, rgba(0,0,0,0.24), rgba(0,0,0,0.24)),
+      radial-gradient(1200px 700px at 50% 40%,
+      rgba(0,0,0,0.00) 0%,
+      rgba(0,0,0,0.22) 30%,
+      rgba(0,0,0,0.44) 65%,
+      rgba(0,0,0,0.78) 100%);
+  mix-blend-mode: multiply;
+  border-radius: 8px;          /* внутренняя скруглённость */
+}
+
+/* Ensure content sits above overlays */
+.reviews-section > * { position: relative; z-index: 2; }
+
+.reviews-inner { position: relative; z-index: 3; padding: 2.2rem 16px 2.8rem; }
+
+.reviews-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+}
+@media (min-width: 576px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px) { .reviews-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1400px) { .reviews-grid { grid-template-columns: repeat(5, 1fr); } }
+
+.review-card { margin: 0; padding: 0; }
+.review-media { position: relative; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid #2f2d28; background: #2a2730; }
+.review-media img { display: block; width: 100%; height: auto; }
+
+.review-caption { padding: 8px 4px 0; color: #dcc49a; }
+.review-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.review-text { font-size: 0.9rem; opacity: 0.85; }
+
+/* reuse global .tm-section-title styles already present */
+
+/* ===== Reviews Image Lightbox Modal ===== */
+#image-modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* toggled by JS */
+  z-index: 2147483647;
+}
+#image-modal .image-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+}
+#image-modal .image-modal__img {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 92vw; max-height: 92vh;
+  width: auto; height: auto;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+#image-modal .image-modal__close {
+  position: absolute;
+  top: 14px; right: 16px;
+  width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 32px; line-height: 1;
+  color: #fff; cursor: pointer;
+  border-radius: 50%; background: rgba(0,0,0,0.55); border: 2px solid rgba(255,255,255,0.5);
+  z-index: 10001;
+}
+body.modal-open { overflow: hidden; }
+

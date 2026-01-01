@@ -1,0 +1,77 @@
+{% load static %}
+{% load media_extras %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+<section class="tm-featured-wrapper tm-fw-mobile">
+    <div class="container-bestsellers basic-grid" role="region" aria-labelledby="bestsellers-title">
+        <h2 id="bestsellers-title" class="text-center tm-section-title">{% if CUR_LANG == 'ru' %}Гроверы чаще всего выбирают{% else %}Гровери найчастіше обирають{% endif %}</h2>
+
+        <div class="tm-featured-grid" role="list" aria-label="{% if CUR_LANG == 'ru' %}Бестселлеры{% else %}Бестселери{% endif %}">
+            {% for product in bestsellers %}
+            <article class="tm-product-card{% if product.is_benefit %} is-benefit{% endif %}" role="listitem" aria-labelledby="prod-title-{{ product.id }}">
+                <a href="{{ product.get_absolute_url }}" class="tm-product-link" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+                    <div class="tm-card-image-wrap">
+                        <div class="badge-stack">
+                            {% if product.discount > 0 %}
+                            <div class="badge-discount badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: {{ product.discount_price|floatformat:0 }}₴">
+                                {% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: <span class="bd-amt">{{ product.discount_price|floatformat:0 }}₴</span>
+                            </div>
+                            {% endif %}
+                            {% if product.quantity <= 0 %}
+                            <div class="badge-stock is-out" aria-label="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}</div>
+                            {% endif %}
+                        </div>
+                        {% if CUR_LANG == 'ru' and product.name_ru %}
+                        {% product_card_picture product 'tm-card-img' product.name_ru 'lazy' %}
+                        {% else %}
+                        {% product_card_picture product 'tm-card-img' product.name 'lazy' %}
+                        {% endif %}
+                    </div>
+
+                    <div class="tm-card-info">
+                        {% if product.is_benefit %}
+                        <div class="badge-benefit badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</div>
+                        {% endif %}
+                        <h3 id="prod-title-{{ product.id }}" class="tm-card-title">{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}</h3>
+                        {% if CUR_LANG == 'ru' and product.short_description_ru %}
+                        <p class="tm-card-subtitle">{{ product.short_description_ru }}</p>
+                        {% elif product.short_description %}
+                        <p class="tm-card-subtitle">{{ product.short_description }}</p>
+                        {% endif %}
+                        {% if product.discount > 0 %}
+                        <div class="tm-card-price">
+                            <span class="price-old">{{ product.price }}₴</span>
+                            <span class="price-new">{{ product.sell_price }}₴</span>
+                        </div>
+                        {% else %}
+                        <div class="tm-card-price">
+                            <span class="price">{{ product.price }}₴</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </a>
+
+                <div class="tm-card-actions">
+                    {% if product.quantity > 0 %}
+                    <button class="add-to-cart-btn"
+                            data-product-id="{{ product.id }}"
+                            data-cart-add-url="{% url 'carts:cart_add' %}">
+                        {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+                    </button>
+                    {% else %}
+                    <button class="add-to-cart-btn" disabled aria-disabled="true" title="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">
+                        {% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}
+                    </button>
+                    {% endif %}
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

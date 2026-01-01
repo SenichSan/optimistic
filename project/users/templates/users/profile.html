@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load static %}
+{% block seo_head_extra %}
+  <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+{% load cache %}
+{% load carts_tags %}
+{% get_current_language as CUR_LANG %}
+
+{% block content %}
+<div class="row">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                    <h3 class="text-center mb-4">{% if CUR_LANG == 'ru' %}Профиль пользователя{% else %}Профіль користувача{% endif %}</h3>
+                    <form action="{% url "users:profile" %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12 mb-3 text-center">
+                                {% if user.image %}
+                                    <img src="{{ user.image.url }}"
+                                        alt="{% if CUR_LANG == 'ru' %}Аватар пользователя{% else %}Аватар користувача{% endif %}" class="img-fluid rounded-circle"
+                                        style="max-width: 150px;">
+                                {% else %}
+                                    <img src="{% static "deps/images/baseavatar.jpg" %}"
+                                        alt="{% if CUR_LANG == 'ru' %}Аватар пользователя{% else %}Аватар користувача{% endif %}" class="img-fluid rounded-circle"
+                                        style="max-width: 150px;">
+                                {% endif %}
+                                <input type="file" class="form-control mt-3" id="id_image"
+                                    name='image'
+                                    accept="image/*">
+                                    {% if form.image.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.image.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_first_name" class="form-label">{% if CUR_LANG == 'ru' %}Имя*{% else %}Ім'я*{% endif %}</label>
+                                <input type="text" class="form-control" id="id_first_name"
+                                    name="first_name"
+                                    placeholder="{% if CUR_LANG == 'ru' %}Введите ваше имя{% else %}Введіть ваше ім'я{% endif %}"
+                                    value="{{ form.first_name.value }}"
+                                    required>
+                                    {% if form.first_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_last_name" class="form-label">{% if CUR_LANG == 'ru' %}Фамилия*{% else %}Прізвище*{% endif %}</label>
+                                <input type="text" class="form-control" id="id_last_name"
+                                    name="last_name"
+                                    placeholder="{% if CUR_LANG == 'ru' %}Введите вашу фамилию{% else %}Введіть ваше прізвище{% endif %}"
+                                    value="{{ form.last_name.value }}"
+                                    required>
+                                    {% if form.last_name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_username" class="form-label">{% if CUR_LANG == 'ru' %}Имя пользователя*{% else %}Ім'я користувача*{% endif %}</label>
+                                <input type="text" class="form-control" id="id_username"
+                                    name="username"
+                                    placeholder="{% if CUR_LANG == 'ru' %}Введите ваше имя пользователя{% else %}Введіть ваше ім'я користувача{% endif %}"
+                                    value="{{ form.username.value }}"
+                                    required>
+                                    {% if form.username.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_email" class="form-label">Email*</label>
+                                <input type="email" class="form-control" id="id_email"
+                                    name="email"
+                                    placeholder="{% if CUR_LANG == 'ru' %}Введите ваш email *youremail@example.com{% else %}Введіть ваш email *youremail@example.com{% endif %}"
+                                    value="{{ form.email.value }}"
+                                    required>
+                                    {% if form.email.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
+                                    {% endif %}
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark">{% if CUR_LANG == 'ru' %}Сохранить{% else %}Зберегти{% endif %}</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Корзина -->
+            {% user_carts request as carts %}
+
+            <div class="col-md-7">
+                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                    <h3 class="text-center mb-4">{% if CUR_LANG == 'ru' %}Корзина{% else %}Кошик{% endif %}</h3>
+                    <div class="container" id="cart-items-container">
+                        <!-- Разметка корзины -->
+                        {% include "carts/includes/included_cart.html" %}
+                        <!-- Закончилась разметка корзины -->
+                    </div>
+                </div>
+            </div>
+            <!-- Оформленные заказы -->
+            {% comment %} {% cache 60 user_orders user.id %} {% endcomment %}
+            <div class="col-md-12">
+                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                    <h3 class="text-center mb-4">{% if CUR_LANG == 'ru' %}Мои заказы{% else %}Мої замовлення{% endif %}</h3>
+                    <!-- Разметка заказов -->
+                    <div class="container">
+                        <div class="accordion" id="accordionExample">
+                            {% for order in orders %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ order.id }}">
+                                    <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
+                                        {% if CUR_LANG == 'ru' %}Заказ №{% else %}Замовлення №{% endif %} {{ order.id }} - {{ order.created_timestamp }} | {% if CUR_LANG == 'ru' %}Статус{% else %}Статус{% endif %}: <strong class="mx-2">{{order.status}}</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <table class="table table-dark table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>{% if CUR_LANG == 'ru' %}Товар{% else %}Товар{% endif %}</th>
+                                                    <th>{% if CUR_LANG == 'ru' %}Количество{% else %}Кількість{% endif %}</th>
+                                                    <th>{% if CUR_LANG == 'ru' %}Цена{% else %}Ціна{% endif %}</th>
+                                                    <th>{% if CUR_LANG == 'ru' %}Общая стоимость{% else %}Загальна вартість{% endif %}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for item in order.orderitem_set.all %}
+                                                <tr>
+                                                    <td><a class="text-white" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a></td>
+                                                    <td>{{ item.quantity }}</td>
+                                                    <td>{{ item.price }}</td>
+                                                    <td>{{ item.products_price }}</td>
+                                                    
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Закончилась разметка заказов -->
+                </div>
+            </div>
+            {% comment %} {% endcache %} {% endcomment %}
+        </div>
+    </div>
+</div>
+{% endblock  %}

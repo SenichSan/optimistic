@@ -1,0 +1,20 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+<section class="welcome-block" role="region" aria-label="{% if CUR_LANG == 'ru' %}Приветственный блок{% else %}Вітальний блок{% endif %}">
+  <div class="welcome-inner">
+    <h1 class="welcome-title">
+      {% if CUR_LANG == 'ru' %}
+        Здесь скоро начнут появляться важные новости, статьи и другие материалы.
+      {% else %}
+        Тут незабаром почнуть з’являтися важливі новини, статті та інші матеріали.
+      {% endif %}
+    </h1>
+    {% if CUR_LANG == 'ru' %}
+      <p class="welcome-text">Ваше удобство — наш главный приоритет. Мы сделаем всё, что в наших силах, чтобы вам было комфортно и легко с нами.</p>
+    {% else %}
+      <p class="welcome-text">Ваш комфорт — наш головний пріоритет. Ми зробимо все можливе, щоб вам було зручно й легко з нами.</p>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+
+<section class="fantasy-news-slider-container">
+
+    <div class="fantasy-news-slider">
+        <div class="fantasy-slide active">
+            <div class="fantasy-slide-text">
+                <h2>🌿 u</h2>
+                <p>u.</p>
+                <a href="#" class="fantasy-btn">{% if CUR_LANG == 'ru' %}Подробнее{% else %}Детальніше{% endif %}</a>
+            </div>
+            <div class="fantasy-slide-image">
+                <picture>
+                    <source srcset="{% static 'deps/images/mushroom1.avif' %}" type="image/avif">
+                    <source srcset="{% static 'deps/images/mushroom1.webp' %}" type="image/webp">
+                    <img src="{% static 'deps/images/mushroom1.png' %}"
+                         alt="Mushroom" width="600" height="400" loading="lazy" decoding="async">
+                </picture>
+            </div>
+        </div>
+
+        <div class="fantasy-slide">
+            <div class="fantasy-slide-text">
+                <h2>🍄  y</h2>
+                <p>Сое.</p>
+                <a href="#" class="fantasy-btn">{% if CUR_LANG == 'ru' %}Подробнее{% else %}Детальніше{% endif %}</a>
+            </div>
+            <div class="fantasy-slide-image">
+                <picture>
+                    <source srcset="{% static 'deps/images/mushroom2.avif' %}" type="image/avif">
+                    <source srcset="{% static 'deps/images/mushroom2.webp' %}" type="image/webp">
+                    <img src="{% static 'deps/images/mushroom2.png' %}"
+                         alt="Mushroom" width="600" height="400" loading="lazy" decoding="async">
+                </picture>
+            </div>
+        </div>
+
+        <div class="fantasy-slider-controls"></div>
+    </div>
+
+</section>

@@ -1,0 +1,251 @@
+.fantasy-news-slider-container {
+  padding: 48px;
+  /* Robust fallback chain for iOS/Safari and modern browsers */
+  background-image: url('/static/deps/images/news-slider-bg.jpg');
+  background-image: -webkit-image-set(
+    url('/static/deps/images/news-slider-bg.avif') 1x,
+    url('/static/deps/images/news-slider-bg.webp') 1x,
+    url('/static/deps/images/news-slider-bg.jpg') 1x
+  );
+  background-image: image-set(
+    url('/static/deps/images/news-slider-bg.avif') type('image/avif') 1x,
+    url('/static/deps/images/news-slider-bg.webp') type('image/webp') 1x,
+    url('/static/deps/images/news-slider-bg.jpg') type('image/jpeg') 1x
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* FAQ-like frame */
+  border: 2px solid #4f463e;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  /* for overlay */
+  position: relative;
+}
+
+
+.fantasy-news-slider-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(28, 18, 3, 0.40); /* match bestsellers overlay */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ensure inner content stays above overlay */
+.fantasy-news-slider-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+.fantasy-news-slider {
+    position: relative;
+    background: #0000007a;
+    /* как у FAQ: без внутренней рамки, скругление наследуем от контейнера */
+    /* объёмная слегка золотистая рамка */
+    border: 2px solid #ddc69a;             /* мягкое золото в тон проекта */
+    border-radius: inherit;
+    background-clip: padding-box;           /* чтобы фон не перекрывал рамку */
+    overflow: hidden;
+    max-width: 76rem;
+    margin: 30px auto;
+    /* объём: лёгкий кремовый ореол + фаски внутри */
+    box-shadow:
+      /* внешняя мягкая подсветка золота */
+      0 0 0 1px rgba(221,198,154,0.28),
+      0 10px 24px rgba(0,0,0,0.35),
+      0 0 12px rgba(221,198,154,0.22),
+      /* внутренние фаски для 3D-эффекта */
+      inset 0 1px 0 rgba(255,255,255,0.12),   /* верхний блик */
+      inset 0 -1px 0 rgba(110,75,0,0.28);     /* нижняя тень */
+    font-family: 'Cinzel', serif;
+}
+
+.fantasy-slide {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 6rem 30px;
+    color: #fff;
+}
+
+.fantasy-slide.active {
+    display: grid;
+    animation: fantasy-fadeIn 0.8s ease-in-out;
+}
+
+.fantasy-slide-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ffeb00;
+}
+
+.fantasy-slide-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #cfcfcf;
+}
+
+.fantasy-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #f9ef7ecc, #fff79dcf);
+    color: #000;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgb(255 255 255);
+    transition: 0.3s;
+}
+
+.fantasy-btn:hover {
+    /* тёплое жёлтое свечение в тон градиенту кнопки */
+    box-shadow: 0 0 0 2px rgba(255, 247, 157, 0.35),
+                0 0 14px rgba(249, 239, 126, 0.75),
+                0 0 28px rgba(255, 247, 157, 0.55);
+    transform: scale(1.05);
+}
+
+.fantasy-slide-image { display: flex; align-items: center; justify-content: center; }
+.fantasy-slide-image picture { display: block; width: 100%; max-width: 100%; }
+.fantasy-slide-image img {
+    display: block;
+    width: 100%;
+    height: auto;               /* сохраняем пропорции, не растягиваем по высоте */
+    object-fit: contain;        /* вписываемся в контейнер без обрезки */
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ddc69a;
+}
+
+.fantasy-slider-dots {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.fantasy-dot {
+    display: inline-block;
+    height: 8px;
+    width: 20px;
+    margin: 0 5px;
+    background: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.fantasy-dot.active {
+    background: #39ff14;
+    box-shadow: 0 0 5px #39ff14;
+}
+
+@keyframes fantasy-fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .fantasy-slide {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+    }
+    .fantasy-slide-text {
+        padding: 0;
+    }
+}
+
+.fantasy-slider-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem; /* стрелки прилегают без промежутка */
+    z-index: 20;
+    /* лёгкая подсветка вокруг общей группы */
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Общий стиль кнопок-стрелок */
+.fantasy-arrow {
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #e6bf5a, #e6bf5a);
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgb(255 221 0 / 60%);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    user-select: none;
+}
+
+.fantasy-prev {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.fantasy-next {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Hover / active эффекты */
+.fantasy-arrow:hover {
+    transform: translateY(-2px) scale(1.03);
+    /* тёплое жёлтое свечение в тон .fantasy-btn */
+    box-shadow: 0 0 0 2px rgba(255, 247, 157, 0.35),
+                0 0 14px rgba(249, 239, 126, 0.75),
+                0 0 28px rgba(255, 247, 157, 0.55);
+    filter: saturate(1.05);
+}
+.fantasy-arrow:active {
+    transform: translateY(0) scale(.99);
+}
+
+.fantasy-arrow:active {
+    transform: translateY(0) scale(.99);
+}
+
+/* Скрываем старые точки, если остались */
+.fantasy-slider-dots { display: none; }
+
+/* Убедись, что слайдер оставляет место для контролов (не налезают на контент) */
+.fantasy-news-slider { padding-bottom: 70px; }
+
+/* Мобильная адаптация: уменьшаем размер стрелок */
+@media (max-width: 480px) {
+    .fantasy-arrow { padding: 8px 10px; font-size: 18px; }
+    .fantasy-news-slider { padding-bottom: 84px; }
+}
+
+/* Дополнительные корректировки отступов на мобильных, чтобы избежать переполнений */
+@media (max-width: 576px) {
+    .fantasy-news-slider-container { padding: 16px; }
+    .fantasy-news-slider { margin: 16px auto; }
+}
+
+.container-slider {
+    background: radial-gradient(circle at 20% 50%, rgba(0,184,184,0.2), transparent 40%),
+            radial-gradient(circle at 80% 50%, rgba(0,184,184,0.15), transparent 35%),
+            #000;
+}

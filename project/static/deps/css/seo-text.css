@@ -1,0 +1,269 @@
+/* Основные селекторы (несколько вариантов на случай разной структуры в проекте) */
+html body #seo-text-section,
+section#seo-text-section,
+#seo-text-section.seo-text-section,
+.page-wrapper #seo-text-section,
+.content-area #seo-text-section {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+  width: 100%;
+  /* Match news slider typography */
+  font-family: 'Cinzel', serif;
+  color: #f3eade;          /* основной кремовый тон */
+  line-height: 1.65;
+  /* FAQ-like frame */
+  border: 2px solid #4f463e;
+  border-radius: 10px;
+}
+
+/* Контейнер текста поверх фоновых слоёв */
+html body #seo-text-section .seo-text-container,
+section#seo-text-section .seo-text-container,
+#seo-text-section.seo-text-section .seo-text-container,
+.page-wrapper #seo-text-section .seo-text-container,
+.content-area #seo-text-section .seo-text-container {
+  position: relative;
+  z-index: 2;
+  max-width: 69rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Фон — псевдоэлемент ::before (текстура + размытие) */
+html body #seo-text-section::before,
+section#seo-text-section::before,
+#seo-text-section.seo-text-section::before,
+.page-wrapper #seo-text-section::before,
+.content-area #seo-text-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* Use only AVIF to avoid multiple candidates */
+  background-image: url('/static/deps/images/seo-text-bg.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* приглушение орнамента + лёгкое размытие */
+  filter: blur(2px) saturate(.85) contrast(.92);
+  opacity: 0.88;
+  transform: scale(1.02);
+  will-change: filter, transform;
+}
+
+/* Виниетирование — псевдоэлемент ::after (центр светлее, края темнее) */
+html body #seo-text-section::after,
+section#seo-text-section::after,
+#seo-text-section.seo-text-section::after,
+.page-wrapper #seo-text-section::after,
+.content-area #seo-text-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(1200px 700px at 50% 40%,
+      rgba(0,0,0,0.00) 0%,
+      rgba(0,0,0,0.06) 30%,
+      rgba(0,0,0,0.18) 65%,
+      rgba(0,0,0,0.48) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Заголовки — повышенная специфичность для надёжного применения */
+html body #seo-text-section h1,
+section#seo-text-section h1,
+#seo-text-section.seo-text-section h1,
+.page-wrapper #seo-text-section h1,
+.content-area #seo-text-section h1,
+html body #seo-text-section h2,
+section#seo-text-section h2,
+#seo-text-section.seo-text-section h2,
+.page-wrapper #seo-text-section h2,
+.content-area #seo-text-section h2,
+html body #seo-text-section h3,
+section#seo-text-section h3,
+#seo-text-section.seo-text-section h3,
+.page-wrapper #seo-text-section h3,
+.content-area #seo-text-section h3 {
+  font-family: 'Cinzel', serif;
+  /* больше отступа снизу — больше воздуха между заголовком и текстом */
+  margin: 1.4rem 0 1.6rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #ccb58d; /* золотистый резервный тон */
+
+  /* градиент внутри букв (работает в современных браузерах) + лёгкая тень */
+  background: linear-gradient(180deg, #e8d8b6, #ccb58d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  letter-spacing: 0.2px;
+}
+
+/* Размеры заголовков */
+html body #seo-text-section h1,
+section#seo-text-section h1,
+#seo-text-section.seo-text-section h1,
+.page-wrapper #seo-text-section h1,
+.content-area #seo-text-section h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+
+html body #seo-text-section h2,
+section#seo-text-section h2,
+#seo-text-section.seo-text-section h2,
+.page-wrapper #seo-text-section h2,
+.content-area #seo-text-section h2 { font-size: 1.6rem; }
+
+html body #seo-text-section h3,
+section#seo-text-section h3,
+#seo-text-section.seo-text-section h3,
+.page-wrapper #seo-text-section h3,
+.content-area #seo-text-section h3 { font-size: 1.15rem; }
+
+/* Параграфы и списки — повышенная специфичность */
+html body #seo-text-section p,
+section#seo-text-section p,
+#seo-text-section.seo-text-section p,
+.page-wrapper #seo-text-section p,
+.content-area #seo-text-section p {
+  margin-bottom: 1rem;
+  /* немного уменьшили, чтобы быть меньше заголовка */
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(243,234,222,0.95);
+  opacity: 0.98;
+  line-height: 1.8;
+}
+
+html body #seo-text-section ul,
+section#seo-text-section ul,
+#seo-text-section.seo-text-section ul,
+.page-wrapper #seo-text-section ul,
+.content-area #seo-text-section ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  list-style: disc;
+  color: rgba(243,234,222,0.95);
+}
+html body #seo-text-section ul li,
+section#seo-text-section ul li,
+#seo-text-section.seo-text-section ul li,
+.page-wrapper #seo-text-section ul li,
+.content-area #seo-text-section ul li { margin-bottom: 0.6rem; }
+
+/* Ссылки — с высокой специфичностью */
+html body #seo-text-section a,
+section#seo-text-section a,
+#seo-text-section.seo-text-section a,
+.page-wrapper #seo-text-section a,
+.content-area #seo-text-section a {
+  color: #d9c7a3;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(217,199,163,0.25);
+  transition: text-shadow .25s ease, transform .12s ease;
+}
+html body #seo-text-section a:hover,
+section#seo-text-section a:hover,
+#seo-text-section.seo-text-section a:hover,
+.page-wrapper #seo-text-section a:hover,
+.content-area #seo-text-section a:hover {
+  text-shadow: 0 4px 18px rgba(204,181,141,0.12);
+  transform: translateY(-1px);
+}
+
+
+
+/* Кнопки/акценты */
+html body #seo-text-section .btn,
+section#seo-text-section .btn,
+#seo-text-section.seo-text-section .btn,
+.page-wrapper #seo-text-section .btn,
+.content-area #seo-text-section .btn {
+  display: inline-block;
+  padding: .5rem 1rem;
+  background: linear-gradient(180deg, rgba(220,190,140,0.12), rgba(200,160,90,0.06));
+  color: rgba(243,234,222,0.95);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+/* Небольшой декоративный штрих для заголовка (опция) */
+html body #seo-text-section .headline-subtle,
+section#seo-text-section .headline-subtle,
+#seo-text-section.seo-text-section .headline-subtle,
+.page-wrapper #seo-text-section .headline-subtle,
+.content-area #seo-text-section .headline-subtle {
+  display: inline-block;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Фокус/Доступность */
+html body #seo-text-section a:focus,
+section#seo-text-section a:focus,
+#seo-text-section.seo-text-section a:focus,
+.page-wrapper #seo-text-section a:focus,
+.content-area #seo-text-section a:focus,
+html body #seo-text-section .btn:focus,
+section#seo-text-section .btn:focus,
+#seo-text-section.seo-text-section .btn:focus,
+.page-wrapper #seo-text-section .btn:focus,
+.content-area #seo-text-section .btn:focus {
+  outline: 3px solid rgba(204,181,141,0.12);
+  outline-offset: 2px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+/* Адаптивные корректировки (высокая специфичность сохранена) */
+@media (min-width: 769px) {
+  html body #seo-text-section .seo-text-container p {
+    font-size: 1.35rem;
+    line-height: 1.8;
+  }
+  html body #seo-text-section .seo-text-container .text-center p {
+    font-size: 1.4rem;
+    line-height: 1.9;
+  }
+}
+#seo-text-section.seo-text-section .seo-text-container,
+  .page-wrapper #seo-text-section .seo-text-container,
+  .content-area #seo-text-section .seo-text-container {
+    max-width: 640px;
+  }
+  html body #seo-text-section h1,
+  #seo-text-section.seo-text-section h1,
+  .page-wrapper #seo-text-section h1,
+  .content-area #seo-text-section h1 { font-size: 2.0rem; }
+}
+
+@media (max-width: 768px) {
+  html body #seo-text-section,
+  section#seo-text-section,
+  #seo-text-section.seo-text-section,
+  .page-wrapper #seo-text-section,
+  .content-area #seo-text-section {
+    padding: 2rem 1rem;
+  }
+  html body #seo-text-section h1,
+  section#seo-text-section h1,
+  #seo-text-section.seo-text-section h1,
+  .page-wrapper #seo-text-section h1,
+  .content-area #seo-text-section h1 { font-size: 1.6rem; }
+  html body #seo-text-section h2,
+  section#seo-text-section h2,
+  #seo-text-section.seo-text-section h2,
+  .page-wrapper #seo-text-section h2,
+  .content-area #seo-text-section h2 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  html body #seo-text-section p,
+  section#seo-text-section p,
+  #seo-text-section.seo-text-section p,
+  .page-wrapper #seo-text-section p,
+  .content-area #seo-text-section h2 { font-size: 1.15rem; margin-bottom: 1.25rem; }
+  html body #seo-text-section p,
+  section#seo-text-section p,
+  #seo-text-section.seo-text-section p,
+  .page-wrapper #seo-text-section p,
+  .content-area #seo-text-section p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.25rem; }

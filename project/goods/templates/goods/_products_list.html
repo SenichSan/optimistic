@@ -1,0 +1,328 @@
+{% load static %}
+{% load media_extras %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+<div class="catalog-current-title">
+    {% if current_category and current_category != 'all' %}
+        {% for cat in categories %}
+            {% if cat.slug == current_category %}
+                <h1 class="catalog-category-heading">
+                    <span>
+                        {% if CUR_LANG == 'ru' and cat.name_ru %}{{ cat.name_ru }}{% else %}{{ cat.name }}{% endif %}
+                        {% if current_category == 'sporovi-vidbitki' and species %}
+                            {% if species == 'cubensis' %} Psilocybe cubensis{% elif species == 'panaeolus' %} Psilocybe Panaeolus{% endif %}
+                        {% endif %}
+                    </span>
+                </h1>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h1 class="catalog-category-heading">{% if CUR_LANG == 'ru' %}Все товары{% else %}Всі товари{% endif %}</h1>
+    {% endif %}
+    
+</div>
+
+{% if current_category == 'sporovi-vidbitki' %}
+<nav class="species-filter-nav" aria-label="{% if CUR_LANG == 'ru' %}Подкатегории отпечатков{% else %}Підкатегорії відбитків{% endif %}">
+  <ul class="catalog-categories-list" style="margin-top: 10px;">
+    <li class="catalog-category-item">
+      <a href="{% url 'catalog:index' current_category %}?species=cubensis"
+         class="catalog-category-card species-filter-btn{% if species == 'cubensis' %} is-active{% endif %}"
+         data-species="cubensis"
+         aria-current="{% if species == 'cubensis' %}true{% endif %}">
+        <div class="catalog-category-label">Cubensis</div>
+      </a>
+    </li>
+    <li class="catalog-category-item">
+      <a href="{% url 'catalog:index' current_category %}?species=panaeolus"
+         class="catalog-category-card species-filter-btn{% if species == 'panaeolus' %} is-active{% endif %}"
+         data-species="panaeolus"
+         aria-current="{% if species == 'panaeolus' %}true{% endif %}">
+        <div class="catalog-category-label">Panaeolus</div>
+      </a>
+    </li>
+  </ul>
+  {% if not species %}
+    <div class="species-filter-hint" aria-live="polite" style="margin: 6px 4px 0; opacity:.85; font-size:.95em;">{% if CUR_LANG == 'ru' %}Выберите подкатегорию, чтобы отфильтровать товары{% else %}Оберіть підкатегорію, щоб відфільтрувати товари{% endif %}</div>
+  {% endif %}
+</nav>
+{% endif %}
+
+{% if cubensis_list or panaeolus_list %}
+  <div class="species-split">
+    {% if cubensis_list %}
+    <h2 class="species-heading">Cubensis</h2>
+    <div class="tm-featured-grid" role="list" aria-label="Cubensis">
+      {% for product in cubensis_list %}
+      <article class="tm-product-card{% if product.is_benefit %} is-benefit{% endif %}" role="listitem" aria-labelledby="prod-title-{{ product.id }}">
+        <a href="{{ product.get_absolute_url }}" class="tm-product-link" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+            <div class="tm-card-image-wrap">
+                <div class="badge-stack">
+                    {% if product.discount and product.discount|floatformat:2 != '0.00' %}
+                    <div class="badge-discount badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: {{ product.discount_price|floatformat:0 }}₴">
+                        {% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: <span class="bd-amt">{{ product.discount_price|floatformat:0 }}₴</span>
+                    </div>
+                    {% endif %}
+                    {% if product.quantity <= 0 %}
+                    <div class="badge-stock is-out" aria-label="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}</div>
+                    {% endif %}
+                </div>
+                {% if CUR_LANG == 'ru' and product.name_ru %}
+                {% product_card_picture product 'tm-card-img' product.name_ru 'lazy' %}
+                {% else %}
+                {% product_card_picture product 'tm-card-img' product.name 'lazy' %}
+                {% endif %}
+            </div>
+
+            <div class="tm-card-info">
+                {% if product.is_benefit %}
+                <div class="badge-benefit badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</div>
+                {% endif %}
+                <h2 id="prod-title-{{ product.id }}" class="tm-card-title">
+                    {% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}
+                </h2>
+                {% if CUR_LANG == 'ru' and product.short_description_ru %}
+                <p class="tm-card-subtitle">{{ product.short_description_ru }}</p>
+                {% elif product.short_description %}
+                <p class="tm-card-subtitle">{{ product.short_description }}</p>
+                {% endif %}
+                {% if product.discount %}
+                <div class="tm-card-price">
+                    <span class="price-old">{{ product.price }}₴</span>
+                    <span class="price-new">{{ product.sell_price }}₴</span>
+                </div>
+                {% else %}
+                <div class="tm-card-price">
+                    <span class="price">{{ product.price }}₴</span>
+                </div>
+                {% endif %}
+            </div>
+        </a>
+
+        <div class="tm-card-actions">
+            {% if product.quantity > 0 %}
+            <button class="add-to-cart-btn"
+                    data-product-id="{{ product.id }}"
+                    data-cart-add-url="{% url 'carts:cart_add' %}">
+                {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+            </button>
+            {% else %}
+            <button class="add-to-cart-btn" disabled aria-disabled="true" title="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">
+                {% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}
+            </button>
+            {% endif %}
+        </div>
+      </article>
+      {% empty %}
+      <div class="product-empty">{% if CUR_LANG == 'ru' %}Нет товаров в подразделе Cubensis.{% else %}Немає товарів у підрозділі Cubensis.{% endif %}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if panaeolus_list %}
+    <h2 class="species-heading">Panaeolus</h2>
+    <div class="tm-featured-grid" role="list" aria-label="Panaeolus">
+      {% for product in panaeolus_list %}
+      <article class="tm-product-card{% if product.is_benefit %} is-benefit{% endif %}" role="listitem" aria-labelledby="prod-title-{{ product.id }}">
+        <a href="{{ product.get_absolute_url }}" class="tm-product-link" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+            <div class="tm-card-image-wrap">
+                <div class="badge-stack">
+                    {% if product.discount and product.discount|floatformat:2 != '0.00' %}
+                    <div class="badge-discount badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: {{ product.discount_price|floatformat:0 }}₴">
+                        {% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: <span class="bd-amt">{{ product.discount_price|floatformat:0 }}₴</span>
+                    </div>
+                    {% endif %}
+                    {% if product.quantity <= 0 %}
+                    <div class="badge-stock is-out" aria-label="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}</div>
+                    {% endif %}
+                </div>
+                {% product_card_picture product 'tm-card-img' product.name 'lazy' %}
+            </div>
+
+            <div class="tm-card-info">
+                {% if product.is_benefit %}
+                <div class="badge-benefit badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</div>
+                {% endif %}
+                <h2 id="prod-title-{{ product.id }}" class="tm-card-title">{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}</h2>
+                {% if product.short_description %}
+                <p class="tm-card-subtitle">{{ product.short_description }}</p>
+                {% endif %}
+                {% if product.discount %}
+                <div class="tm-card-price">
+                    <span class="price-old">{{ product.price }}₴</span>
+                    <span class="price-new">{{ product.sell_price }}₴</span>
+                </div>
+                {% else %}
+                <div class="tm-card-price">
+                    <span class="price">{{ product.price }}₴</span>
+                </div>
+                {% endif %}
+            </div>
+        </a>
+
+        <div class="tm-card-actions">
+            {% if product.quantity > 0 %}
+            <button class="add-to-cart-btn"
+                    data-product-id="{{ product.id }}"
+                    data-cart-add-url="{% url 'carts:cart_add' %}">
+                {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+            </button>
+            {% else %}
+            <button class="add-to-cart-btn" disabled aria-disabled="true" title="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">
+                {% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}
+            </button>
+            {% endif %}
+        </div>
+      </article>
+      {% empty %}
+      <div class="product-empty">{% if CUR_LANG == 'ru' %}Нет товаров в подразделе Panaeolus.{% else %}Немає товарів у підрозділі Panaeolus.{% endif %}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+{% else %}
+<div class="tm-featured-grid" role="list" aria-label="{% if CUR_LANG == 'ru' %}Товары{% else %}Товари{% endif %}">
+    {% for product in goods %}
+    <article class="tm-product-card{% if product.is_benefit %} is-benefit{% endif %}" role="listitem" aria-labelledby="prod-title-{{ product.id }}">
+        <a href="{{ product.get_absolute_url }}" class="tm-product-link" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+            <div class="tm-card-image-wrap">
+                <div class="badge-stack">
+                    {% if product.discount and product.discount|floatformat:2 != '0.00' %}
+                    <div class="badge-discount badge-discount--sm" aria-label="{% trans 'Знижка' %}: {{ product.discount_price|floatformat:0 }}₴">
+                        {% trans 'Знижка' %}: <span class="bd-amt">{{ product.discount_price|floatformat:0 }}₴</span>
+                    </div>
+                    {% endif %}
+                    {% if product.quantity <= 0 %}
+                    <div class="badge-stock is-out" aria-label="{% trans 'Немає в наявності' %}">{% trans 'Немає в наявності' %}</div>
+                    {% endif %}
+                </div>
+                {# Smart lazy loading: first 3 products eager for LCP, rest lazy; using card-centric image like on home #}
+                {% if forloop.counter <= 3 %}
+                    {% if CUR_LANG == 'ru' and product.name_ru %}
+                    {% product_card_picture product 'tm-card-img' product.name_ru 'eager' %}
+                    {% else %}
+                    {% product_card_picture product 'tm-card-img' product.name 'eager' %}
+                    {% endif %}
+                {% else %}
+                    {% if CUR_LANG == 'ru' and product.name_ru %}
+                    {% product_card_picture product 'tm-card-img' product.name_ru 'lazy' %}
+                    {% else %}
+                    {% product_card_picture product 'tm-card-img' product.name 'lazy' %}
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            <div class="tm-card-info">
+                {% if product.is_benefit %}
+                <div class="badge-benefit badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</div>
+                {% endif %}
+                <h2 id="prod-title-{{ product.id }}" class="tm-card-title">{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}</h2>
+                {% if CUR_LANG == 'ru' and product.short_description_ru %}
+                <p class="tm-card-subtitle">{{ product.short_description_ru }}</p>
+                {% elif product.short_description %}
+                <p class="tm-card-subtitle">{{ product.short_description }}</p>
+                {% endif %}
+                {% if product.discount %}
+                <div class="tm-card-price">
+                    <span class="price-old">{{ product.price }}₴</span>
+                    <span class="price-new">{{ product.sell_price }}₴</span>
+                </div>
+                {% else %}
+                <div class="tm-card-price">
+                    <span class="price">{{ product.price }}₴</span>
+                </div>
+                {% endif %}
+            </div>
+        </a>
+
+        <div class="tm-card-actions">
+            {% if product.quantity > 0 %}
+            <button class="add-to-cart-btn"
+                    data-product-id="{{ product.id }}"
+                    data-cart-add-url="{% url 'carts:cart_add' %}">
+                {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+            </button>
+            {% else %}
+            <button class="add-to-cart-btn" disabled aria-disabled="true" title="{% trans 'Немає в наявності' %}">
+                {% trans 'Немає в наявності' %}
+            </button>
+            {% endif %}
+        </div>
+    </article>
+    {% empty %}
+    <div class="product-empty">{% if CUR_LANG == 'ru' %}Нет товаров в этой категории.{% else %}Немає товарів у цій категорії.{% endif %}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{# Пагинация — сохраняет GET-параметры автоматически (но JS перехватит клики и выполнит AJAX) #}
+{% if is_paginated %}
+<nav class="pagination" aria-label="{% if CUR_LANG == 'ru' %}Навигация по страницам{% else %}Навігація по сторінках{% endif %}">
+  <ul class="pagination-list">
+    {% if page_obj.has_previous %}
+      <li class="page-nav">
+        <a
+          href="{% if page_obj.previous_page_number == 1 %}{% if species %}?species={{ species }}{% else %}{{ request.path }}{% endif %}{% else %}?page={{ page_obj.previous_page_number }}{% if species %}&species={{ species }}{% endif %}{% endif %}"
+          class="pagination-link"
+          aria-label="{% if CUR_LANG == 'ru' %}Предыдущая{% else %}Попередня{% endif %}">‹</a>
+      </li>
+    {% endif %}
+
+    {# Левое многоточие #}
+    {% if page_obj.number > 3 %}
+      <li class="ellipsis" aria-hidden="true">…</li>
+    {% endif %}
+
+    {# Диапазон вокруг текущей страницы: текущая-2 .. текущая+2 #}
+    {% for num in paginator.page_range %}
+      {% if num >= page_obj.number|add:-2 and num <= page_obj.number|add:2 %}
+        <li class="{% if num == page_obj.number %}active{% endif %}">
+          <a
+            href="{% if num == 1 %}{% if species %}?species={{ species }}{% else %}{{ request.path }}{% endif %}{% else %}?page={{ num }}{% if species %}&species={{ species }}{% endif %}{% endif %}"
+            class="pagination-link"
+            aria-current="{% if num == page_obj.number %}page{% endif %}">{{ num }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {# Правое многоточие #}
+    {% if page_obj.number < paginator.num_pages|add:-2 %}
+      <li class="ellipsis" aria-hidden="true">…</li>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+      <li class="page-nav"><a href="?page={{ page_obj.next_page_number }}{% if species %}&species={{ species }}{% endif %}" class="pagination-link" aria-label="{% if CUR_LANG == 'ru' %}Следующая{% else %}Наступна{% endif %}">›</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+{# Category presentation: render inside partial so it updates with AJAX #}
+{% if current_category_obj %}
+<section id="category-presentation" class="category-presentation">
+    <div class="category-presentation-inner">
+        <div class="category-presentation-media">
+            {% if current_category_obj.seo_image %}
+                {% field_image_picture current_category_obj.seo_image '800x450' 'category-presentation-image' current_category_obj.name 800 450 'lazy' %}
+            {% elif current_category_obj.image %}
+                {% category_icon_picture current_category_obj '800x450' 'category-presentation-image' current_category_obj.name 800 450 'lazy' %}
+            {% else %}
+                <div class="category-presentation-image placeholder" aria-hidden="true"></div>
+            {% endif %}
+        </div>
+        <div class="category-presentation-content">
+            <div class="category-presentation-title">{% if CUR_LANG == 'ru' and current_category_obj.name_ru %}{{ current_category_obj.name_ru }}{% else %}{{ current_category_obj.name }}{% endif %}</div>
+            {% if CUR_LANG == 'ru' and current_category_obj.description_ru %}
+                <div class="category-presentation-description">{{ current_category_obj.description_ru|safe }}</div>
+            {% elif current_category_obj.description %}
+                <div class="category-presentation-description">{{ current_category_obj.description|safe }}</div>
+            {% elif CUR_LANG == 'ru' and current_category_obj.short_description_ru %}
+                <p class="category-presentation-description">{{ current_category_obj.short_description_ru }}</p>
+            {% elif current_category_obj.short_description %}
+                <p class="category-presentation-description">{{ current_category_obj.short_description }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}

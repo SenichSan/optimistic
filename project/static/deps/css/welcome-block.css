@@ -1,0 +1,84 @@
+/* Welcome block based on news slider styling */
+.welcome-block {
+  padding: 48px 24px;
+  position: relative;
+  border: 2px solid #4f463e;
+  border-radius: 10px;
+  box-sizing: border-box;
+  /* allow to stretch in flex parent */
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* reuse news slider background */
+  background-image: url('/static/deps/images/news-slider-bg.jpg');
+  background-image: -webkit-image-set(
+    url('/static/deps/images/news-slider-bg.avif') 1x,
+    url('/static/deps/images/news-slider-bg.webp') 1x,
+    url('/static/deps/images/news-slider-bg.jpg') 1x
+  );
+  background-image: image-set(
+    url('/static/deps/images/news-slider-bg.avif') type('image/avif') 1x,
+    url('/static/deps/images/news-slider-bg.webp') type('image/webp') 1x,
+    url('/static/deps/images/news-slider-bg.jpg') type('image/jpeg') 1x
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* subtle dark overlay to separate text */
+.welcome-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.36);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* inner content above overlay */
+.welcome-inner { 
+  position: relative; 
+  z-index: 1; 
+  max-width: 980px; 
+  margin: 0 auto; 
+  text-align: center; 
+}
+
+.welcome-title {
+  color: #fff;
+  margin: 0 0 16px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(255,235,0,0.5);
+}
+
+.welcome-text {
+  color: #e8e8e8;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .welcome-block {
+    padding: 40px 18px;
+    min-height: 100vh;
+    height: 100h !important; /* принудительно увеличиваем высоту */
+  }
+  .welcome-title {
+    font-size: clamp(1.8rem, 5.6vw, 2.2rem);
+    margin-bottom: 100px; /* больше воздуха под заголовком на мобиле */
+  }
+  .welcome-text {
+    font-size: clamp(1.05rem, 3.6vw, 1.2rem);
+    line-height: 1.7;
+    max-width: 40ch;
+  }
+
+  .container.home-framed { padding-left: 3px; padding-right: 3px; width: 100%; max-width: 100%; }
+  .container.home-framed > .row { margin-left: 0; margin-right: 0; }
+  .container.home-framed .col-12 { padding-left: 0; padding-right: 0; }
+}

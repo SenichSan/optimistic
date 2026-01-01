@@ -1,0 +1,657 @@
+{% load static %}
+{% load media_extras %}
+{% load i18n i18n_urls %}
+{% load seo_extras %}
+{% load l10n %}
+{% get_current_language as CUR_LANG %}
+
+<!DOCTYPE html>
+<html lang="{{ CUR_LANG|default:'uk' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %} | Grownica</title>
+
+    {# Meta description (concise summary for search) #}
+    {% if CUR_LANG == 'ru' and product.short_description_ru %}
+      <meta name="description" content="{{ product.short_description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.short_description %}
+      <meta name="description" content="{{ product.short_description|striptags|unescape_html|truncatechars:160 }}">
+    {% elif CUR_LANG == 'ru' and product.description_ru %}
+      <meta name="description" content="{{ product.description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.description %}
+      <meta name="description" content="{{ product.description|striptags|unescape_html|truncatechars:160 }}">
+    {% endif %}
+
+    {# Open Graph and Twitter Cards #}
+    <meta property="og:type" content="product">
+    <meta property="og:locale" content="{% if CUR_LANG == 'ru' %}ru_RU{% else %}uk_UA{% endif %}">
+    <meta property="og:title" content="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %} | Grownica">
+    {% if CUR_LANG == 'ru' and product.short_description_ru %}
+      <meta property="og:description" content="{{ product.short_description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.short_description %}
+      <meta property="og:description" content="{{ product.short_description|striptags|unescape_html|truncatechars:160 }}">
+    {% elif CUR_LANG == 'ru' and product.description_ru %}
+      <meta property="og:description" content="{{ product.description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.description %}
+      <meta property="og:description" content="{{ product.description|striptags|unescape_html|truncatechars:160 }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+    {# Choose share image: image -> card_image -> first gallery image #}
+    {% if product.image %}
+      {% with share_img=product.image.url %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ share_img }}">
+        <meta property="og:image:alt" content="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+        <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ share_img }}">
+      {% endwith %}
+    {% elif product.card_image %}
+      {% with share_img=product.card_image.url %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ share_img }}">
+        <meta property="og:image:alt" content="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+        <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ share_img }}">
+      {% endwith %}
+    {% else %}
+      {% with first=product.images.all|first %}
+        {% if first %}
+          <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ first.image.url }}">
+          <meta property="og:image:alt" content="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+          <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ first.image.url }}">
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+
+    {# Twitter Card #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %} | Grownica">
+    {% if CUR_LANG == 'ru' and product.short_description_ru %}
+      <meta name="twitter:description" content="{{ product.short_description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.short_description %}
+      <meta name="twitter:description" content="{{ product.short_description|striptags|unescape_html|truncatechars:160 }}">
+    {% elif CUR_LANG == 'ru' and product.description_ru %}
+      <meta name="twitter:description" content="{{ product.description_ru|striptags|unescape_html|truncatechars:160 }}">
+    {% elif product.description %}
+      <meta name="twitter:description" content="{{ product.description|striptags|unescape_html|truncatechars:160 }}">
+    {% endif %}
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href="{% canonical_url %}">
+    <link rel="alternate" hreflang="uk-UA" href="{% alternate_url 'uk' %}">
+    <link rel="alternate" hreflang="ru-UA" href="{% alternate_url 'ru' %}">
+    <link rel="alternate" hreflang="x-default" href="{% alternate_url 'uk' %}">
+
+    <!-- Favicon & app icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="{% static 'deps/favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+    <!-- Explicit favicon variants (Google prefers 48px multiples) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'deps/icons/logo48x48.png' %}">
+    <link rel="icon" href="{% static 'deps/icons/logo48x48.ico' %}" sizes="any">
+    <meta name="theme-color" content="#292f1b">
+
+    {% include 'includes/ga4.html' %}
+    {% include 'includes/clarity.html' %}
+
+    <script type="application/ld+json">
+    {% localize off %}
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru|escapejs }}{% else %}{{ product.name|escapejs }}{% endif %}",
+      "description": "{% if CUR_LANG == 'ru' and product.short_description_ru %}{{ product.short_description_ru|striptags|truncatechars:200|escapejs }}{% elif CUR_LANG == 'ru' and product.description_ru %}{{ product.description_ru|striptags|truncatechars:200|escapejs }}{% elif product.short_description %}{{ product.short_description|striptags|truncatechars:200|escapejs }}{% else %}{{ product.description|striptags|truncatechars:200|escapejs }}{% endif %}",
+      "sku": "{{ product.id }}",
+      "url": "{{ request.build_absolute_uri|default:product.get_absolute_url }}",
+      "image": "{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% elif product.card_image %}{{ request.scheme }}://{{ request.get_host }}{{ product.card_image.url }}{% else %}{% with first=product.images.all|first %}{% if first %}{{ request.scheme }}://{{ request.get_host }}{{ first.image.url }}{% endif %}{% endwith %}{% endif %}",
+      "offers": {
+        "@type": "Offer",
+        "price": "{{ product.sell_price|default:product.price|unlocalize|floatformat:2|dotdec }}",
+        "priceCurrency": "UAH",
+        "availability": "{% if product.quantity > 0 %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+      }
+    }
+    {% endlocalize %}
+    </script>
+
+    {# JSON-LD: BreadcrumbList for product page #}
+    <script type="application/ld+json">
+    {% localize off %}
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Grownica",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'main:home' %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{% if CUR_LANG == 'ru' and product.category.name_ru %}{{ product.category.name_ru|escapejs }}{% else %}{{ product.category.name|escapejs }}{% endif %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'catalog:index' product.category.slug %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru|escapejs }}{% else %}{{ product.name|escapejs }}{% endif %}",
+          "item": "{% canonical_url %}"
+        }
+      ]
+    }
+    {% endlocalize %}
+    </script>
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+
+    <!-- Removed Poppins font loading on product page per request -->
+
+    <!-- Swiper CSS (secondary) -->
+    <link rel="preload" as="style" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"></noscript>
+
+    <!-- Match home page container/background rules -->
+    <!-- Critical styles first -->
+    <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/templatemo-style.css' %}">
+
+    <link rel="preload" as="style" href="{% static 'deps/css/product_page.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'deps/css/product_page.css' %}?v=2">
+    <link rel="preload" as="style" href="{% static 'deps/css/discount_badge.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'deps/css/discount_badge.css' %}?v=3">
+
+    <link rel="preload" as="style" href="{% static 'deps/css/header-hero.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/header-hero.css' %}">
+    <!-- Secondary styles via preload+onload to avoid render-blocking -->
+    <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+    <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}"></noscript>
+
+    <!-- Slick CSS (secondary) -->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" onload="this.onload=null;this.rel='stylesheet'"/>
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/></noscript>
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" onload="this.onload=null;this.rel='stylesheet'"/>
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/></noscript>
+
+    <!-- Removed extra Google Fonts: Open Sans, MedievalSharp, Marck Script, Ruslan Display -->
+
+
+</head>
+
+<body>
+<!-- SVG-спрайт -->
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="icon-menu" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M5.333 16h21.333"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M9.333 8h13.333"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M10.667 24h10.667"></path>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M28 28l-5.8-5.8"></path>
+        </symbol>
+        <symbol id="icon-cart" viewBox="0 0 32 32">
+            <path opacity="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                  stroke-width="2.6667"
+                  d="M20 29.333c-0.736 0-1.333-0.597-1.333-1.333s0.597-1.333 1.333-1.333c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333z"></path>
+            <path opacity="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                  stroke-width="2.6667"
+                  d="M5.333 29.333c-0.736 0-1.333-0.597-1.333-1.333s0.597-1.333 1.333-1.333c0.736 0 1.333 0.597 1.333 1.333s-0.597 1.333-1.333 1.333z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M30.667 1.333h-5.333l-3.573 17.853c-0.122 0.614-0.456 1.165-0.943 1.558s-1.098 0.601-1.723 0.589h-12.96c-0.626 0.012-1.236-0.197-1.723-0.589s-0.821-0.944-0.943-1.558l-2.133-11.187h22.667"></path>
+        </symbol>
+        <symbol id="icon-arrow-previous" viewBox="0 0 67 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333"
+                  d="M64 16h-61.333"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="5.3333"
+                  d="M16 29.333l-13.333-13.333 13.333-13.333"></path>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 37 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684"
+                  d="M34.17 29.543l-30.802-26.175"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684"
+                  d="M34.169 3.368l-30.8 26.176"></path>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 26 28">
+            <path d="M26 10.109c0 0.281-0.203 0.547-0.406 0.75l-5.672 5.531 1.344 7.812c0.016 0.109 0.016 0.203 0.016 0.313 0 0.406-0.187 0.781-0.641 0.781-0.219 0-0.438-0.078-0.625-0.187l-7.016-3.687-7.016 3.687c-0.203 0.109-0.406 0.187-0.625 0.187-0.453 0-0.656-0.375-0.656-0.781 0-0.109 0.016-0.203 0.031-0.313l1.344-7.812-5.688-5.531c-0.187-0.203-0.391-0.469-0.391-0.75 0-0.469 0.484-0.656 0.875-0.719l7.844-1.141 3.516-7.109c0.141-0.297 0.406-0.641 0.766-0.641s0.625 0.344 0.766 0.641l3.516 7.109 7.844 1.141c0.375 0.063 0.875 0.25 0.875 0.719z"></path>
+        </symbol>
+        <symbol id="icon-star-half" viewBox="0 0 13 28">
+            <path d="M13 0.5v20.922l-7.016 3.687c-0.203 0.109-0.406 0.187-0.625 0.187-0.453 0-0.656-0.375-0.656-0.781 0-0.109 0.016-0.203 0.031-0.313l1.344-7.812-5.688-5.531c-0.187-0.203-0.391-0.469-0.391-0.75 0-0.469 0.484-0.656 0.875-0.719l7.844-1.141 3.516-7.109c0.141-0.297 0.406-0.641 0.766-0.641v0z"></path>
+        </symbol>
+        <symbol id="icon-minus" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+                  d="M6.667 16h18.667"></path>
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+                  d="M16 6.667v18.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+                  d="M6.667 16h18.667"></path>
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M27.787 6.147c-0.681-0.681-1.49-1.222-2.379-1.591s-1.844-0.559-2.807-0.559-1.917 0.19-2.807 0.559c-0.89 0.369-1.698 0.909-2.379 1.591l-1.413 1.413-1.413-1.413c-1.376-1.376-3.241-2.148-5.187-2.148s-3.811 0.773-5.187 2.148c-1.376 1.376-2.148 3.241-2.148 5.187s0.773 3.811 2.148 5.187l11.787 11.787 11.787-11.787c0.681-0.681 1.222-1.49 1.591-2.38s0.559-1.844 0.559-2.807-0.19-1.917-0.559-2.807c-0.369-0.89-0.909-1.698-1.591-2.38v0z"></path>
+        </symbol>
+        <symbol id="icon-facebook" viewBox="0 0 32 32">
+            <path d="M32 16c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 8 5.8 14.6 13.4 15.8v-11.2h-4v-4.6h4v-3.6c0-4 2.4-6.2 6-6.2 1.8 0 3.6 0.4 3.6 0.4v4h-2c-2 0-2.6 1.2-2.6 2.4v3h4.4l-0.8 4.6h-3.8v11.4c8-1.2 13.8-8 13.8-16z"></path>
+        </symbol>
+        <symbol id="icon-twitter" viewBox="0 0 39 32">
+            <path d="M39.385 3.692c-1.477 0.738-2.954 0.985-4.677 1.231 1.723-0.985 2.954-2.462 3.446-4.431-1.477 0.985-3.2 1.477-5.169 1.969-1.477-1.477-3.692-2.462-5.908-2.462-5.169 0-9.108 4.923-7.877 9.846-6.646-0.246-12.554-3.446-16.738-8.369-2.215 3.692-0.985 8.369 2.462 10.831-1.231 0-2.462-0.492-3.692-0.985 0 3.692 2.708 7.138 6.4 8.123-1.231 0.246-2.462 0.492-3.692 0.246 0.985 3.2 3.938 5.662 7.631 5.662-2.954 2.215-7.385 3.446-11.569 2.954 3.692 2.215 7.877 3.692 12.308 3.692 15.015 0 23.385-12.554 22.892-24.123 1.723-0.985 3.2-2.462 4.185-4.185z"></path>
+        </symbol>
+        <symbol id="icon-pinterest" viewBox="0 0 32 32">
+            <path d="M16 0c-8.8 0-16 7.2-16 16 0 6.6 4 12.2 9.6 14.6 0-1.2-0-2.4 0.2-3.6 0.4-1.4 2-8.8 2-8.8s-0.6-1-0.6-2.6c0-2.4 1.4-4.2 3-4.2 1.4 0 2.2 1 2.2 2.4s-1 3.6-1.4 5.6c-0.4 1.6 0.8 3 2.6 3 3 0 5-3.8 5-8.6 0-3.6-2.4-6.2-6.6-6.2-4.8 0-7.8 3.6-7.8 7.6 0 1.4 0.4 2.4 1 3.2 0.2 0.4 0.4 0.4 0.2 0.8 0 0.2-0.2 1-0.4 1.2-0.2 0.4-0.4 0.6-0.8 0.4-2.2-1-3.2-3.4-3.2-6.2 0-4.6 3.8-10 11.4-10 6.2 0 10.2 4.4 10.2 9.2 0 6.2-3.4 11-8.6 11-1.8 0-3.4-1-4-2 0 0-1 3.6-1.2 4.4-0.4 1.2-1 2.4-1.6 3.4 1.4 0.4 3 0.6 4.6 0.6 8.8 0 16-7.2 16-16 0.2-8-7-15.2-15.8-15.2z"></path>
+        </symbol>
+        <symbol id="icon-instagram" viewBox="0 0 34 32">
+            <path d="M17.804 2.892c4.241 0 4.819 0 6.554 0 1.542 0 2.313 0.386 2.892 0.578 0.771 0.386 1.349 0.578 1.928 1.157s0.964 1.157 1.157 1.928c0.193 0.578 0.385 1.349 0.578 2.892 0 1.735 0 2.12 0 6.554s0 4.819 0 6.554c0 1.542-0.386 2.313-0.578 2.892-0.386 0.771-0.578 1.349-1.157 1.928s-1.157 0.964-1.928 1.157c-0.578 0.193-1.349 0.385-2.892 0.578-1.735 0-2.12 0-6.554 0s-4.819 0-6.554 0c-1.542 0-2.313-0.386-2.892-0.578-0.771-0.386-1.349-0.578-1.928-1.157s-0.964-1.157-1.157-1.928c-0.193-0.578-0.386-1.349-0.578-2.892 0-1.735 0-2.12 0-6.554s0-4.819 0-6.554c0-1.542 0.386-2.313 0.578-2.892 0.386-0.771 0.578-1.349 1.157-1.928s1.157-0.964 1.928-1.157c0.578-0.193 1.349-0.386 2.892-0.578 1.735 0 2.313 0 6.554 0zM17.804 0c-4.434 0-4.819 0-6.554 0s-2.892 0.386-3.855 0.771c-0.964 0.386-1.928 0.964-2.892 1.928s-1.349 1.735-1.928 2.892c-0.386 0.964-0.578 2.12-0.771 3.855 0 1.735 0 2.313 0 6.554 0 4.434 0 4.819 0 6.554s0.386 2.892 0.771 3.855c0.386 0.964 0.964 1.928 1.928 2.892s1.735 1.349 2.892 1.928c0.964 0.385 2.12 0.578 3.855 0.771 1.735 0 2.313 0 6.554 0s4.819 0 6.554 0 2.892-0.386 3.855-0.771c0.964-0.386 1.928-0.964 2.892-1.928s1.349-1.735 1.928-2.892c0.385-0.964 0.578-2.12 0.771-3.855 0-1.735 0-2.313 0-6.554s0-4.819 0-6.554-0.386-2.892-0.771-3.855c-0.386-0.964-0.964-1.928-1.928-2.892s-1.735-1.349-2.892-1.928c-0.964-0.386-2.12-0.578-3.855-0.771-1.735 0-2.12 0-6.554 0z"></path>
+            <path d="M17.804 7.711c-4.627 0-8.289 3.663-8.289 8.289s3.663 8.289 8.289 8.289c4.627 0 8.289-3.663 8.289-8.289s-3.663-8.289-8.289-8.289zM17.804 21.398c-2.892 0-5.398-2.313-5.398-5.398 0-2.892 2.313-5.398 5.398-5.398 2.892 0 5.398 2.313 5.398 5.398 0 2.892-2.506 5.398-5.398 5.398z"></path>
+            <path d="M26.286 9.446c1.065 0 1.928-0.863 1.928-1.928s-0.863-1.928-1.928-1.928c-1.065 0-1.928 0.863-1.928 1.928s0.863 1.928 1.928 1.928z"></path>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M20 24l-8-8 8-8"></path>
+        </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M12 24l8-8-8-8"></path>
+        </symbol>
+        <symbol id="icon-percent" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M25.333 6.667l-18.667 18.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M8.667 12c1.841 0 3.333-1.492 3.333-3.333s-1.492-3.333-3.333-3.333c-1.841 0-3.333 1.492-3.333 3.333s1.492 3.333 3.333 3.333z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                  d="M23.333 26.667c1.841 0 3.333-1.492 3.333-3.333s-1.492-3.333-3.333-3.333c-1.841 0-3.333 1.492-3.333 3.333s1.492 3.333 3.333 3.333z"></path>
+        </symbol>
+        <symbol id="icon-tag" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+                  d="M27.453 17.88l-9.56 9.56c-0.248 0.248-0.542 0.445-0.866 0.579s-0.671 0.203-1.021 0.203c-0.35 0-0.697-0.069-1.021-0.203s-0.618-0.331-0.866-0.579l-11.453-11.44v-13.333h13.333l11.453 11.453c0.497 0.5 0.775 1.175 0.775 1.88s-0.279 1.38-0.775 1.88v0z"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
+                  d="M9.334 9.333h0.016"></path>
+        </symbol>
+    </defs>
+</svg>
+
+
+<div class="container product-page page-wrapper">
+
+    {% include 'components/header-hero.html' %}
+
+    <main class="main">
+        <section class="product-detail black-plate--strong">
+                <div class="product-detail-wrapper">
+
+                    <!-- product-detail-header -->
+                    <div class="product-detail-header">
+                        <a title="{% if CUR_LANG == 'ru' %}Назад{% else %}Назад{% endif %}" class="previous-page"
+                           href="{% url 'goods:index' product.category.slug %}">
+                            <svg class="icon icon-arrow-previous">
+                                <use xlink:href="#icon-arrow-previous"></use>
+                            </svg>
+                        </a>
+                        <nav class="breadcrumb" aria-label="{% if CUR_LANG == 'ru' %}Хлебные крошки{% else %}Хлібні крихти{% endif %}">
+                            <a title="{% if CUR_LANG == 'ru' and product.category.name_ru %}{{ product.category.name_ru }}{% else %}{{ product.category.name }}{% endif %}" class="breadcrumb-item-link"
+                               href="{% url 'goods:index' product.category.slug %}">{% if CUR_LANG == 'ru' and product.category.name_ru %}{{ product.category.name_ru }}{% else %}{{ product.category.name }}{% endif %}</a>
+                            <span class="breadcrumb-item-current">/ {% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}</span>
+                        </nav>
+                    </div>
+
+                    <!-- Форма и контент -->
+                    <form method="post" action="#" class="product-content">
+                        {% csrf_token %}
+                        <h1 class="product-content-title">{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}{% if product.is_benefit %} <span class="product-benefit-badge badge-benefit" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</span>{% endif %}</h1>
+
+                        <div class="product-badges badge-row">
+                            {% if product.discount and product.discount|floatformat:2 != '0.00' %}
+                            <div class="badge-discount badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: {{ product.discount_price|floatformat:0 }}₴">
+                                {% if CUR_LANG == 'ru' %}Скидка{% else %}Знижка{% endif %}: <span class="bd-amt">{{ product.discount_price|floatformat:0 }}₴</span>
+                            </div>
+                            {% endif %}
+                            {% if product.quantity <= 0 %}
+                            <div class="badge-stock is-out" aria-label="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}</div>
+                            {% endif %}
+                        </div>
+
+                        {# price moved to product-price-actions below #}
+
+                        {# Action row: price + add-to-cart button on the same level (desktop), stacked on mobile #}
+                        <div class="product-price-actions{% if product.is_benefit %} is-benefit{% endif %}">
+                            <div class="price-qty-cta-row">
+                                <span class="product-price-label">{% if CUR_LANG == 'ru' %}Цена:{% else %}Ціна:{% endif %}</span>
+                                {% if product.discount %}
+                                <div class="tm-card-price tm-card-price--inline">
+                                    <span class="price-old">{{ product.price }}₴</span>
+                                    <span class="price-new">{{ product.sell_price }}₴</span>
+                                </div>
+                                {% else %}
+                                <div class="tm-card-price tm-card-price--inline">
+                                    <span class="price">{{ product.price }}₴</span>
+                                </div>
+                                {% endif %}
+
+                                <div class="product-qty-inline" role="group" aria-label="{% if CUR_LANG == 'ru' %}Количество{% else %}Кількість{% endif %}">
+                                    <button type="button" class="qty-btn qty-btn--dec"
+                                            aria-label="{% if CUR_LANG == 'ru' %}Уменьшить количество{% else %}Зменшити кількість{% endif %}" title="-">
+                                        &minus;
+                                    </button>
+                                    <input type="number" name="quantity" min="1" value="1"
+                                           inputmode="numeric" pattern="[0-9]*"
+                                           class="input product-quantity-input-number qty-input" required {% if product.quantity <= 0 %}disabled aria-disabled="true"{% endif %}>
+                                    <button type="button" class="qty-btn qty-btn--inc"
+                                            aria-label="{% if CUR_LANG == 'ru' %}Увеличить количество{% else %}Збільшити кількість{% endif %}" title="+">
+                                        +
+                                    </button>
+                                </div>
+
+                                {% if product.quantity > 0 %}
+                                    <button type="button"
+                                            class="button button-primary add-to-cart-btn"
+                                            data-product-id="{{ product.id }}"
+                                            data-cart-add-url="{% url 'carts:cart_add' %}"
+                                            aria-label="{% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}">
+                                        {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+                                    </button>
+                                {% else %}
+                                    <button type="button" class="button cta-unavailable" disabled aria-disabled="true" title="{% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}">
+                                        {% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}
+                                    </button>
+                                {% endif %}
+                            </div>
+                            {% if gift_enabled %}
+                            <div class="product-gift-select" style="margin-top:10px;">
+                                <div class="gift-select-group">
+                                    <label for="gift-choice" class="gift-select-label">{% if CUR_LANG == 'ru' %}Выберите стрейн{% else %}Оберіть стрейн{% endif %}</label>
+                                    <select id="gift-choice" name="gift_choice" class="input gift-select">
+                                        <option value="{% if CUR_LANG == 'ru' %}Случайный{% else %}Рандом{% endif %}">{% if CUR_LANG == 'ru' %}Случайный{% else %}Рандом{% endif %}</option>
+                                        {% for go in gift_options %}
+                                        <option value="{{ go.value|default:go }}">{{ go.label|default:go.value|default:go }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% if product.gift_double %}
+                                <div class="gift-select-group" style="margin-top:8px;">
+                                    <label for="gift-choice-2" class="gift-select-label">{% if CUR_LANG == 'ru' %}Выберите второй стрейн{% else %}Оберіть другий стрейн{% endif %}</label>
+                                    <select id="gift-choice-2" name="gift_choice_2" class="input gift-select">
+                                        <option value="{% if CUR_LANG == 'ru' %}Случайный{% else %}Рандом{% endif %}">{% if CUR_LANG == 'ru' %}Случайный{% else %}Рандом{% endif %}</option>
+                                        {% for go in gift_options %}
+                                        <option value="{{ go.value|default:go }}">{{ go.label|default:go.value|default:go }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="product-content-explanation">{% if CUR_LANG == 'ru' and product.description_ru %}{{ product.description_ru|safe }}{% else %}{{ product.description|safe }}{% endif %}</div>
+
+                        {# removed old big quantity selector (moved inline near CTA) #}
+                    </form>
+
+                    <!-- Блок мульти-изображений -->
+                    <div class="product-image">
+
+                        <!-- Основная галерея -->
+                        <div class="product-image-photo">
+                            {% if product.is_benefit %}
+                            <span class="product-benefit-badge badge-benefit" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</span>
+                            {% endif %}
+                            <div class="swiper-container product-swiper">
+                                <div class="swiper-wrapper">
+                                    {% if product.image %}
+                                    <figure class="swiper-slide">
+                                        {% if CUR_LANG == 'ru' and product.name_ru %}
+                                            {% responsive_product_picture product '' product.name_ru 800 600 'eager' 'high' %}
+                                        {% else %}
+                                            {% responsive_product_picture product '' product.name 800 600 'eager' 'high' %}
+                                        {% endif %}
+                                    </figure>
+                                    {% endif %}
+                                    {% for img in product.images.all %}
+                                    <figure class="swiper-slide">
+                                        {% if CUR_LANG == 'ru' and product.name_ru %}
+                                            {% responsive_field_picture img.image '' img.alt_text|default:product.name_ru 800 600 'lazy' %}
+                                        {% else %}
+                                            {% responsive_field_picture img.image '' img.alt_text|default:product.name 800 600 'lazy' %}
+                                        {% endif %}
+                                    </figure>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Кнопки навигации внутри затемнённого блока под изображением -->
+                            <div class="product-image-order">
+                                <div class="product-image-order-previous">
+                                    <svg class="icon icon-arrow-left">
+                                        <use xlink:href="#icon-arrow-left"></use>
+                                    </svg>
+                                </div>
+                                <div class="product-image-order-next">
+                                    <svg class="icon icon-arrow-right">
+                                        <use xlink:href="#icon-arrow-right"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Миниатюры -->
+                        <div class="product-image-nav">
+                            <div class="swiper-container product-thumb-swiper">
+                                <div class="swiper-wrapper">
+                                    {% if product.image %}
+                                    <figure class="product-image-nav-item swiper-slide">
+                                        {% if CUR_LANG == 'ru' and product.name_ru %}
+                                            {% product_image_picture product '256x192' '' product.name_ru 256 192 'lazy' %}
+                                        {% else %}
+                                            {% product_image_picture product '256x192' '' product.name 256 192 'lazy' %}
+                                        {% endif %}
+                                    </figure>
+                                    {% endif %}
+                                    {% for img in product.images.all %}
+                                    <figure class="product-image-nav-item swiper-slide">
+                                        {% if CUR_LANG == 'ru' and product.name_ru %}
+                                            {% field_image_picture img.image '256x192' '' img.alt_text|default:product.name_ru 256 192 'lazy' %}
+                                        {% else %}
+                                            {% field_image_picture img.image '256x192' '' img.alt_text|default:product.name 256 192 'lazy' %}
+                                        {% endif %}
+                                    </figure>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Блок мульти-изображений -->
+                </div>
+        </section>
+    </main>
+
+    <!-- Related products (new) -->
+    {% if related_products %}
+    <section class="rp-wrapper">
+        <div class="rp-inner">
+            <h2 class="rp-title">{% if CUR_LANG == 'ru' %}Похожие товары{% else %}Схожі товари{% endif %}</h2>
+            <div class="rp-nav" aria-hidden="false">
+                <button class="rp-nav-btn rp-prev" type="button" aria-label="{% trans 'Назад' %}">
+                    <svg viewBox="0 0 32 32" class="rp-nav-ic" aria-hidden="true">
+                        <path d="M20 28 L8 16 L20 4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="rp-nav-btn rp-next" type="button" aria-label="{% trans 'Вперед' %}">
+                    <svg viewBox="0 0 32 32" class="rp-nav-ic" aria-hidden="true">
+                        <path d="M12 4 L24 16 L12 28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="swiper rp-swiper">
+                <div class="swiper-wrapper">
+                    {% for rp in related_products %}
+                    <article class="swiper-slide rp-card">
+                        <a href="{{ rp.get_absolute_url }}" class="rp-link">
+                            <div class="rp-card-image tm-card-image-wrap">
+                                <div class="badge-stack">
+                                    {% if rp.discount and rp.discount|floatformat:2 != '0.00' %}
+                                    <div class="badge-discount badge-discount--sm" aria-label="Скидка: {{ rp.discount_price|floatformat:0 }}₴">
+                                        Скидка: <span class="bd-amt">{{ rp.discount_price|floatformat:0 }}₴</span>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if rp.quantity <= 0 %}
+                                    <div class="badge-stock is-out" aria-label="Немає в наявності">
+                                        Немає в наявності
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                {% if rp.image %}
+                                {% product_image_picture rp '400x300' '' rp.name 400 300 'lazy' %}
+                                {% endif %}
+                            </div>
+                            <div class="rp-card-body tm-card-info">
+                                {% if rp.is_benefit %}
+                                <div class="badge-benefit badge-discount--sm" aria-label="{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}">{% if CUR_LANG == 'ru' %}Выгода!{% else %}Вигода!{% endif %}</div>
+                                {% endif %}
+                                <h5 class="rp-card-title">{% if CUR_LANG == 'ru' and rp.name_ru %}{{ rp.name_ru }}{% else %}{{ rp.name }}{% endif %}</h5>
+                                {% if CUR_LANG == 'ru' and rp.short_description_ru %}
+                                <p class="rp-card-subtitle">{{ rp.short_description_ru }}</p>
+                                {% elif rp.short_description %}
+                                <p class="rp-card-subtitle">{{ rp.short_description }}</p>
+                                {% endif %}
+                                <p class="rp-card-price">{{ rp.price }}₴</p>
+                            </div>
+                        </a>
+                        <div class="rp-card-actions">
+                            {% if rp.quantity > 0 %}
+                                <button class="rp-add-to-cart add-to-cart-btn"
+                                        data-product-id="{{ rp.id }}"
+                                        data-cart-add-url="{% url 'carts:cart_add' %}">В корзину</button>
+                            {% else %}
+                                <button class="rp-add-to-cart add-to-cart-btn"
+                                        disabled aria-disabled="true"
+                                        title="Немає в наявності">
+                                    Немає в наявності
+                                </button>
+                            {% endif %}
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <!-- /Related products (new) -->
+    
+    <section class="footer-section">
+        {% include 'components/footer.html' %}
+    </section>
+    
+</div>
+
+<!-- Cart Button -->
+{% include 'components/cart_button.html' %}
+
+<script>
+// Compact inline quantity buttons next to Add-to-cart
+(function(){
+  document.addEventListener('click', function(e){
+    var dec = e.target.closest('.qty-btn--dec');
+    var inc = e.target.closest('.qty-btn--inc');
+    if (!dec && !inc) return;
+    var group = e.target.closest('.product-qty-inline');
+    if (!group) return;
+    var input = group.querySelector('.product-quantity-input-number');
+    if (!input) return;
+    var val = parseInt(input.value || '1', 10);
+    if (isNaN(val) || val < 1) val = 1;
+    if (dec) { val = Math.max(1, val - 1); }
+    if (inc) { val = val + 1; }
+    input.value = val;
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+
+  // Sanitize manual edits (min 1, integers only)
+  document.addEventListener('input', function(e){
+    var inp = e.target.closest('.product-quantity-input-number');
+    if (!inp) return;
+    var v = parseInt(inp.value || '1', 10);
+    if (isNaN(v) || v < 1) v = 1;
+    inp.value = v;
+  });
+})();
+</script>
+
+<!-- Cart Modal -->
+{% include 'components/cart_modal.html' %}
+
+<!-- Lightbox-модалка -->
+<div id="image-modal" class="image-modal" style="display:none;">
+    <div class="image-modal__backdrop"></div>
+    <span class="image-modal__close" aria-label="Закрыть">&times;</span>
+    <button type="button" class="image-modal__nav image-modal__prev" aria-label="Назад">&#10094;</button>
+    <button type="button" class="image-modal__nav image-modal__next" aria-label="Вперёд">&#10095;</button>
+    <img class="image-modal__img" src="" alt="Product Image">
+</div>
+
+<script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- jQuery: defer + robust fallback to local copy on CDN error -->
+<script defer
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"
+        onerror="this.onerror=null;(function(){var s=document.createElement('script');s.defer=true;s.src='{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}';document.head.appendChild(s);}())"></script>
+<script defer src="{% static 'deps/js/product_page.js' %}"></script>
+<script defer src="{% static 'deps/js/product_related.js' %}"></script>
+<script defer src="{% static 'deps/js/cart-component.js' %}"></script>
+<script defer src="{% static 'deps/js/jquery-ajax.js' %}"></script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+  var _smartsupp = _smartsupp || {};
+  _smartsupp.key = '5de87bf9af1b8fa48e3662bde83f62b0c5d164d0';
+  window.smartsupp||(function(d) {
+    var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+    s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+    c.type='text/javascript';c.charset='utf-8';c.async=true;
+    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+  })(document);
+</script>
+
+<!-- bfcache fix: ensure styles are applied when returning via browser Back -->
+<script>
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return; // only when restored from bfcache
+    try {
+      // For every preload hint, ensure there's a corresponding stylesheet tag
+      document.querySelectorAll('link[rel="preload"][as="style"]').forEach(function (pre) {
+        var href = pre.getAttribute('href');
+        if (!href) return;
+        var exists = document.querySelector('link[rel="stylesheet"][href="' + href + '"]');
+        if (!exists) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          document.head.appendChild(link);
+        }
+      });
+    } catch (_) {}
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* Reset & base */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  background: url("../images/bg-image.jpg") center/cover no-repeat;
+  padding-top: 200px;
+}
+
+/* Catalog Section */
+#catalog-section {
+  border-top: 1px solid #fff;
+  background-color: #000;
+  padding: 50px 0 0;
+}
+
+/* Typography */
+.hero-title,
+.catalog-title,
+.hero-subtitle {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+}
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.catalog-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: 3px 4px 7px rgba(0, 0, 0, 0.9);
+}
+
+/* Scroll Button */
+.scroll-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
+}
+.scroll-button:hover {
+  background-color: #444;
+  transform: translateY(-2px);
+}
+
+/* Navbar Fixes */
+.navbar {
+  z-index: 30;
+}
+.navbar.bg-dark .nav-link,
+.navbar.bg-dark .navbar-brand {
+  color: #fff !important;
+}
+.navbar.bg-dark .nav-link:hover,
+.navbar.bg-dark .nav-link.dropdown-toggle:hover {
+  color: #ccc !important;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: #fff !important;
+  color: #212529 !important;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1050;
+}
+.dropdown-menu .dropdown-item {
+  color: #212529 !important;
+}
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: #f0f0f0;
+  color: #000 !important;
+}
+
+/* Карточка */
+.custom-card-plain {
+  position: relative;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 250px;        /* ограничиваем ширину */
+  margin: 0 auto 1.5rem;   /* центрируем и отступ снизу */
+}
+
+/* Картинка */
+.custom-card-plain .card-img-top {
+  width: 100%;
+  max-height: 150px;       /* или aspect-ratio: 1/1; */
+  object-fit: cover;
+}
+
+/* Градиент‑оверлей и текст */
+.custom-card-plain .card-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+}

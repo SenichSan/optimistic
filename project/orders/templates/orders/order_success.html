@@ -1,0 +1,152 @@
+{% load static i18n %}
+{% get_current_language as CUR_LANG %}
+<!DOCTYPE html>
+<html lang="{{ CUR_LANG|default:'uk' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if CUR_LANG == 'ru' %}Заказ оформлен — Grownica{% else %}Замовлення оформлено — Grownica{% endif %}</title>
+
+  <!-- Favicon & app icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}">
+  <link rel="shortcut icon" href="{% static 'deps/favicon/favicon.ico' %}">
+  <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+  <meta name="theme-color" content="#292f1b">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Match Home fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+
+  <!-- Match Home CSS order -->
+  <link href="{% static 'deps/css/templatemo-style.css' %}" rel="stylesheet"/>
+  <link rel="stylesheet" href="{% static 'deps/css/discount_badge.css' %}">
+  <link href="{% static 'deps/css/header-hero.css' %}" rel="stylesheet">
+  <link href="{% static 'deps/css/footer.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'deps/css/order_success.css' %}">
+  <meta name="robots" content="noindex">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#292f1b">
+
+  <!-- Explicit favicon variants (Google prefers 48px multiples) -->
+  <link rel="icon" type="image/png" sizes="48x48" href="{% static 'deps/icons/logo48x48.png' %}">
+  <link rel="icon" href="{% static 'deps/icons/logo48x48.ico' %}" sizes="any">
+
+  {% include 'includes/ga4.html' %}
+  {% include 'includes/clarity.html' %}
+  <style>
+    /* Contrast fix: dark headings on success page */
+    .order-success-page .success-card .title { color: #111827; }
+    .order-success-page .success-card .subtitle { color: #1f2937; }
+    /* Accent subtitle */
+    .order-success-page .success-card .subtitle-accent { color: #b91c1c; font-weight: 800; }
+    .order-success-page .success-card .subtitle-note { color: #1f2937; margin-top: 4px; }
+  </style>
+</head>
+<body class="order-success-page">
+  {# Consume Django messages here so they don't appear on the next page #}
+  {% if messages %}{% for _ in messages %}{% endfor %}{% endif %}
+  <div class="container home-framed">
+    {% include 'components/header-hero.html' %}
+
+    <section class="success-hero" aria-labelledby="success-heading">
+      <div class="success-card">
+        <header class="card-head">
+          <div class="emoji" aria-hidden="true">✅</div>
+          <h1 class="title" id="success-heading">{% if CUR_LANG == 'ru' %}Спасибо! Заказ оформлен{% else %}Дякуємо! Замовлення оформлено{% endif %}</h1>
+          {% if CUR_LANG == 'ru' %}
+            <p class="subtitle subtitle-accent">Реквизиты для оплаты уже отправлены вам на почту!</p>
+            <p class="subtitle subtitle-note">Если у вас есть какие‑либо вопросы — задавайте их нам в чат, на почту или в соцсети.</p>
+          {% else %}
+            <p class="subtitle subtitle-accent">Реквізити для оплати вже надіслані вам на пошту!</p>
+            <p class="subtitle subtitle-note">Якщо у вас є будь‑які запитання — пишіть нам у чат, на пошту або в соцмережі.</p>
+          {% endif %}
+          <p class="meta">{% if CUR_LANG == 'ru' %}Номер{% else %}Номер{% endif %}: <strong>#{{ order.id }}</strong> • {% if CUR_LANG == 'ru' %}Дата{% else %}Дата{% endif %}: {{ order.created_timestamp|date:"d.m.Y H:i" }}</p>
+        </header>
+
+        <div class="card-body">
+          <div class="cols">
+            <div class="col">
+              <h2 class="col-title">{% if CUR_LANG == 'ru' %}Данные клиента{% else %}Дані клієнта{% endif %}</h2>
+              <ul class="kv">
+                <li><span class="k">{% if CUR_LANG == 'ru' %}Имя{% else %}Ім'я{% endif %}</span><span class="v">{{ order.first_name }} {{ order.last_name }}</span></li>
+                <li><span class="k">{% if CUR_LANG == 'ru' %}Телефон{% else %}Телефон{% endif %}</span><span class="v">{{ order.phone_number }}</span></li>
+                {% if order.email %}
+                <li><span class="k">Email</span><span class="v">{{ order.email }}</span></li>
+                {% endif %}
+              </ul>
+            </div>
+            <div class="col">
+              <h2 class="col-title">{% if CUR_LANG == 'ru' %}Доставка и оплата{% else %}Доставка і оплата{% endif %}</h2>
+              <ul class="kv">
+                {% if order.requires_delivery %}
+                <li><span class="k">{% if CUR_LANG == 'ru' %}Служба{% else %}Служба{% endif %}</span><span class="v">{{ order.requires_delivery }}</span></li>
+                {% endif %}
+                {% if order.delivery_address %}
+                <li><span class="k">{% if CUR_LANG == 'ru' %}Адрес{% else %}Адреса{% endif %}</span><span class="v">{{ order.delivery_address }}</span></li>
+                {% endif %}
+                <li><span class="k">{% if CUR_LANG == 'ru' %}Оплата{% else %}Оплата{% endif %}</span><span class="v">{% if order.payment_on_get %}{% if CUR_LANG == 'ru' %}Предоплата{% else %}Передоплата{% endif %}{% else %}{% if CUR_LANG == 'ru' %}Онлайн/предоплата{% else %}Онлайн/передплата{% endif %}{% endif %}</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="items">
+            <h2 class="col-title">{% if CUR_LANG == 'ru' %}Состав заказа{% else %}Склад замовлення{% endif %}</h2>
+            <ul class="items-list" role="list">
+              {% for it in items_data %}
+              <li class="item">
+                <div class="item-main">
+                  <div class="name">{{ it.name }}</div>
+                  {% if it.gift_choice %}
+                  <div class="meta" style="opacity:.9; font-size:.95em;">{% if CUR_LANG == 'ru' %}Стрейн{% else %}Стрейн{% endif %}: {{ it.gift_choice }}</div>
+                  {% endif %}
+                  <div class="meta">x {{ it.quantity }}</div>
+                </div>
+                <div class="item-price">
+                  <span class="unit">{{ it.price|floatformat:2 }} ₴</span>
+                  <span class="sep">·</span>
+                  <span class="sum">{{ it.subtotal|floatformat:2 }} ₴</span>
+                </div>
+              </li>
+              {% empty %}
+              <li class="item empty">{% if CUR_LANG == 'ru' %}Товары не найдены{% else %}Товари не знайдені{% endif %}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <footer class="card-foot">
+          <div class="totals">
+            <div class="t-row"><span class="label">{% if CUR_LANG == 'ru' %}Всего позиций:{% else %}Разом позицій:{% endif %}</span><span class="value">{{ total_qty }}</span></div>
+            <div class="t-row grand"><span class="label">{% if CUR_LANG == 'ru' %}К оплате:{% else %}До сплати:{% endif %}</span><span class="value">{{ total_sum|floatformat:2 }} ₴</span></div>
+          </div>
+          <div class="actions">
+            <a class="btn-link" href="{% url 'main:home' %}">{% if CUR_LANG == 'ru' %}На главную{% else %}На головну{% endif %}</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    {% include 'components/footer.html' %}
+  </div>
+  
+  <!-- Smartsupp Live Chat script -->
+  <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '5de87bf9af1b8fa48e3662bde83f62b0c5d164d0';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+  </script>
+
+</body>
+</html>

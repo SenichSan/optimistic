@@ -1,0 +1,24 @@
+{# templates/components/cart_button.html #}
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+<div id="tm-cart-component"
+     class="tm-cart-component"
+     data-cart-view-url="{% url 'carts:cart_view' %}">
+  <button type="button" class="tm-cart-button" aria-label="{% if CUR_LANG == 'ru' %}Открыть корзину{% else %}Відкрити кошик{% endif %}" aria-haspopup="dialog">
+    <span class="tm-cart-button-inner">
+      <span class="tm-cart-icon">
+        <picture>
+          <source media="(min-width: 992px)" srcset="{% static 'deps/images/cart_96x96.avif' %}" type="image/avif">
+          <source media="(min-width: 992px)" srcset="{% static 'deps/images/cart_96x96.webp' %}" type="image/webp">
+          <source media="(min-width: 992px)" srcset="{% static 'deps/images/cart_96x96.png' %}" type="image/png">
+          <source srcset="{% static 'deps/images/cart_96x96.avif' %}" type="image/avif">
+          <source srcset="{% static 'deps/images/cart_96x96.webp' %}" type="image/webp">
+          <img class="tm-cart-button-img" src="{% static 'deps/images/cart_96x96.png' %}" alt="{% if CUR_LANG == 'ru' %}Корзина{% else %}Кошик{% endif %}" width="44" height="44" loading="lazy" decoding="async">
+        </picture>
+        <span class="tm-cart-count" id="tm-cart-count" aria-hidden="true">0</span>
+      </span>
+      <span class="tm-cart-label" aria-hidden="true">{% if CUR_LANG == 'ru' %}Купить сейчас{% else %}Купити зараз{% endif %}</span>
+    </span>
+  </button>
+</div>

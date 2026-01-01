@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load media_extras %}
+{% get_current_language as CUR_LANG %}
+
+{% block title %}{% if CUR_LANG == 'ru' %}Grownica - Магазин. Консультации. Микология.{% else %}Grownica - Магазин. Консультації. Мікологія.{% endif %}{% endblock %}
+{% block meta_description %}
+  <meta name="description" content="{% if CUR_LANG == 'ru' %}Волнуетесь, будет ли первый опыт удачным, или хотите избежать лишней рутины? Мы поможем! С Grownica — это просто и безопасно благодаря мощной поддержке и протестированной продукции.{% else %}Хвилюєтесь чи буде перший досвід вдалим або хочете уникнути зайвої рутини? Ми допоможемо! З Grownica — це просто та безпечно завдяки потужній підтримці та протестованої продукції.{% endif %}">
+{% endblock %}
+{% block seo_head_extra %}
+  {% load static %}
+  {# Open Graph #}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if CUR_LANG == 'ru' %}Grownica - Магазин. Консультации. Микология.{% else %}Grownica - Магазин. Консультації. Мікологія.{% endif %}">
+  <meta property="og:description" content="{% if CUR_LANG == 'ru' %}Волнуетесь, будет ли первый опыт удачным, или хотите избежать лишней рутины? Мы поможем! С Grownica — это просто.{% else %}Хвилюєтесь чи буде перший досвід вдалим або хочете уникнути зайвої рутини? Ми допоможемо! З Grownica — це просто.{% endif %}">
+  {% if request %}
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  {% endif %}
+  <meta property="og:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  {# Twitter Cards #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if CUR_LANG == 'ru' %}Grownica - Магазин. Консультации. Микология.{% else %}Grownica - Магазин. Консультації. Мікологія.{% endif %}">
+  <meta name="twitter:description" content="{% if CUR_LANG == 'ru' %}Волнуетесь, будет ли первый опыт удачным, или хотите избежать лишней рутины? Мы поможем! С Grownica — это просто.{% else %}Хвилюєтесь чи буде перший досвід вдалим або хочете уникнути зайвої рутини? Ми допоможемо! З Grownica — це просто.{% endif %}">
+  <meta name="twitter:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+
+  {# Structured data: Organization #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grownica",
+    {% if request %}
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    {% else %}
+    "url": "/",
+    {% endif %}
+    "logo": "{% static 'deps/favicon/android-chrome-192x192.png' %}"
+  }
+  </script>
+
+  {# Structured data: WebSite with SearchAction #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Grownica",
+    {% if request %}
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    {% else %}
+    "url": "/",
+    {% endif %}
+    "potentialAction": {
+      "@type": "SearchAction",
+      {% if request %}
+      "target": "{{ request.scheme }}://{{ request.get_host }}/?q={search_term_string}",
+      {% else %}
+      "target": "/?q={search_term_string}",
+      {% endif %}
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+{% endblock %}
+
+{% block css %}
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload LCP hero image (AVIF): mobile 800px, desktop 1600px -->
+  <link rel="preload" as="image" href="{% static 'deps/images/bg-image-blur-800.avif' %}" type="image/avif" media="(max-width: 599px)" fetchpriority="high">
+  <link rel="preload" as="image" href="{% static 'deps/images/bg-image-blur-1600.avif' %}" type="image/avif" media="(min-width: 600px)" fetchpriority="high">
+
+  <!-- Home-only layout overrides: header flush to top, full-bleed blocks -->
+  <style>
+    main.container.my-4 {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      /* боковые поля контейнера оставляем как в проекте */
+    }
+
+    @media (max-width: 768px) {
+      .full-bleed {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+    }
+  </style>
+
+  <style>
+    .header-hero .tm-social-link { width: 49px; height: 49px; }
+  </style>
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Cinzel for News + SEO blocks -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap"></noscript>
+
+
+  <link href="{% static 'deps/css/templatemo-style.css' %}" rel="stylesheet"/>
+  <link rel="preload" as="style" href="{% static 'deps/css/discount_badge.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/discount_badge.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/seo-text.css' %}?v=20251021" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/seo-text.css' %}?v=20251021"></noscript>
+{% comment %} News slider temporarily disabled
+  <link rel="preload" as="style" href="{% static 'deps/css/news_slider.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/news_slider.css' %}"></noscript>
+  {% endcomment %}
+
+  <link rel="preload" as="style" href="{% static 'deps/css/categories-glass.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/categories-glass.css' %}"></noscript>
+
+  <!-- Unique product block styles (with cache-busting) -->
+  <link rel="preload" as="style" href="{% static 'deps/css/unique-product.css' %}?v=20251108" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/unique-product.css' %}?v=20251108"></noscript>
+
+  <style>
+    .tm-paging-links { box-sizing: border-box; padding: 1.2rem 16px 0; }
+    .tm-paging-links .tm-paging-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin:0; padding:0; list-style:none; }
+    .full-bleed + .full-bleed { margin-top: 4px; }
+    /* Home-only: убираем внутренний нижний спейсер и внешний margin у блока категорий */
+    .tm-paging-links::after { height: 0; }
+    .tm-paging-links-wrap { margin-bottom: 0; }
+    @media (max-width: 991px) { .tm-paging-links { padding-top: 3rem; } }
+    @media (max-width: 576px) {
+      .tm-paging-links { padding-top: 1.6rem; }
+      .full-bleed + .full-bleed { margin-top: 2px; }
+    }
+    @media (min-width: 768px) { .tm-paging-links .tm-paging-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1200px) { .tm-paging-links .tm-paging-list { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/bestsellers-carousel.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/bestsellers-carousel.css' %}"></noscript>
+  <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+  <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}"></noscript>
+  <link rel="preload" as="style" href="{% static 'deps/css/faq.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/faq.css' %}"></noscript>
+
+  <!-- Slick carousel CSS (non‑blocking) -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/></noscript>
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/></noscript>
+
+  <!-- Preload background image variants for SEO text section -->
+  <link rel="preload" as="image" href="{% static 'deps/images/seo-text-bg.avif' %}" type="image/avif" fetchpriority="high">
+  {# Preload first 4 category icons as LCP candidates on mobile only #}
+  {% with top_categories=categories|slice:":4" %}
+    {% for cat in top_categories %}
+      {% category_best_img_src cat '128x128' as cat_preload %}
+      {% if cat_preload %}
+        <link rel="preload" as="image" href="{{ cat_preload }}" media="(max-width: 599px)" fetchpriority="high">
+      {% endif %}
+    {% endfor %}
+  {% endwith %}
+{% endblock %}
+
+{% block content %}
+  <div class="container home-framed">
+    <div class="full-bleed">
+      {% include 'components/header-hero.html' %}
+    </div>
+
+    <div class="tm-paging-links-wrap full-bleed">
+      <nav class="tm-paging-links" aria-label="{% if CUR_LANG == 'ru' %}Категории{% else %}Категорії{% endif %}">
+        <h2 class="tm-section-title category-section-title">{% if CUR_LANG == 'ru' %}Выберите желаемую категорию{% else %}Оберіть бажану категорію{% endif %}</h2>
+        <ul class="tm-paging-list">
+          {% for category in categories %}
+          <li class="tm-paging-item">
+            <a href="{% url 'catalog:index' category.slug %}"
+               class="tm-paging-link category-card"
+               aria-current="{% if category.slug == current_category %}true{% endif %}">
+              <div class="category-icon-wrap">
+                {% category_icon_picture category '256x256' 'category-icon' category.name 256 256 'eager' 'high' %}
+              </div>
+              <div class="category-label">{% if CUR_LANG == 'ru' and category.name_ru %}{{ category.name_ru }}{% else %}{{ category.name }}{% endif %}</div>
+              {% if CUR_LANG == 'ru' and category.short_description_ru %}
+              <div class="category-subtitle tm-card-subtitle">{{ category.short_description_ru }}</div>
+              {% elif category.short_description %}
+              <div class="category-subtitle tm-card-subtitle">{{ category.short_description }}</div>
+              {% endif %}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+
+    {% if unique_products %}
+    <div class="full-bleed">
+      {% include 'components/unique_product.html' %}
+    </div>
+    {% endif %}
+
+    <div class="full-bleed">
+      {% include 'components/bestsellers-carousel.html' %}
+    </div>
+
+    {% comment %} News slider temporarily disabled
+    <div class="full-bleed">
+      {% include "components/news_slider.html" with news_list=news_list %}
+    </div>
+    {% endcomment %}
+
+    <div class="full-bleed">
+      {% include "components/seo_text_section.html" %}
+    </div>
+
+    <section id="faq-section" class="full-bleed" data-nosnippet>
+      <h2 class="faq-heading">{% if CUR_LANG == 'ru' %}Важная информация{% else %}Важлива інформація{% endif %}</h2>
+      <div class="faq-container">
+        <div class="accordion">
+          {% include "components/faq.html" %}
+        </div>
+      </div>
+    </section>
+
+    <div class="full-bleed">
+      {% include 'components/footer.html' %}
+    </div>
+  </div>
+
+  {% include 'components/cart_button.html' %}
+  {% include 'components/cart_modal.html' %}
+{% endblock %}
+
+{% block extra_js %}
+  <!-- Отложенная загрузка декоративных шрифтов (не критично для мобилки) -->
+  <script>
+    window.addEventListener('load', function(){
+      var fonts = [
+        'https://fonts.googleapis.com/css?family=Open+Sans:400',
+        'https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap',
+        'https://fonts.googleapis.com/css2?family=Marck+Script&display=swap',
+        'https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap'
+      ];
+      fonts.forEach(function(href){
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        l.media = 'all';
+        document.head.appendChild(l);
+      });
+    });
+  </script>
+  <!-- Slick JS будет загружен по требованию (on-demand) ниже -->
+
+  <!-- Локальные скрипты главной -->
+  <script defer src="{% static 'deps/js/faq.js' %}"></script>
+  {% comment %} News slider temporarily disabled
+  <script defer src="{% static 'deps/js/news_slider.js' %}"></script>
+  {% endcomment %}
+  <script defer src="{% static 'deps/js/categories-glass.js' %}"></script>
+  <script defer src="{% static 'deps/js/bestsellers-tilt.js' %}"></script>
+  <script defer src="{% static 'deps/js/jquery-ajax.js' %}"></script>
+  <script defer src="{% static 'deps/js/bestsellers-carousel.js' %}"></script>
+  <script defer src="{% static 'deps/js/cart-component.js' %}"></script>
+
+  <script>
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isNarrow = Math.max(window.innerWidth, document.documentElement.clientWidth) < 768;
+      const target = document.querySelector('.tm-featured-carousel');
+      if (!target) return;
+
+      function loadSlick(cb){
+        if (window.jQuery && $.fn && $.fn.slick) { cb && cb(); return; }
+        var s=document.createElement('script');
+        s.src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js';
+        s.defer=true; s.onload=function(){ cb && cb(); };
+        document.head.appendChild(s);
+      }
+
+      function initCarousel(){
+        if (!window.jQuery) return; // wait for jQuery from base.html
+        if (!($.fn && $.fn.slick)) { loadSlick(initCarousel); return; }
+        if (target.getAttribute('data-slick-initialized')) return;
+        target.setAttribute('data-slick-initialized','1');
+        $(target).slick({
+          infinite: true,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          autoplay: !(prefersReduced || isNarrow),
+          autoplaySpeed: 3200,
+          speed: prefersReduced ? 0 : 900,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          centerPadding: '30px',
+          appendArrows: $('.tm-featured-wrapper .container'),
+          prevArrow: '<button type="button" class="slick-prev slick-arrow">‹</button>',
+          nextArrow: '<button type="button" class="slick-next slick-arrow">›</button>',
+          responsive: [
+            { breakpoint: 1200, settings: { slidesToShow: 4 }},
+            { breakpoint: 992,  settings: { slidesToShow: 3 }},
+            { breakpoint: 768,  settings: { slidesToShow: 2 }},
+            { breakpoint: 576,  settings: { slidesToShow: 1 }}
+          ]
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { initCarousel(); obs.disconnect(); }
+          });
+        }, { rootMargin: '120px 0px' });
+        io.observe(target);
+      } else {
+        // Fallback: init after load
+        if (document.readyState === 'complete') initCarousel();
+        else window.addEventListener('load', initCarousel);
+      }
+    })();
+  </script>
+
+{% endblock %}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{% for url in urlset %}
+  <url>
+    <loc>{{ url.location|escape }}</loc>
+    {% if url.lastmod %}<lastmod>{{ url.lastmod|date:"c" }}</lastmod>{% endif %}
+    {% if url.changefreq %}<changefreq>{{ url.changefreq }}</changefreq>{% endif %}
+
+    {% if url.alternates %}
+      {% for alt in url.alternates %}
+        <xhtml:link rel="alternate" hreflang="{{ alt.lang }}" href="{{ alt.location|escape }}" />
+      {% endfor %}
+    {% endif %}
+
+    {% if url.images %}
+      {% for img in url.images %}
+        <image:image>
+          <image:loc>{{ img.loc|escape }}</image:loc>
+          {% if img.caption %}<image:caption>{{ img.caption }}</image:caption>{% endif %}
+        </image:image>
+      {% endfor %}
+    {% endif %}
+  </url>
+{% endfor %}
+</urlset>

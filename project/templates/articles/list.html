@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Статьи{% endblock %}
+
+{% block content %}
+<div class="container product-page page-wrapper">
+  <main class="main">
+    <section class="section">
+      <h1 class="product-content-title">Статьи</h1>
+
+      <div class="row" style="gap:16px; display:flex; flex-wrap:wrap;">
+        {% for article in articles %}
+          <article style="flex:0 0 310px; max-width:310px; background: rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden;">
+            <a href="{{ article.get_absolute_url }}" style="display:block; text-decoration:none; color:inherit;">
+              {% if article.cover_image %}
+                <img src="{{ article.cover_image.url }}" alt="{{ article.title }}" style="width:100%; height:180px; object-fit:cover; display:block;" loading="lazy" decoding="async" />
+              {% endif %}
+              <div style="padding:12px 14px;">
+                <h2 style="font-size:1.1rem; margin:0 0 6px; font-weight:700;">{{ article.title }}</h2>
+                {% if article.excerpt %}
+                  <p style="margin:0; opacity:.9; font-size:.95rem;">{{ article.excerpt }}</p>
+                {% endif %}
+              </div>
+            </a>
+          </article>
+        {% empty %}
+          <p>Пока статей нет.</p>
+        {% endfor %}
+      </div>
+
+      {% if is_paginated %}
+        <nav aria-label="pagination" style="margin-top:16px;">
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Назад</a></li>
+            {% endif %}
+            <li class="page-item disabled"><span class="page-link">Стр. {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span></li>
+            {% if page_obj.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Вперёд</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </section>
+  </main>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: sans-serif; padding: 20px; background-color: #fff; color: #333; }
+    h2 { color: #a00; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: #eee; }
+  </style>
+</head>
+<body>
+  <h2>Замовлення №{{ order.id }}</h2>
+
+  <p style="color:#b91c1c; font-weight:800; font-size:16px; margin:12px 0 4px;">
+    Реквізити для оплати замовлення: Monobank 4035200042665189, А. Матюха ФОП.
+  </p>
+  <p style="color:#b91c1c; font-weight:800; font-size:16px; margin:0 0 16px;">
+    В коментарі до оплати вкажіть "Оплата за товар".
+  </p>
+
+  <p><strong>Клієнт:</strong> {{ order.first_name }} {{ order.last_name }}</p>
+  <p><strong>Телефон:</strong> {{ order.phone_number }}</p>
+  <p><strong>Email:</strong> {{ order.email }}</p>
+  <p><strong>Адреса доставки:</strong> {{ order.delivery_address|default:"Самовывоз" }}</p>
+
+  <h3>Товари:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Назва</th>
+        <th>Кількість</th>
+        <th>Ціна</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if email_items %}
+        {% for it in email_items %}
+        <tr>
+          <td>
+            {{ it.name }}{% if it.gift_choice %} ({{ it.gift_choice }}){% endif %}
+          </td>
+          <td>{{ it.quantity }}</td>
+          <td>{{ it.line_total }}</td>
+        </tr>
+        {% endfor %}
+      {% else %}
+        {# Fallback if email_items не передан: вычислим сумму на лету #}
+        {% for item in items %}
+        <tr>
+          <td>
+            {{ item.name }}{% if item.gift_choice %} ({{ item.gift_choice }}){% endif %}
+          </td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price|floatformat:'2'|add:"0"|floatformat:'2' }} * {{ item.quantity }} = {{ item.price|floatformat:'2'|add:"0"|floatformat:'2' }}</td>
+        </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+
+  <p><strong>Сумма:</strong> {{ total_price }} грн</p>
+
+  <p style="margin-top: 20px;">Дякуємо за ваше замовлення!</p>
+</body>
+</html>

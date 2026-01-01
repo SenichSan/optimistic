@@ -1,0 +1,1212 @@
+2025-10-03 14:21:45,498 INFO django.utils.autoreload [9960] [7716] Watching for file changes with StatReloader
+2025-10-03 14:22:19,291 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:19,292 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:19,293 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:19,294 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:19,297 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:19,298 DEBUG goods.templatetags.media_extras [9960] [8560] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,785 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,785 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,788 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,788 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,788 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:22,788 DEBUG goods.templatetags.media_extras [9960] [4316] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:22:30,583 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,585 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,586 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,587 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,589 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,590 DEBUG goods.templatetags.media_extras [9960] [8964] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:30,603 DEBUG goods.templatetags.media_extras [9960] [8964] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:33,473 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,475 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,476 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,477 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,477 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,477 DEBUG goods.templatetags.media_extras [9960] [12372] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:33,482 DEBUG goods.templatetags.media_extras [9960] [12372] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:37,680 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,681 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,681 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,683 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,684 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,685 DEBUG goods.templatetags.media_extras [9960] [11272] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:37,688 DEBUG goods.templatetags.media_extras [9960] [11272] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:39,683 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,685 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,686 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,688 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,689 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,689 DEBUG goods.templatetags.media_extras [9960] [9424] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:39,694 DEBUG goods.templatetags.media_extras [9960] [9424] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:40,567 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,571 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,572 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,573 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,574 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,574 DEBUG goods.templatetags.media_extras [9960] [6360] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:40,578 DEBUG goods.templatetags.media_extras [9960] [6360] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:41,903 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,905 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,907 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,907 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,909 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,910 DEBUG goods.templatetags.media_extras [9960] [5624] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:41,915 DEBUG goods.templatetags.media_extras [9960] [5624] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:44,029 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,031 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,032 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,032 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,033 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,034 DEBUG goods.templatetags.media_extras [9960] [12992] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:44,039 DEBUG goods.templatetags.media_extras [9960] [12992] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:22:47,580 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,581 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,582 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,582 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,584 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,585 DEBUG goods.templatetags.media_extras [9960] [12684] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:22:47,589 DEBUG goods.templatetags.media_extras [9960] [12684] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:23:00,977 WARNING django.request [9960] [4608] Not Found: /ru/.well-known/appspecific/com.chrome.devtools.json
+2025-10-03 14:23:00,977 WARNING django.request [9960] [4608] Not Found: /ru/.well-known/appspecific/com.chrome.devtools.json
+2025-10-03 14:25:21,293 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,293 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,293 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,296 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,297 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,297 DEBUG goods.templatetags.media_extras [9960] [1288] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-10-03 14:25:21,302 DEBUG goods.templatetags.media_extras [9960] [1288] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-10-03 14:25:27,881 WARNING django.request [9960] [12240] Not Found: /ru/.well-known/appspecific/com.chrome.devtools.json
+2025-10-03 14:25:27,881 WARNING django.request [9960] [12240] Not Found: /ru/.well-known/appspecific/com.chrome.devtools.json
+2025-10-03 14:26:00,101 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:26:00,101 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:26:00,101 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:26:00,101 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:26:00,105 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-10-03 14:26:00,105 DEBUG goods.templatetags.media_extras [9960] [4804] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:48:56,615 DEBUG PIL.PngImagePlugin [11620] [3932] STREAM b'IHDR' 16 13
+2025-11-29 14:48:56,633 DEBUG PIL.PngImagePlugin [11620] [3932] STREAM b'caBX' 41 51268
+2025-11-29 14:48:56,634 DEBUG PIL.PngImagePlugin [11620] [3932] b'caBX' 41 51268 (unknown)
+2025-11-29 14:48:56,634 DEBUG PIL.PngImagePlugin [11620] [3932] STREAM b'IDAT' 51321 65536
+2025-11-29 14:48:56,776 DEBUG PIL.Image [11620] [3932] Importing BlpImagePlugin
+2025-11-29 14:48:56,780 DEBUG PIL.Image [11620] [3932] Importing BmpImagePlugin
+2025-11-29 14:48:56,780 DEBUG PIL.Image [11620] [3932] Importing BufrStubImagePlugin
+2025-11-29 14:48:56,782 DEBUG PIL.Image [11620] [3932] Importing CurImagePlugin
+2025-11-29 14:48:56,784 DEBUG PIL.Image [11620] [3932] Importing DcxImagePlugin
+2025-11-29 14:48:56,787 DEBUG PIL.Image [11620] [3932] Importing DdsImagePlugin
+2025-11-29 14:48:56,788 DEBUG PIL.Image [11620] [3932] Importing EpsImagePlugin
+2025-11-29 14:48:56,790 DEBUG PIL.Image [11620] [3932] Importing FitsImagePlugin
+2025-11-29 14:48:56,790 DEBUG PIL.Image [11620] [3932] Importing FliImagePlugin
+2025-11-29 14:48:56,794 DEBUG PIL.Image [11620] [3932] Importing FpxImagePlugin
+2025-11-29 14:48:56,795 DEBUG PIL.Image [11620] [3932] Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-11-29 14:48:56,795 DEBUG PIL.Image [11620] [3932] Importing FtexImagePlugin
+2025-11-29 14:48:56,798 DEBUG PIL.Image [11620] [3932] Importing GbrImagePlugin
+2025-11-29 14:48:56,800 DEBUG PIL.Image [11620] [3932] Importing GifImagePlugin
+2025-11-29 14:48:56,800 DEBUG PIL.Image [11620] [3932] Importing GribStubImagePlugin
+2025-11-29 14:48:56,800 DEBUG PIL.Image [11620] [3932] Importing Hdf5StubImagePlugin
+2025-11-29 14:48:56,804 DEBUG PIL.Image [11620] [3932] Importing IcnsImagePlugin
+2025-11-29 14:48:56,806 DEBUG PIL.Image [11620] [3932] Importing IcoImagePlugin
+2025-11-29 14:48:56,811 DEBUG PIL.Image [11620] [3932] Importing ImImagePlugin
+2025-11-29 14:48:56,812 DEBUG PIL.Image [11620] [3932] Importing ImtImagePlugin
+2025-11-29 14:48:56,814 DEBUG PIL.Image [11620] [3932] Importing IptcImagePlugin
+2025-11-29 14:48:56,815 DEBUG PIL.Image [11620] [3932] Importing JpegImagePlugin
+2025-11-29 14:48:56,815 DEBUG PIL.Image [11620] [3932] Importing Jpeg2KImagePlugin
+2025-11-29 14:48:56,815 DEBUG PIL.Image [11620] [3932] Importing McIdasImagePlugin
+2025-11-29 14:48:56,817 DEBUG PIL.Image [11620] [3932] Importing MicImagePlugin
+2025-11-29 14:48:56,820 DEBUG PIL.Image [11620] [3932] Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-11-29 14:48:56,821 DEBUG PIL.Image [11620] [3932] Importing MpegImagePlugin
+2025-11-29 14:48:56,822 DEBUG PIL.Image [11620] [3932] Importing MpoImagePlugin
+2025-11-29 14:48:56,844 DEBUG PIL.Image [11620] [3932] Importing MspImagePlugin
+2025-11-29 14:48:56,846 DEBUG PIL.Image [11620] [3932] Importing PalmImagePlugin
+2025-11-29 14:48:56,848 DEBUG PIL.Image [11620] [3932] Importing PcdImagePlugin
+2025-11-29 14:48:56,848 DEBUG PIL.Image [11620] [3932] Importing PcxImagePlugin
+2025-11-29 14:48:56,848 DEBUG PIL.Image [11620] [3932] Importing PdfImagePlugin
+2025-11-29 14:48:56,860 DEBUG PIL.Image [11620] [3932] Importing PixarImagePlugin
+2025-11-29 14:48:56,862 DEBUG PIL.Image [11620] [3932] Importing PngImagePlugin
+2025-11-29 14:48:56,862 DEBUG PIL.Image [11620] [3932] Importing PpmImagePlugin
+2025-11-29 14:48:56,862 DEBUG PIL.Image [11620] [3932] Importing PsdImagePlugin
+2025-11-29 14:48:56,864 DEBUG PIL.Image [11620] [3932] Importing QoiImagePlugin
+2025-11-29 14:48:56,865 DEBUG PIL.Image [11620] [3932] Importing SgiImagePlugin
+2025-11-29 14:48:56,868 DEBUG PIL.Image [11620] [3932] Importing SpiderImagePlugin
+2025-11-29 14:48:56,869 DEBUG PIL.Image [11620] [3932] Importing SunImagePlugin
+2025-11-29 14:48:56,871 DEBUG PIL.Image [11620] [3932] Importing TgaImagePlugin
+2025-11-29 14:48:56,872 DEBUG PIL.Image [11620] [3932] Importing TiffImagePlugin
+2025-11-29 14:48:56,872 DEBUG PIL.Image [11620] [3932] Importing WebPImagePlugin
+2025-11-29 14:48:56,903 DEBUG PIL.Image [11620] [3932] Importing WmfImagePlugin
+2025-11-29 14:48:56,905 DEBUG PIL.Image [11620] [3932] Importing XbmImagePlugin
+2025-11-29 14:48:56,905 DEBUG PIL.Image [11620] [3932] Importing XpmImagePlugin
+2025-11-29 14:48:56,905 DEBUG PIL.Image [11620] [3932] Importing XVThumbImagePlugin
+2025-11-29 14:49:08,455 DEBUG PIL.PngImagePlugin [4308] [13288] STREAM b'IHDR' 16 13
+2025-11-29 14:49:08,460 DEBUG PIL.PngImagePlugin [4308] [13288] STREAM b'caBX' 41 51268
+2025-11-29 14:49:08,461 DEBUG PIL.PngImagePlugin [4308] [13288] b'caBX' 41 51268 (unknown)
+2025-11-29 14:49:08,461 DEBUG PIL.PngImagePlugin [4308] [13288] STREAM b'IDAT' 51321 65536
+2025-11-29 14:49:08,549 DEBUG PIL.Image [4308] [13288] Importing BlpImagePlugin
+2025-11-29 14:49:08,551 DEBUG PIL.Image [4308] [13288] Importing BmpImagePlugin
+2025-11-29 14:49:08,551 DEBUG PIL.Image [4308] [13288] Importing BufrStubImagePlugin
+2025-11-29 14:49:08,553 DEBUG PIL.Image [4308] [13288] Importing CurImagePlugin
+2025-11-29 14:49:08,554 DEBUG PIL.Image [4308] [13288] Importing DcxImagePlugin
+2025-11-29 14:49:08,555 DEBUG PIL.Image [4308] [13288] Importing DdsImagePlugin
+2025-11-29 14:49:08,556 DEBUG PIL.Image [4308] [13288] Importing EpsImagePlugin
+2025-11-29 14:49:08,558 DEBUG PIL.Image [4308] [13288] Importing FitsImagePlugin
+2025-11-29 14:49:08,560 DEBUG PIL.Image [4308] [13288] Importing FliImagePlugin
+2025-11-29 14:49:08,561 DEBUG PIL.Image [4308] [13288] Importing FpxImagePlugin
+2025-11-29 14:49:08,562 DEBUG PIL.Image [4308] [13288] Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-11-29 14:49:08,562 DEBUG PIL.Image [4308] [13288] Importing FtexImagePlugin
+2025-11-29 14:49:08,564 DEBUG PIL.Image [4308] [13288] Importing GbrImagePlugin
+2025-11-29 14:49:08,565 DEBUG PIL.Image [4308] [13288] Importing GifImagePlugin
+2025-11-29 14:49:08,565 DEBUG PIL.Image [4308] [13288] Importing GribStubImagePlugin
+2025-11-29 14:49:08,565 DEBUG PIL.Image [4308] [13288] Importing Hdf5StubImagePlugin
+2025-11-29 14:49:08,567 DEBUG PIL.Image [4308] [13288] Importing IcnsImagePlugin
+2025-11-29 14:49:08,567 DEBUG PIL.Image [4308] [13288] Importing IcoImagePlugin
+2025-11-29 14:49:08,571 DEBUG PIL.Image [4308] [13288] Importing ImImagePlugin
+2025-11-29 14:49:08,572 DEBUG PIL.Image [4308] [13288] Importing ImtImagePlugin
+2025-11-29 14:49:08,572 DEBUG PIL.Image [4308] [13288] Importing IptcImagePlugin
+2025-11-29 14:49:08,575 DEBUG PIL.Image [4308] [13288] Importing JpegImagePlugin
+2025-11-29 14:49:08,575 DEBUG PIL.Image [4308] [13288] Importing Jpeg2KImagePlugin
+2025-11-29 14:49:08,575 DEBUG PIL.Image [4308] [13288] Importing McIdasImagePlugin
+2025-11-29 14:49:08,577 DEBUG PIL.Image [4308] [13288] Importing MicImagePlugin
+2025-11-29 14:49:08,578 DEBUG PIL.Image [4308] [13288] Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-11-29 14:49:08,578 DEBUG PIL.Image [4308] [13288] Importing MpegImagePlugin
+2025-11-29 14:49:08,578 DEBUG PIL.Image [4308] [13288] Importing MpoImagePlugin
+2025-11-29 14:49:08,584 DEBUG PIL.Image [4308] [13288] Importing MspImagePlugin
+2025-11-29 14:49:08,585 DEBUG PIL.Image [4308] [13288] Importing PalmImagePlugin
+2025-11-29 14:49:08,587 DEBUG PIL.Image [4308] [13288] Importing PcdImagePlugin
+2025-11-29 14:49:08,587 DEBUG PIL.Image [4308] [13288] Importing PcxImagePlugin
+2025-11-29 14:49:08,587 DEBUG PIL.Image [4308] [13288] Importing PdfImagePlugin
+2025-11-29 14:49:08,595 DEBUG PIL.Image [4308] [13288] Importing PixarImagePlugin
+2025-11-29 14:49:08,596 DEBUG PIL.Image [4308] [13288] Importing PngImagePlugin
+2025-11-29 14:49:08,596 DEBUG PIL.Image [4308] [13288] Importing PpmImagePlugin
+2025-11-29 14:49:08,596 DEBUG PIL.Image [4308] [13288] Importing PsdImagePlugin
+2025-11-29 14:49:08,598 DEBUG PIL.Image [4308] [13288] Importing QoiImagePlugin
+2025-11-29 14:49:08,598 DEBUG PIL.Image [4308] [13288] Importing SgiImagePlugin
+2025-11-29 14:49:08,598 DEBUG PIL.Image [4308] [13288] Importing SpiderImagePlugin
+2025-11-29 14:49:08,598 DEBUG PIL.Image [4308] [13288] Importing SunImagePlugin
+2025-11-29 14:49:08,604 DEBUG PIL.Image [4308] [13288] Importing TgaImagePlugin
+2025-11-29 14:49:08,605 DEBUG PIL.Image [4308] [13288] Importing TiffImagePlugin
+2025-11-29 14:49:08,606 DEBUG PIL.Image [4308] [13288] Importing WebPImagePlugin
+2025-11-29 14:49:08,607 DEBUG PIL.Image [4308] [13288] Importing WmfImagePlugin
+2025-11-29 14:49:08,610 DEBUG PIL.Image [4308] [13288] Importing XbmImagePlugin
+2025-11-29 14:49:08,612 DEBUG PIL.Image [4308] [13288] Importing XpmImagePlugin
+2025-11-29 14:49:08,612 DEBUG PIL.Image [4308] [13288] Importing XVThumbImagePlugin
+2025-11-29 14:49:27,000 DEBUG PIL.PngImagePlugin [9732] [11652] STREAM b'IHDR' 16 13
+2025-11-29 14:49:27,000 DEBUG PIL.PngImagePlugin [9732] [11652] STREAM b'caBX' 41 51268
+2025-11-29 14:49:27,001 DEBUG PIL.PngImagePlugin [9732] [11652] b'caBX' 41 51268 (unknown)
+2025-11-29 14:49:27,001 DEBUG PIL.PngImagePlugin [9732] [11652] STREAM b'IDAT' 51321 65536
+2025-11-29 14:52:48,778 INFO django.utils.autoreload [12368] [9340] Watching for file changes with StatReloader
+2025-11-29 14:52:51,406 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:52:51,414 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:52:51,419 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:52:51,423 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:52:51,427 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:52:51,429 DEBUG goods.templatetags.media_extras [12368] [12540] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:03,998 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:03,998 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:04,001 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:04,001 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:04,001 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:04,001 DEBUG goods.templatetags.media_extras [12368] [7752] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:05,936 WARNING django.request [12368] [9628] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:05,936 WARNING django.request [12368] [9628] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:09,366 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:09,366 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:09,367 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:09,368 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:09,369 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:09,371 DEBUG goods.templatetags.media_extras [12368] [9628] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:10,319 WARNING django.request [12368] [7684] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:10,319 WARNING django.request [12368] [7684] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:43,926 WARNING django.request [12368] [6488] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:43,926 WARNING django.request [12368] [6488] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:45,199 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:45,201 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:45,204 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:45,209 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:45,214 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:45,216 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:46,350 WARNING django.request [12368] [12068] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:46,350 WARNING django.request [12368] [12068] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:49,865 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:49,865 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:49,867 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:49,867 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:49,867 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:49,867 DEBUG goods.templatetags.media_extras [12368] [356] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:53:50,995 WARNING django.request [12368] [7116] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:53:50,995 WARNING django.request [12368] [7116] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 14:58:30,317 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:58:30,318 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:58:30,319 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:58:30,320 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:58:30,320 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 14:58:30,322 DEBUG goods.templatetags.media_extras [12368] [7116] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,722 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,722 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,726 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,726 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,728 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:36,729 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:03:53,890 WARNING django.request [12368] [9288] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:03:53,890 WARNING django.request [12368] [9288] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:19,985 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:19,986 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:19,988 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:19,988 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:19,988 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:19,988 DEBUG goods.templatetags.media_extras [12368] [7628] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:21,360 WARNING django.request [12368] [8544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:21,360 WARNING django.request [12368] [8544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:39,282 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:39,282 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:39,284 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:39,285 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:39,285 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:39,285 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:42,403 WARNING django.request [12368] [7628] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:42,403 WARNING django.request [12368] [7628] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:55,808 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:55,810 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:55,811 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:55,812 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:55,813 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:55,814 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:04:56,632 WARNING django.request [12368] [7916] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:04:56,632 WARNING django.request [12368] [7916] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:05:26,996 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:26,997 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:26,999 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:27,000 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:27,002 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:27,003 DEBUG goods.templatetags.media_extras [12368] [4544] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,930 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,932 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,944 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,950 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,953 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:05:28,966 DEBUG goods.templatetags.media_extras [12368] [8544] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,829 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,830 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,830 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,833 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,835 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:06:40,837 DEBUG goods.templatetags.media_extras [12368] [7916] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,126 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,126 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,128 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,129 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,131 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:10:57,134 DEBUG goods.templatetags.media_extras [12368] [12564] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,059 WARNING django.request [12368] [7692] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:11:02,059 WARNING django.request [12368] [7692] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:11:02,914 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,916 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,917 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,918 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,919 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:02,920 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:11:04,149 WARNING django.request [12368] [12564] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:11:04,149 WARNING django.request [12368] [12564] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:13:46,297 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:46,297 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:46,299 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:46,300 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:46,301 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:46,302 DEBUG goods.templatetags.media_extras [12368] [7692] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:47,462 WARNING django.request [12368] [1760] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:13:47,462 WARNING django.request [12368] [1760] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:13:51,668 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:51,669 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:51,669 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:51,670 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:51,670 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:51,672 DEBUG goods.templatetags.media_extras [12368] [1588] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:13:52,637 WARNING django.request [12368] [1588] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:13:52,637 WARNING django.request [12368] [1588] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-11-29 15:17:25,055 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:17:25,056 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:17:25,059 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:17:25,060 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:17:25,062 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-11-29 15:17:25,063 DEBUG goods.templatetags.media_extras [12368] [6568] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:52,215 INFO django.utils.autoreload [5100] [14264] Watching for file changes with StatReloader
+2025-12-02 15:35:59,686 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:59,689 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:59,690 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:59,693 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:59,697 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:35:59,701 DEBUG goods.templatetags.media_extras [5100] [8744] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:36:08,013 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:36:08,013 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:36:43,352 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:36:43,352 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:40:46,726 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:40:46,726 WARNING django.request [5100] [7712] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:43:19,876 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:19,876 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:19,877 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:19,877 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:19,879 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:19,880 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:43:29,049 WARNING django.request [5100] [10448] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:43:29,049 WARNING django.request [5100] [10448] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:47:02,919 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:02,920 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:02,920 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:02,921 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:02,921 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:02,923 DEBUG goods.templatetags.media_extras [5100] [10448] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:04,024 WARNING django.request [5100] [9600] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:47:04,024 WARNING django.request [5100] [9600] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-02 15:47:11,196 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:11,197 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:11,198 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:11,198 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:11,198 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:47:11,200 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,337 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,337 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,339 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,340 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,341 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:50:50,342 DEBUG goods.templatetags.media_extras [5100] [5928] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:45,973 INFO django.utils.autoreload [15320] [3592] Watching for file changes with StatReloader
+2025-12-02 15:55:47,393 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:47,394 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:47,394 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:47,395 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:47,396 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:47,398 DEBUG goods.templatetags.media_extras [15320] [9596] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:51,805 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,806 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,807 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,808 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,810 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,814 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-02 15:55:51,836 DEBUG goods.templatetags.media_extras [15320] [15488] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-12-02 15:55:52,906 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:52,906 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:52,906 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:52,906 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:52,913 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 15:55:52,914 DEBUG goods.templatetags.media_extras [15320] [15488] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:35,351 INFO django.utils.autoreload [16132] [12996] Watching for file changes with StatReloader
+2025-12-02 22:15:38,357 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:38,360 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:38,363 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:38,366 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:38,370 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:15:38,373 DEBUG goods.templatetags.media_extras [16132] [14676] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:41,684 INFO django.utils.autoreload [17584] [1416] Watching for file changes with StatReloader
+2025-12-02 22:47:43,725 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:43,727 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:43,729 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:43,730 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:43,733 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-02 22:47:43,734 DEBUG goods.templatetags.media_extras [17584] [12948] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:43,036 INFO django.utils.autoreload [16736] [15988] Watching for file changes with StatReloader
+2025-12-11 20:03:45,441 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:45,442 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:45,443 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:45,443 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:45,444 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:45,445 DEBUG goods.templatetags.media_extras [16736] [11720] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:50,472 WARNING django.request [16736] [2828] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:03:50,472 WARNING django.request [16736] [2828] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:03:53,974 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:53,975 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:53,976 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:53,976 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:53,977 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:53,978 DEBUG goods.templatetags.media_extras [16736] [2828] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:03:55,297 WARNING django.request [16736] [12764] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:03:55,297 WARNING django.request [16736] [12764] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:05:49,107 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:05:49,108 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:05:49,108 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:05:49,109 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:05:49,110 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:05:49,110 DEBUG goods.templatetags.media_extras [16736] [3536] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,408 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,409 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,409 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,410 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,410 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:11:32,411 DEBUG goods.templatetags.media_extras [16736] [2688] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,435 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,436 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,437 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,437 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,438 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:20,438 DEBUG goods.templatetags.media_extras [16736] [12848] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:23:56,173 WARNING django.request [16736] [12944] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:23:56,173 WARNING django.request [16736] [12944] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:25:01,749 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:01,750 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:01,750 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:01,751 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:01,752 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:01,753 DEBUG goods.templatetags.media_extras [16736] [12944] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:25:08,395 WARNING django.request [16736] [14720] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:25:08,395 WARNING django.request [16736] [14720] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:35:17,761 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:17,762 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:17,763 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:17,763 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:17,764 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:17,764 DEBUG goods.templatetags.media_extras [16736] [10552] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,018 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,019 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,019 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,020 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,020 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:20,021 DEBUG goods.templatetags.media_extras [16736] [11176] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:35:39,227 WARNING django.request [16736] [11536] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:35:39,227 WARNING django.request [16736] [11536] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:41:07,790 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:07,790 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:07,791 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:07,791 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:07,792 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:07,792 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:12,836 WARNING django.request [16736] [17688] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:41:12,836 WARNING django.request [16736] [17688] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:41:56,600 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:56,601 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:56,601 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:56,602 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:56,602 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:56,603 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:41:57,434 WARNING django.request [16736] [18052] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:41:57,434 WARNING django.request [16736] [18052] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:42:18,323 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,324 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,325 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,325 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,326 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,326 DEBUG goods.templatetags.media_extras [16736] [18052] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:18,739 WARNING django.request [16736] [18052] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:42:18,739 WARNING django.request [16736] [18052] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:42:43,823 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,824 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,825 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,825 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,826 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,827 DEBUG goods.templatetags.media_extras [16736] [16232] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:42:43,840 DEBUG goods.templatetags.media_extras [16736] [16232] field_image_picture: name=categories_seo/image_2025-09-20_18-57-33.png size=800x450 avif=True webp=True orig=True
+2025-12-11 20:42:46,165 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:46,166 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:46,166 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:46,167 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:46,167 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:42:46,168 DEBUG goods.templatetags.media_extras [16736] [17688] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:26,658 WARNING django.request [16736] [15812] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:43:26,658 WARNING django.request [16736] [15812] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:43:27,141 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,142 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,143 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,144 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,145 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,146 DEBUG goods.templatetags.media_extras [16736] [15812] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:43:27,206 WARNING django.request [16736] [16232] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:43:27,206 WARNING django.request [16736] [16232] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:43:27,478 WARNING django.request [16736] [15812] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:43:27,478 WARNING django.request [16736] [15812] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:45:16,581 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:16,582 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:16,583 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:16,583 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:16,584 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:16,584 DEBUG goods.templatetags.media_extras [16736] [16204] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:26,128 WARNING django.request [16736] [17452] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:45:26,128 WARNING django.request [16736] [17452] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:45:40,549 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:40,550 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:40,550 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:40,551 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:40,551 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:40,552 DEBUG goods.templatetags.media_extras [16736] [17452] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:50,832 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,832 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,833 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,833 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,834 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,835 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:45:50,844 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/all_1bHlL1i.png size=800x450 avif=True webp=True orig=True
+2025-12-11 20:45:59,465 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:59,465 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:59,466 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:59,467 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:59,467 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:45:59,468 DEBUG goods.templatetags.media_extras [16736] [13016] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:03,624 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,625 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,626 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,626 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,627 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,627 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-11 20:46:03,635 DEBUG goods.templatetags.media_extras [16736] [7580] category_icon_picture: name=categories_images/all_1bHlL1i.png size=800x450 avif=True webp=True orig=True
+2025-12-11 20:46:05,922 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:05,922 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:05,923 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:05,923 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:05,924 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:05,924 DEBUG goods.templatetags.media_extras [16736] [3556] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-11 20:46:20,722 WARNING django.request [16736] [3556] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-11 20:46:20,722 WARNING django.request [16736] [3556] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:02:39,854 INFO django.utils.autoreload [7976] [11696] Watching for file changes with StatReloader
+2025-12-13 10:03:05,519 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:05,520 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:05,522 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:05,523 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:05,524 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:05,526 DEBUG goods.templatetags.media_extras [7976] [5172] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:03:14,107 WARNING django.request [7976] [12944] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:03:14,107 WARNING django.request [7976] [12944] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:04:08,622 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:08,623 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:08,624 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:08,624 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:08,625 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:08,626 DEBUG goods.templatetags.media_extras [7976] [12944] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:04:09,629 WARNING django.request [7976] [13456] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:04:09,629 WARNING django.request [7976] [13456] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:04:23,138 WARNING django.request [7976] [9024] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:04:23,138 WARNING django.request [7976] [9024] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:05:24,553 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:24,553 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:24,554 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:24,555 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:24,555 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:24,556 DEBUG goods.templatetags.media_extras [7976] [9024] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:05:25,525 WARNING django.request [7976] [9024] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:05:25,525 WARNING django.request [7976] [9024] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:06:11,326 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:11,327 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:11,328 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:11,328 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:11,329 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:11,330 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:12,260 WARNING django.request [7976] [5004] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:06:12,260 WARNING django.request [7976] [5004] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:06:25,611 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:25,611 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:25,612 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:25,613 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:25,613 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:25,614 DEBUG goods.templatetags.media_extras [7976] [5004] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:06:30,590 WARNING django.request [7976] [14300] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:06:30,590 WARNING django.request [7976] [14300] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:10:20,754 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:20,755 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:20,756 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:20,756 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:20,757 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:20,757 DEBUG goods.templatetags.media_extras [7976] [14300] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:10:21,640 WARNING django.request [7976] [14300] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:10:21,640 WARNING django.request [7976] [14300] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:16:00,831 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:16:00,832 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:16:00,833 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:16:00,833 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:16:00,834 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:16:00,835 DEBUG goods.templatetags.media_extras [7976] [5436] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,021 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,021 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,022 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,022 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,023 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:20:15,023 DEBUG goods.templatetags.media_extras [7976] [13772] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,906 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,906 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,907 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,908 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,908 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:17,909 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:34:23,672 WARNING django.request [7976] [13124] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:34:23,672 WARNING django.request [7976] [13124] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:38:49,034 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:49,035 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:49,035 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:49,036 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:49,036 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:49,037 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:38:54,410 WARNING django.request [7976] [14896] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:38:54,410 WARNING django.request [7976] [14896] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:39:56,828 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:39:56,829 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:39:56,830 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:39:56,831 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:39:56,832 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:39:56,832 DEBUG goods.templatetags.media_extras [7976] [14896] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:40:00,470 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,471 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,471 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,472 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,473 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,475 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-13 10:40:00,497 DEBUG goods.templatetags.media_extras [7976] [13976] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=800x450 avif=True webp=True orig=True
+2025-12-13 10:41:46,942 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:41:46,942 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:41:46,943 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:41:46,943 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:41:46,944 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:41:46,944 DEBUG goods.templatetags.media_extras [7976] [13124] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,749 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,749 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,750 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,750 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,751 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:18,751 DEBUG goods.templatetags.media_extras [7976] [14396] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 10:47:45,325 WARNING django.request [7976] [14972] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:47:45,325 WARNING django.request [7976] [14972] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:48:19,771 WARNING django.request [7976] [14972] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 10:48:19,771 WARNING django.request [7976] [14972] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:08:09,372 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:09,373 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:09,375 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:09,376 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:09,376 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:09,377 DEBUG goods.templatetags.media_extras [7976] [13980] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:16,984 WARNING django.request [7976] [14224] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:08:16,984 WARNING django.request [7976] [14224] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:08:38,022 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:38,022 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:38,023 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:38,023 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:38,024 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:38,025 DEBUG goods.templatetags.media_extras [7976] [14224] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:08:58,478 WARNING django.request [7976] [13980] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:08:58,478 WARNING django.request [7976] [13980] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:13:56,915 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:56,916 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:56,916 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:56,917 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:56,917 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:56,918 DEBUG goods.templatetags.media_extras [7976] [20352] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:13:57,875 WARNING django.request [7976] [9548] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:13:57,875 WARNING django.request [7976] [9548] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:17:09,425 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:09,426 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:09,427 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:09,428 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:09,428 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:09,429 DEBUG goods.templatetags.media_extras [7976] [20504] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:10,470 WARNING django.request [7976] [14224] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:17:10,470 WARNING django.request [7976] [14224] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:17:11,339 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,341 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,344 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,345 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,346 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,346 DEBUG goods.templatetags.media_extras [7976] [21784] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:17:11,905 WARNING django.request [7976] [21784] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:17:11,905 WARNING django.request [7976] [21784] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:25:05,466 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:05,467 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:05,467 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:05,468 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:05,469 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:05,470 DEBUG goods.templatetags.media_extras [7976] [21992] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:06,950 WARNING django.request [7976] [20560] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:25:06,950 WARNING django.request [7976] [20560] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:25:08,806 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:08,807 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:08,807 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:08,808 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:08,809 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:08,809 DEBUG goods.templatetags.media_extras [7976] [20560] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:25:09,424 WARNING django.request [7976] [20560] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:25:09,424 WARNING django.request [7976] [20560] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:40:41,253 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:41,254 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:41,255 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:41,256 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:41,256 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:41,257 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:40:42,330 WARNING django.request [7976] [9088] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:40:42,330 WARNING django.request [7976] [9088] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:29,490 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:29,490 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:29,491 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:29,492 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:29,492 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:29,493 DEBUG goods.templatetags.media_extras [7976] [14508] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:30,579 WARNING django.request [7976] [14504] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:30,579 WARNING django.request [7976] [14504] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:35,081 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:35,081 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:35,082 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:35,082 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:35,083 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:35,084 DEBUG goods.templatetags.media_extras [7976] [20084] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:41:37,763 WARNING django.request [7976] [16780] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:37,763 WARNING django.request [7976] [16780] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:42,305 WARNING django.request [7976] [9020] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:41:42,305 WARNING django.request [7976] [9020] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:47:57,815 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:57,816 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:57,816 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:57,817 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:57,817 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:57,818 DEBUG goods.templatetags.media_extras [7976] [9020] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:47:58,972 WARNING django.request [7976] [11348] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:47:58,972 WARNING django.request [7976] [11348] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:48:31,911 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:31,912 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:31,912 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:31,913 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:31,914 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:31,915 DEBUG goods.templatetags.media_extras [7976] [18544] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:48:33,188 WARNING django.request [7976] [18544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:48:33,188 WARNING django.request [7976] [18544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:50:41,027 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:41,027 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:41,028 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:41,028 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:41,029 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:41,030 DEBUG goods.templatetags.media_extras [7976] [14976] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:50:42,041 WARNING django.request [7976] [18544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:50:42,041 WARNING django.request [7976] [18544] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:52:09,708 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:09,709 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:09,710 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:09,710 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:09,711 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:09,711 DEBUG goods.templatetags.media_extras [7976] [12744] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:11,068 WARNING django.request [7976] [11556] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:52:11,068 WARNING django.request [7976] [11556] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:52:18,197 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,198 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,198 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,199 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,199 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,200 DEBUG goods.templatetags.media_extras [7976] [11348] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-13 12:52:18,791 WARNING django.request [7976] [11348] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-13 12:52:18,791 WARNING django.request [7976] [11348] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 15:47:14,815 INFO django.utils.autoreload [8032] [9084] Watching for file changes with StatReloader
+2025-12-16 15:47:17,280 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:47:17,281 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:47:17,282 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:47:17,282 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:47:17,283 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:47:17,284 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:35,570 WARNING django.request [8032] [2572] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 15:49:35,570 WARNING django.request [8032] [2572] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 15:49:51,624 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:51,625 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:51,626 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:51,626 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:51,627 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:51,627 DEBUG goods.templatetags.media_extras [8032] [1608] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 15:49:52,618 WARNING django.request [8032] [10600] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 15:49:52,618 WARNING django.request [8032] [10600] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:04:46,020 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:46,021 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:46,022 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:46,023 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:46,024 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:46,025 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:48,503 WARNING django.request [8032] [6040] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:04:48,503 WARNING django.request [8032] [6040] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:04:51,850 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:51,851 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:51,851 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:51,852 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:51,852 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:51,853 DEBUG goods.templatetags.media_extras [8032] [6040] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:04:53,039 WARNING django.request [8032] [2100] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:04:53,039 WARNING django.request [8032] [2100] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:06:50,357 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:50,358 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:50,359 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:50,359 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:50,360 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:50,361 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:06:51,454 WARNING django.request [8032] [13452] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:06:51,454 WARNING django.request [8032] [13452] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:08:34,124 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:34,125 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:34,126 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:34,127 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:34,128 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:34,129 DEBUG goods.templatetags.media_extras [8032] [2100] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:08:35,576 WARNING django.request [8032] [12388] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:08:35,576 WARNING django.request [8032] [12388] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:11:12,356 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:12,356 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:12,357 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:12,357 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:12,358 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:12,359 DEBUG goods.templatetags.media_extras [8032] [13452] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-16 16:11:13,582 WARNING django.request [8032] [6040] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-16 16:11:13,582 WARNING django.request [8032] [6040] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:18:59,260 INFO django.utils.autoreload [11368] [14724] Watching for file changes with StatReloader
+2025-12-19 16:19:01,580 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:19:01,581 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:19:01,582 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:19:01,582 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:19:01,583 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:19:01,583 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,141 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,142 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,142 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,143 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,143 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:36,144 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,344 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,344 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,345 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,346 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,346 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:37,347 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,643 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,644 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,645 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,646 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,646 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:38,647 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,919 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,920 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,921 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,921 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,922 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:20:43,923 DEBUG goods.templatetags.media_extras [11368] [18240] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,218 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,218 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,219 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,219 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,220 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:21:40,220 DEBUG goods.templatetags.media_extras [11368] [19616] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,362 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,363 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,363 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,364 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,364 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:07,365 DEBUG goods.templatetags.media_extras [11368] [23324] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:28,547 WARNING django.request [11368] [2288] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:23:28,547 WARNING django.request [11368] [2288] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:23:29,678 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:29,678 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:29,679 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:29,679 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:29,680 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:29,681 DEBUG goods.templatetags.media_extras [11368] [17360] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:23:30,951 WARNING django.request [11368] [18720] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:23:30,951 WARNING django.request [11368] [18720] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:03,961 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:03,962 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:03,963 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:03,963 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:03,964 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:03,964 DEBUG goods.templatetags.media_extras [11368] [22804] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,854 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,855 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,855 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,856 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,856 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:05,857 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:13,963 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/all_1bHlL1i.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,964 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,965 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,965 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,966 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,966 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=128x128 avif=True webp=True orig=True
+2025-12-19 16:25:13,988 DEBUG goods.templatetags.media_extras [11368] [20128] category_icon_picture: name=categories_images/all_1bHlL1i.png size=800x450 avif=True webp=True orig=True
+2025-12-19 16:25:18,798 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:18,799 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:18,799 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:18,800 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:18,800 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:18,801 DEBUG goods.templatetags.media_extras [11368] [17248] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:34,292 WARNING django.request [11368] [16932] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:34,292 WARNING django.request [11368] [16932] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:35,016 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,017 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,018 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,018 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,019 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,019 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:35,522 WARNING django.request [11368] [11440] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:35,522 WARNING django.request [11368] [11440] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:36,338 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,339 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,340 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,340 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,341 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,341 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:36,855 WARNING django.request [11368] [11440] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:36,855 WARNING django.request [11368] [11440] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:37,940 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:37,951 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:37,975 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:38,001 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:38,004 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:38,022 DEBUG goods.templatetags.media_extras [11368] [11440] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-19 16:25:38,834 WARNING django.request [11368] [6296] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-19 16:25:38,834 WARNING django.request [11368] [6296] Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-12-25 21:04:13,756 INFO django.utils.autoreload [1972] [1476] Watching for file changes with StatReloader
+2025-12-28 07:56:55,783 INFO django.utils.autoreload [1192] [368] Watching for file changes with StatReloader
+2025-12-28 07:57:30,508 INFO django.utils.autoreload [12340] [2128] Watching for file changes with StatReloader
+2025-12-28 07:58:03,977 INFO django.utils.autoreload [11328] [13884] Watching for file changes with StatReloader
+2025-12-28 08:05:56,938 INFO django.utils.autoreload [8784] [9076] Watching for file changes with StatReloader
+2025-12-28 08:06:41,666 INFO django.utils.autoreload [368] [11052] Watching for file changes with StatReloader
+2025-12-28 08:08:02,283 INFO django.utils.autoreload [13724] [9940] Watching for file changes with StatReloader
+2025-12-28 08:19:06,889 INFO django.utils.autoreload [13616] [12064] Watching for file changes with StatReloader
+2025-12-28 08:21:22,059 INFO django.utils.autoreload [5580] [2268] Watching for file changes with StatReloader
+2025-12-28 08:21:24,170 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:21:24,179 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:21:24,180 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:21:24,181 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:21:24,181 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:21:24,182 DEBUG goods.templatetags.media_extras [5580] [10848] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:27:27,414 DEBUG goods.templatetags.media_extras [5580] [10540] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:10,537 DEBUG goods.templatetags.media_extras [5580] [10540] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:13,663 DEBUG goods.templatetags.media_extras [5580] [14232] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:16,864 DEBUG goods.templatetags.media_extras [5580] [7576] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:27,047 DEBUG goods.templatetags.media_extras [5580] [13796] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:30,561 DEBUG goods.templatetags.media_extras [5580] [1852] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:31,516 DEBUG goods.templatetags.media_extras [5580] [10668] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:28:34,571 DEBUG goods.templatetags.media_extras [5580] [2988] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:29:01,951 DEBUG goods.templatetags.media_extras [5580] [4432] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:29:11,572 DEBUG goods.templatetags.media_extras [5580] [14880] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:29:15,195 DEBUG goods.templatetags.media_extras [5580] [13388] product_image_picture: name=goods_images/Muhomor-panternyj.jpg size=128x128 avif=False webp=False root_avif=True root_webp=True orig=True
+2025-12-28 08:36:51,184 DEBUG PIL.PngImagePlugin [15248] [15032] STREAM b'IHDR' 16 13
+2025-12-28 08:36:51,185 DEBUG PIL.PngImagePlugin [15248] [15032] STREAM b'IDAT' 41 4096
+2025-12-28 08:36:51,187 DEBUG PIL.PngImagePlugin [15248] [15032] STREAM b'IDAT' 74061 6
+2025-12-28 08:36:51,187 DEBUG PIL.Image [15248] [15032] Importing AvifImagePlugin
+2025-12-28 08:36:51,189 DEBUG PIL.Image [15248] [15032] Importing BlpImagePlugin
+2025-12-28 08:36:51,190 DEBUG PIL.Image [15248] [15032] Importing BmpImagePlugin
+2025-12-28 08:36:51,190 DEBUG PIL.Image [15248] [15032] Importing BufrStubImagePlugin
+2025-12-28 08:36:51,191 DEBUG PIL.Image [15248] [15032] Importing CurImagePlugin
+2025-12-28 08:36:51,192 DEBUG PIL.Image [15248] [15032] Importing DcxImagePlugin
+2025-12-28 08:36:51,194 DEBUG PIL.Image [15248] [15032] Importing DdsImagePlugin
+2025-12-28 08:36:51,198 DEBUG PIL.Image [15248] [15032] Importing EpsImagePlugin
+2025-12-28 08:36:51,200 DEBUG PIL.Image [15248] [15032] Importing FitsImagePlugin
+2025-12-28 08:36:51,201 DEBUG PIL.Image [15248] [15032] Importing FliImagePlugin
+2025-12-28 08:36:51,202 DEBUG PIL.Image [15248] [15032] Importing FpxImagePlugin
+2025-12-28 08:36:51,204 DEBUG PIL.Image [15248] [15032] Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-12-28 08:36:51,204 DEBUG PIL.Image [15248] [15032] Importing FtexImagePlugin
+2025-12-28 08:36:51,205 DEBUG PIL.Image [15248] [15032] Importing GbrImagePlugin
+2025-12-28 08:36:51,206 DEBUG PIL.Image [15248] [15032] Importing GifImagePlugin
+2025-12-28 08:36:51,206 DEBUG PIL.Image [15248] [15032] Importing GribStubImagePlugin
+2025-12-28 08:36:51,207 DEBUG PIL.Image [15248] [15032] Importing Hdf5StubImagePlugin
+2025-12-28 08:36:51,208 DEBUG PIL.Image [15248] [15032] Importing IcnsImagePlugin
+2025-12-28 08:36:51,210 DEBUG PIL.Image [15248] [15032] Importing IcoImagePlugin
+2025-12-28 08:36:51,212 DEBUG PIL.Image [15248] [15032] Importing ImImagePlugin
+2025-12-28 08:36:51,213 DEBUG PIL.Image [15248] [15032] Importing ImtImagePlugin
+2025-12-28 08:36:51,214 DEBUG PIL.Image [15248] [15032] Importing IptcImagePlugin
+2025-12-28 08:36:51,215 DEBUG PIL.Image [15248] [15032] Importing JpegImagePlugin
+2025-12-28 08:36:51,215 DEBUG PIL.Image [15248] [15032] Importing Jpeg2KImagePlugin
+2025-12-28 08:36:51,216 DEBUG PIL.Image [15248] [15032] Importing McIdasImagePlugin
+2025-12-28 08:36:51,217 DEBUG PIL.Image [15248] [15032] Importing MicImagePlugin
+2025-12-28 08:36:51,218 DEBUG PIL.Image [15248] [15032] Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-12-28 08:36:51,218 DEBUG PIL.Image [15248] [15032] Importing MpegImagePlugin
+2025-12-28 08:36:51,220 DEBUG PIL.Image [15248] [15032] Importing MpoImagePlugin
+2025-12-28 08:36:51,225 DEBUG PIL.Image [15248] [15032] Importing MspImagePlugin
+2025-12-28 08:36:51,226 DEBUG PIL.Image [15248] [15032] Importing PalmImagePlugin
+2025-12-28 08:36:51,227 DEBUG PIL.Image [15248] [15032] Importing PcdImagePlugin
+2025-12-28 08:36:51,228 DEBUG PIL.Image [15248] [15032] Importing PcxImagePlugin
+2025-12-28 08:36:51,228 DEBUG PIL.Image [15248] [15032] Importing PdfImagePlugin
+2025-12-28 08:36:51,236 DEBUG PIL.Image [15248] [15032] Importing PixarImagePlugin
+2025-12-28 08:36:51,237 DEBUG PIL.Image [15248] [15032] Importing PngImagePlugin
+2025-12-28 08:36:51,237 DEBUG PIL.Image [15248] [15032] Importing PpmImagePlugin
+2025-12-28 08:36:51,237 DEBUG PIL.Image [15248] [15032] Importing PsdImagePlugin
+2025-12-28 08:36:51,238 DEBUG PIL.Image [15248] [15032] Importing QoiImagePlugin
+2025-12-28 08:36:51,239 DEBUG PIL.Image [15248] [15032] Importing SgiImagePlugin
+2025-12-28 08:36:51,240 DEBUG PIL.Image [15248] [15032] Importing SpiderImagePlugin
+2025-12-28 08:36:51,241 DEBUG PIL.Image [15248] [15032] Importing SunImagePlugin
+2025-12-28 08:36:51,242 DEBUG PIL.Image [15248] [15032] Importing TgaImagePlugin
+2025-12-28 08:36:51,243 DEBUG PIL.Image [15248] [15032] Importing TiffImagePlugin
+2025-12-28 08:36:51,243 DEBUG PIL.Image [15248] [15032] Importing WebPImagePlugin
+2025-12-28 08:36:51,245 DEBUG PIL.Image [15248] [15032] Importing WmfImagePlugin
+2025-12-28 08:36:51,246 DEBUG PIL.Image [15248] [15032] Importing XbmImagePlugin
+2025-12-28 08:36:51,248 DEBUG PIL.Image [15248] [15032] Importing XpmImagePlugin
+2025-12-28 08:36:51,249 DEBUG PIL.Image [15248] [15032] Importing XVThumbImagePlugin
+2025-12-28 08:36:55,182 DEBUG PIL.PngImagePlugin [15160] [6032] STREAM b'IHDR' 16 13
+2025-12-28 08:36:55,183 DEBUG PIL.PngImagePlugin [15160] [6032] STREAM b'IDAT' 41 4096
+2025-12-28 08:36:55,185 DEBUG PIL.PngImagePlugin [15160] [6032] STREAM b'IDAT' 74061 6
+2025-12-28 08:36:55,185 DEBUG PIL.Image [15160] [6032] Importing AvifImagePlugin
+2025-12-28 08:36:55,187 DEBUG PIL.Image [15160] [6032] Importing BlpImagePlugin
+2025-12-28 08:36:55,189 DEBUG PIL.Image [15160] [6032] Importing BmpImagePlugin
+2025-12-28 08:36:55,190 DEBUG PIL.Image [15160] [6032] Importing BufrStubImagePlugin
+2025-12-28 08:36:55,191 DEBUG PIL.Image [15160] [6032] Importing CurImagePlugin
+2025-12-28 08:36:55,191 DEBUG PIL.Image [15160] [6032] Importing DcxImagePlugin
+2025-12-28 08:36:55,193 DEBUG PIL.Image [15160] [6032] Importing DdsImagePlugin
+2025-12-28 08:36:55,197 DEBUG PIL.Image [15160] [6032] Importing EpsImagePlugin
+2025-12-28 08:36:55,199 DEBUG PIL.Image [15160] [6032] Importing FitsImagePlugin
+2025-12-28 08:36:55,199 DEBUG PIL.Image [15160] [6032] Importing FliImagePlugin
+2025-12-28 08:36:55,200 DEBUG PIL.Image [15160] [6032] Importing FpxImagePlugin
+2025-12-28 08:36:55,201 DEBUG PIL.Image [15160] [6032] Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-12-28 08:36:55,201 DEBUG PIL.Image [15160] [6032] Importing FtexImagePlugin
+2025-12-28 08:36:55,202 DEBUG PIL.Image [15160] [6032] Importing GbrImagePlugin
+2025-12-28 08:36:55,203 DEBUG PIL.Image [15160] [6032] Importing GifImagePlugin
+2025-12-28 08:36:55,203 DEBUG PIL.Image [15160] [6032] Importing GribStubImagePlugin
+2025-12-28 08:36:55,204 DEBUG PIL.Image [15160] [6032] Importing Hdf5StubImagePlugin
+2025-12-28 08:36:55,205 DEBUG PIL.Image [15160] [6032] Importing IcnsImagePlugin
+2025-12-28 08:36:55,207 DEBUG PIL.Image [15160] [6032] Importing IcoImagePlugin
+2025-12-28 08:36:55,209 DEBUG PIL.Image [15160] [6032] Importing ImImagePlugin
+2025-12-28 08:36:55,210 DEBUG PIL.Image [15160] [6032] Importing ImtImagePlugin
+2025-12-28 08:36:55,211 DEBUG PIL.Image [15160] [6032] Importing IptcImagePlugin
+2025-12-28 08:36:55,211 DEBUG PIL.Image [15160] [6032] Importing JpegImagePlugin
+2025-12-28 08:36:55,211 DEBUG PIL.Image [15160] [6032] Importing Jpeg2KImagePlugin
+2025-12-28 08:36:55,212 DEBUG PIL.Image [15160] [6032] Importing McIdasImagePlugin
+2025-12-28 08:36:55,212 DEBUG PIL.Image [15160] [6032] Importing MicImagePlugin
+2025-12-28 08:36:55,213 DEBUG PIL.Image [15160] [6032] Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-12-28 08:36:55,213 DEBUG PIL.Image [15160] [6032] Importing MpegImagePlugin
+2025-12-28 08:36:55,215 DEBUG PIL.Image [15160] [6032] Importing MpoImagePlugin
+2025-12-28 08:36:55,220 DEBUG PIL.Image [15160] [6032] Importing MspImagePlugin
+2025-12-28 08:36:55,221 DEBUG PIL.Image [15160] [6032] Importing PalmImagePlugin
+2025-12-28 08:36:55,222 DEBUG PIL.Image [15160] [6032] Importing PcdImagePlugin
+2025-12-28 08:36:55,223 DEBUG PIL.Image [15160] [6032] Importing PcxImagePlugin
+2025-12-28 08:36:55,224 DEBUG PIL.Image [15160] [6032] Importing PdfImagePlugin
+2025-12-28 08:36:55,230 DEBUG PIL.Image [15160] [6032] Importing PixarImagePlugin
+2025-12-28 08:36:55,231 DEBUG PIL.Image [15160] [6032] Importing PngImagePlugin
+2025-12-28 08:36:55,231 DEBUG PIL.Image [15160] [6032] Importing PpmImagePlugin
+2025-12-28 08:36:55,231 DEBUG PIL.Image [15160] [6032] Importing PsdImagePlugin
+2025-12-28 08:36:55,232 DEBUG PIL.Image [15160] [6032] Importing QoiImagePlugin
+2025-12-28 08:36:55,233 DEBUG PIL.Image [15160] [6032] Importing SgiImagePlugin
+2025-12-28 08:36:55,234 DEBUG PIL.Image [15160] [6032] Importing SpiderImagePlugin
+2025-12-28 08:36:55,235 DEBUG PIL.Image [15160] [6032] Importing SunImagePlugin
+2025-12-28 08:36:55,236 DEBUG PIL.Image [15160] [6032] Importing TgaImagePlugin
+2025-12-28 08:36:55,236 DEBUG PIL.Image [15160] [6032] Importing TiffImagePlugin
+2025-12-28 08:36:55,236 DEBUG PIL.Image [15160] [6032] Importing WebPImagePlugin
+2025-12-28 08:36:55,238 DEBUG PIL.Image [15160] [6032] Importing WmfImagePlugin
+2025-12-28 08:36:55,239 DEBUG PIL.Image [15160] [6032] Importing XbmImagePlugin
+2025-12-28 08:36:55,241 DEBUG PIL.Image [15160] [6032] Importing XpmImagePlugin
+2025-12-28 08:36:55,242 DEBUG PIL.Image [15160] [6032] Importing XVThumbImagePlugin
+2025-12-28 08:37:09,005 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:09,006 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:09,008 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 74061 6
+2025-12-28 08:37:09,008 DEBUG PIL.Image [14448] [14928] Importing AvifImagePlugin
+2025-12-28 08:37:09,010 DEBUG PIL.Image [14448] [14928] Importing BlpImagePlugin
+2025-12-28 08:37:09,011 DEBUG PIL.Image [14448] [14928] Importing BmpImagePlugin
+2025-12-28 08:37:09,012 DEBUG PIL.Image [14448] [14928] Importing BufrStubImagePlugin
+2025-12-28 08:37:09,012 DEBUG PIL.Image [14448] [14928] Importing CurImagePlugin
+2025-12-28 08:37:09,013 DEBUG PIL.Image [14448] [14928] Importing DcxImagePlugin
+2025-12-28 08:37:09,014 DEBUG PIL.Image [14448] [14928] Importing DdsImagePlugin
+2025-12-28 08:37:09,018 DEBUG PIL.Image [14448] [14928] Importing EpsImagePlugin
+2025-12-28 08:37:09,019 DEBUG PIL.Image [14448] [14928] Importing FitsImagePlugin
+2025-12-28 08:37:09,020 DEBUG PIL.Image [14448] [14928] Importing FliImagePlugin
+2025-12-28 08:37:09,021 DEBUG PIL.Image [14448] [14928] Importing FpxImagePlugin
+2025-12-28 08:37:09,022 DEBUG PIL.Image [14448] [14928] Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-12-28 08:37:09,022 DEBUG PIL.Image [14448] [14928] Importing FtexImagePlugin
+2025-12-28 08:37:09,023 DEBUG PIL.Image [14448] [14928] Importing GbrImagePlugin
+2025-12-28 08:37:09,023 DEBUG PIL.Image [14448] [14928] Importing GifImagePlugin
+2025-12-28 08:37:09,024 DEBUG PIL.Image [14448] [14928] Importing GribStubImagePlugin
+2025-12-28 08:37:09,024 DEBUG PIL.Image [14448] [14928] Importing Hdf5StubImagePlugin
+2025-12-28 08:37:09,025 DEBUG PIL.Image [14448] [14928] Importing IcnsImagePlugin
+2025-12-28 08:37:09,027 DEBUG PIL.Image [14448] [14928] Importing IcoImagePlugin
+2025-12-28 08:37:09,028 DEBUG PIL.Image [14448] [14928] Importing ImImagePlugin
+2025-12-28 08:37:09,030 DEBUG PIL.Image [14448] [14928] Importing ImtImagePlugin
+2025-12-28 08:37:09,031 DEBUG PIL.Image [14448] [14928] Importing IptcImagePlugin
+2025-12-28 08:37:09,031 DEBUG PIL.Image [14448] [14928] Importing JpegImagePlugin
+2025-12-28 08:37:09,031 DEBUG PIL.Image [14448] [14928] Importing Jpeg2KImagePlugin
+2025-12-28 08:37:09,032 DEBUG PIL.Image [14448] [14928] Importing McIdasImagePlugin
+2025-12-28 08:37:09,032 DEBUG PIL.Image [14448] [14928] Importing MicImagePlugin
+2025-12-28 08:37:09,033 DEBUG PIL.Image [14448] [14928] Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-12-28 08:37:09,033 DEBUG PIL.Image [14448] [14928] Importing MpegImagePlugin
+2025-12-28 08:37:09,035 DEBUG PIL.Image [14448] [14928] Importing MpoImagePlugin
+2025-12-28 08:37:09,040 DEBUG PIL.Image [14448] [14928] Importing MspImagePlugin
+2025-12-28 08:37:09,041 DEBUG PIL.Image [14448] [14928] Importing PalmImagePlugin
+2025-12-28 08:37:09,042 DEBUG PIL.Image [14448] [14928] Importing PcdImagePlugin
+2025-12-28 08:37:09,042 DEBUG PIL.Image [14448] [14928] Importing PcxImagePlugin
+2025-12-28 08:37:09,042 DEBUG PIL.Image [14448] [14928] Importing PdfImagePlugin
+2025-12-28 08:37:09,049 DEBUG PIL.Image [14448] [14928] Importing PixarImagePlugin
+2025-12-28 08:37:09,049 DEBUG PIL.Image [14448] [14928] Importing PngImagePlugin
+2025-12-28 08:37:09,050 DEBUG PIL.Image [14448] [14928] Importing PpmImagePlugin
+2025-12-28 08:37:09,050 DEBUG PIL.Image [14448] [14928] Importing PsdImagePlugin
+2025-12-28 08:37:09,050 DEBUG PIL.Image [14448] [14928] Importing QoiImagePlugin
+2025-12-28 08:37:09,051 DEBUG PIL.Image [14448] [14928] Importing SgiImagePlugin
+2025-12-28 08:37:09,052 DEBUG PIL.Image [14448] [14928] Importing SpiderImagePlugin
+2025-12-28 08:37:09,053 DEBUG PIL.Image [14448] [14928] Importing SunImagePlugin
+2025-12-28 08:37:09,053 DEBUG PIL.Image [14448] [14928] Importing TgaImagePlugin
+2025-12-28 08:37:09,054 DEBUG PIL.Image [14448] [14928] Importing TiffImagePlugin
+2025-12-28 08:37:09,054 DEBUG PIL.Image [14448] [14928] Importing WebPImagePlugin
+2025-12-28 08:37:09,056 DEBUG PIL.Image [14448] [14928] Importing WmfImagePlugin
+2025-12-28 08:37:09,056 DEBUG PIL.Image [14448] [14928] Importing XbmImagePlugin
+2025-12-28 08:37:09,058 DEBUG PIL.Image [14448] [14928] Importing XpmImagePlugin
+2025-12-28 08:37:09,059 DEBUG PIL.Image [14448] [14928] Importing XVThumbImagePlugin
+2025-12-28 08:37:10,952 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:10,952 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:10,961 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 543581 6
+2025-12-28 08:37:20,828 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:20,828 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:20,830 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 66245 6
+2025-12-28 08:37:22,666 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:22,667 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 810
+2025-12-28 08:37:22,668 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 863 6
+2025-12-28 08:37:22,903 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:22,904 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 2677
+2025-12-28 08:37:22,905 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 2730 6
+2025-12-28 08:37:22,966 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:22,967 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:22,969 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 63888 6
+2025-12-28 08:37:22,982 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:22,983 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:22,992 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 425216 6
+2025-12-28 08:37:23,054 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:23,055 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:23,057 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 57482 6
+2025-12-28 08:37:23,071 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:23,071 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 714
+2025-12-28 08:37:23,072 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 767 6
+2025-12-28 08:37:23,075 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:23,076 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 2326
+2025-12-28 08:37:23,077 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 2379 6
+2025-12-28 08:37:23,082 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:23,082 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:23,085 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 71901 6
+2025-12-28 08:37:24,840 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:24,840 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:24,847 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 437985 6
+2025-12-28 08:37:33,278 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:33,279 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 4096
+2025-12-28 08:37:33,280 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 64032 6
+2025-12-28 08:37:34,868 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:34,868 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 928
+2025-12-28 08:37:34,869 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 981 6
+2025-12-28 08:37:34,889 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:34,890 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 2950
+2025-12-28 08:37:34,890 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 3003 6
+2025-12-28 08:37:34,933 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:34,934 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 80063
+2025-12-28 08:37:34,934 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 80063 (unknown)
+2025-12-28 08:37:34,934 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 80116 65536
+2025-12-28 08:37:40,550 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:40,550 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 81795
+2025-12-28 08:37:40,551 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 81795 (unknown)
+2025-12-28 08:37:40,551 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 81848 65536
+2025-12-28 08:37:45,778 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:45,778 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'pHYs' 41 9
+2025-12-28 08:37:45,779 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'tEXt' 62 25
+2025-12-28 08:37:45,779 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 99 8192
+2025-12-28 08:37:51,234 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:37:51,234 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 67038
+2025-12-28 08:37:51,234 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 67038 (unknown)
+2025-12-28 08:37:51,235 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 67091 65536
+2025-12-28 08:38:02,525 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:02,526 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 65536
+2025-12-28 08:38:08,457 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:08,457 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 47225
+2025-12-28 08:38:08,457 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 47225 (unknown)
+2025-12-28 08:38:08,457 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 47278 65536
+2025-12-28 08:38:17,086 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:17,087 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 41 65536
+2025-12-28 08:38:22,684 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:22,684 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 67001
+2025-12-28 08:38:22,684 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 67001 (unknown)
+2025-12-28 08:38:22,684 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 67054 65536
+2025-12-28 08:38:27,288 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:27,288 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'pHYs' 41 9
+2025-12-28 08:38:27,288 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'iTXt' 62 1690
+2025-12-28 08:38:27,288 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 1764 5289
+2025-12-28 08:38:27,354 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IHDR' 16 13
+2025-12-28 08:38:27,355 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'caBX' 41 73666
+2025-12-28 08:38:27,355 DEBUG PIL.PngImagePlugin [14448] [14928] b'caBX' 41 73666 (unknown)
+2025-12-28 08:38:27,355 DEBUG PIL.PngImagePlugin [14448] [14928] STREAM b'IDAT' 73719 65536
+2025-12-28 08:38:42,289 INFO django.utils.autoreload [13232] [14708] Watching for file changes with StatReloader
+2025-12-28 08:38:44,264 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/all_1bHlL1i.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:38:44,265 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/sporovi-vidbitki_ffIwUMU.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:38:44,266 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/enteogeni_PhisYhU.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:38:44,266 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/substratni-nabori_YT1bF1u.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:38:44,267 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/groving_JYiwMsE.png size=256x256 avif=True webp=True orig=True
+2025-12-28 08:38:44,268 DEBUG goods.templatetags.media_extras [13232] [14976] category_icon_picture: name=categories_images/sporovi-vzvisi_NaTXXwe.png size=256x256 avif=True webp=True orig=True

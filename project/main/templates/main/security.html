@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+{% block title %}{% if CUR_LANG == 'ru' %}Ваша безопасность — Grownica{% else %}Ваша безпека — Grownica{% endif %}{% endblock %}
+
+{% block meta_description %}
+  <meta name="description" content="{% if CUR_LANG == 'ru' %}Рекомендации и важные советы по вашей безопасности при использовании продуктов Grownica.{% else %}Рекомендації та важливі поради щодо вашої безпеки під час використання продуктів Grownica.{% endif %}">
+{% endblock %}
+
+{% block seo_head_extra %}
+  <meta name="robots" content="noindex, nofollow">
+  {# Open Graph (базовый набор, как на главной) #}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{% if CUR_LANG == 'ru' %}Ваша безопасность — Grownica{% else %}Ваша безпека — Grownica{% endif %}">
+  <meta property="og:description" content="{% if CUR_LANG == 'ru' %}Рекомендации и важные советы по вашей безопасности.{% else %}Рекомендації та важливі поради щодо вашої безпеки.{% endif %}">
+  <meta property="og:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if CUR_LANG == 'ru' %}Ваша безопасность — Grownica{% else %}Ваша безпека — Grownica{% endif %}">
+  <meta name="twitter:description" content="{% if CUR_LANG == 'ru' %}Рекомендации и важные советы по вашей безопасности.{% else %}Рекомендації та важливі поради щодо вашої безпеки.{% endif %}">
+  <meta name="twitter:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+{% endblock %}
+
+{% block css %}
+  {# Стили как на главной #}
+  <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/templatemo-style.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/security-text.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/security-text.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/faq.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/faq.css' %}"></noscript>
+
+  <!-- Ensure Marck Script is available for cart label, same as Home -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap"></noscript>
+
+  <style>
+    /* Как на главной: убираем внешние отступы у главного контейнера */
+    main.container.my-4 {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      min-height: 100vh;            /* растягиваем по высоте окна */
+      display: flex;                /* колонка для притягивания футера вниз */
+      flex-direction: column;
+    }
+    /* Делаем внутренний контейнер растягиваемым и колоночным */
+    .container.home-framed { display: flex; flex-direction: column; flex: 1 1 auto; }
+    .security-content { flex: 1 1 auto; display: flex; flex-direction: column; }
+    /* Средняя секция растягивается до футера */
+    .section-fill { flex: 1 1 auto; display: flex; }
+    .section-fill > .col-12 { flex: 1 1 auto; display: flex; }
+    .section-fill #security-text-section { flex: 1 1 auto; display: block; }
+    /* Межсекционный отступ как на home: 4px между блоками */
+    .section-block { margin-top: 0; }
+    .section-block + .section-block { margin-top: 4px; }
+    @media (max-width: 768px) {
+      .container.home-framed { padding-left: 3px; padding-right: 3px; width: 100%; max-width: 100%; }
+      .container.home-framed > .row { margin-left: 0; margin-right: 0; }
+      .container.home-framed .col-12 { padding-left: 0; padding-right: 0; }
+      /* фиксим обрезку текста: убираем flex-ограничения и overflow */
+      .security-content { display: block; }
+      .section-fill { display: block; }
+      .section-fill > .col-12 { display: block; }
+      #security-text-section { display: block; overflow: visible; height: auto; min-height: 0; }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="container home-framed">
+    <div class="security-content d-flex flex-column flex-fill">
+      <div class="row section-block">
+        <div class="col-12">
+          {% include 'components/header-hero.html' %}
+        </div>
+      </div>
+
+      <div class="row section-block section-fill">
+        <div class="col-12">
+          <section id="security-text-section" class="seo-text-section">
+            <div class="seo-text-container">
+              {% if CUR_LANG == 'ru' %}
+                <h1 class="text-center">Законность деятельности магазина Grownica</h1>
+
+                <p>Магазин Grownica действует исключительно в рамках законодательства Украины, реализуя споры грибов (взвеси, отпечатки, штаммы) только для микологических исследований, таксономии и научно‑познавательных целей. Споры не содержат запрещённых веществ (псилоцибин и т. п.) и не классифицируются как наркотические, психотропные или прекурсоры по ст. 1 Закона Украины «О наркотических средствах, психотропных веществах и прекурсорах» № 60/95‑ВР от 15.02.1995 и Перечню (Постановление КМУ № 770 от 06.05.2000). Это допускает их легальный оборот для науки (ст. 7 Закона «О научной деятельности» № 848‑VIII), аналогично семенам или лабораторным культурам.</p>
+
+                <p>Покупателю при целевом использовании ничего не угрожает: приобретение и владение спорами для микологии законно, не влечёт ответственности (ст. 14 Закона № 60/95‑ВР) и не связано с рисками ст. 307–310 УК Украины (которые относятся только к готовым наркотическим средствам). Мы не консультируем по культивации, не продаём плодовые тела или психоактивные продукты, концентрируемся на образовательной ценности. Пересылка соответствует почтовым нормам (Постановление № 270 от 05.03.2009), а информация на сайте предназначена для лиц старше 18 лет с соблюдением Закона «О защите прав потребителей» № 1023‑XII.</p>
+
+                <p>Администрация не несёт ответственности за нецелевое использование (ст. 1166 ГК Украины), однако при научном назначении всё безопасно и соответствует праву. Рекомендуем при необходимости свериться с местным законодательством; наша деятельность защищена законом.</p>
+
+                <hr>
+
+                <h2>Краткий анализ законности и безопасности</h2>
+                <p>Деятельность Grownica опирается на позитивные нормы права, обеспечивая полную законность и отсутствие рисков для покупателей при правильном использовании.</p>
+
+                <h3>Ключевые доказательства законности</h3>
+                <ul>
+                  <li><strong>Статус спор</strong>: не наркотики (Закон № 60/95‑ВР, ст. 1; Перечень № 770) — биоматериал без активных соединений, разрешённый для исследований (ст. 14).</li>
+                  <li><strong>Допустимые цели</strong>: микология и таксономия (Закон № 848‑VIII, ст. 7) — свобода научной деятельности защищает покупателей.</li>
+                  <li><strong>Отсутствие рисков УК</strong>: запреты УК применяются к веществам (ст. 307 и др.); преследования за коллекционирование спор в судебной практике отсутствуют (ЕГРСР).</li>
+                  <li><strong>Операционные аспекты</strong>: стандартная пересылка (Постановление № 270); конфиденциальность (Закон № 2297‑VI); продажа с подтверждением целей.</li>
+                </ul>
+
+                <h3>Таблица основных аспектов</h3>
+                <div class="table-responsive">
+                  <table class="table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Аспект</th>
+                        <th>Правовая основа</th>
+                        <th>Гарантия для покупателя</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Продажа спор</td>
+                        <td>Закон № 60/95‑ВР, ст. 14</td>
+                        <td>Легально для науки, без последствий</td>
+                      </tr>
+                      <tr>
+                        <td>Научное использование</td>
+                        <td>Закон № 848‑VIII, ст. 7</td>
+                        <td>Защита исследований; спокойное владение</td>
+                      </tr>
+                      <tr>
+                        <td>Пересылка и информирование</td>
+                        <td>Постановление № 270; Закон № 1023‑XII</td>
+                        <td>Стандартная доставка, образовательный контент</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h3>Ключевые цитаты</h3>
+                <ul>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80" target="_blank" rel="noopener">Закон № 60/95‑ВР «О наркотических средствах»</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/770-2000-%D0%BF" target="_blank" rel="noopener">Перечень № 770</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/848-19" target="_blank" rel="noopener">Закон № 848‑VIII «О научной деятельности»</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/435-15" target="_blank" rel="noopener">ГК Украины, ст. 1166</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/270-2009-%D0%BF" target="_blank" rel="noopener">Постановление № 270 о почтовой связи</a></li>
+                </ul>
+              {% else %}
+                <h1 class="text-center">Легальність діяльності магазину Grownica</h1>
+
+                <p>Магазин Grownica працює виключно в рамках чинного законодавства України, реалізуючи спори грибів (взвесі, відбитки, штами) лише для мікологічних досліджень, таксономії та науково-пізнавальних цілей. Спори не містять заборонених речовин (псилоцибін тощо) і не класифікуються як наркотичні, психотропні чи прекурсори згідно зі ст. 1 Закону України "Про наркотичні засоби, психотропні речовини і прекурсори" № 60/95-ВР від 15.02.1995 та Переліку (Постанова КМУ № 770 від 06.05.2000). Це дозволяє їх легальний обіг для науки (ст. 7 Закону "Про наукову діяльність" № 848-VIII), аналогічно насінню чи культурам для досліджень.</p>
+
+                <p>Покупцеві при цільовому використанні нічого не загрожує: придбання та володіння спорами для мікології законне, не тягне відповідальності (ст. 14 Закону № 60/95-ВР) і не пов'язане з ризиками ст. 307–310 КК України (які стосуються лише готових наркотиків). Ми не консультуємо щодо культивації, не продаємо плодові тіла чи психоактивні продукти, фокусуючись на освітній цінності. Пересилання відповідає поштовим нормам (Постанова № 270 від 05.03.2009), а інформація на сайті – для осіб старше 18 років, з дотриманням Закону "Про захист прав споживачів" № 1023-XII.</p>
+
+                <p>Адміністрація не несе відповідальності за нецільове використання (ст. 1166 ЦК України), але запевняє: при науковому призначенні все безпечно та надійно. Рекомендуємо перевірити місцеве законодавство для спокою, але наша діяльність захищена законом.</p>
+
+                <hr>
+
+                <h2>Стислий аналіз легальності та безпеки</h2>
+                <p>Діяльність Grownica базується на позитивних нормах права, забезпечуючи повну законність і відсутність ризиків для покупців при правильному використанні.</p>
+
+                <h3>Ключові докази законності</h3>
+                <ul>
+                  <li><strong>Статус спор</strong>: Не наркотики (Закон № 60/95-ВР, ст. 1; Перелік № 770) – біологічний матеріал без активних сполук, дозволений для досліджень (ст. 14).</li>
+                  <li><strong>Дозволені цілі</strong>: Мікологія та таксономія (Закон № 848-VIII, ст. 7) – свобода науки захищає покупців від будь-яких претензій.</li>
+                  <li><strong>Відсутність ризиків</strong>: Не застосовуються заборони КК (ст. 307 лише до речовин); прецедентів переслідування за колекціонування спор немає (ЄДРСР).</li>
+                  <li><strong>Операційні аспекти</strong>: Пересилання стандартне (Постанова № 270); конфіденційність (Закон № 2297-VI); продаж з підтвердженням цілей.</li>
+                </ul>
+
+                <h3>Таблиця основних аспектів</h3>
+                <div class="table-responsive">
+                  <table class="table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Аспект</th>
+                        <th>Правова основа</th>
+                        <th>Гарантія для покупця</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Продаж спор</td>
+                        <td>Закон № 60/95-ВР, ст. 14</td>
+                        <td>Легальне для науки, без наслідків</td>
+                      </tr>
+                      <tr>
+                        <td>Наукове використання</td>
+                        <td>Закон № 848-VIII, ст. 7</td>
+                        <td>Захист досліджень; спокійне володіння</td>
+                      </tr>
+                      <tr>
+                        <td>Пересилання та інфо</td>
+                        <td>Постанова № 270; Закон № 1023-XII</td>
+                        <td>Стандартна доставка, освітній контент</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h3>Ключові цитати</h3>
+                <ul>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/60/95-%D0%B2%D1%80" target="_blank" rel="noopener">Закон № 60/95-ВР "Про наркотичні засоби"</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/770-2000-%D0%BF" target="_blank" rel="noopener">Перелік № 770</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/848-19" target="_blank" rel="noopener">Закон № 848-VIII "Про наукову діяльність"</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/435-15" target="_blank" rel="noopener">ЦК України, ст. 1166</a></li>
+                  <li><a href="https://zakon.rada.gov.ua/laws/show/270-2009-%D0%BF" target="_blank" rel="noopener">Постанова № 270 про пошту</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="row section-block">
+      <div class="col-12">
+        {% include 'components/footer.html' %}
+      </div>
+    </div>
+  </div>
+
+  {% include 'components/cart_button.html' %}
+  {% include 'components/cart_modal.html' %}
+{% endblock %}
+
+{% block extra_js %}
+  <script defer src="{% static 'deps/js/jquery-ajax.js' %}"></script>
+  <script defer src="{% static 'deps/js/cart-component.js' %}"></script>
+{% endblock %}

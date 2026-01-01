@@ -1,0 +1,52 @@
+{# templates/carts/includes/included_cart.html #}
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+{% if carts and carts.exists %}
+<div class="cart-list">
+    {% for cart in carts %}
+    <div class="cart-row" data-cart-id="{{ cart.id }}">
+        <div class="cart-row-left">
+            {% if cart.product.image %}
+            <img src="{{ cart.product.image.url }}" alt="{% if CUR_LANG == 'ru' and cart.product.name_ru %}{{ cart.product.name_ru }}{% else %}{{ cart.product.name }}{% endif %}" width="64" height="64">
+            {% endif %}
+        </div>
+
+        <div class="cart-row-mid">
+            <div class="cart-prod-title">
+                {% if CUR_LANG == 'ru' and cart.product.name_ru %}{{ cart.product.name_ru }}{% else %}{{ cart.product.name }}{% endif %}
+                {% if cart.gift_choice or cart.gift_choice_2 %}
+                    (
+                    {% if cart.gift_choice %}{{ cart.gift_choice }}{% endif %}
+                    {% if cart.gift_choice and cart.gift_choice_2 %}, {% endif %}
+                    {% if cart.gift_choice_2 %}{{ cart.gift_choice_2 }}{% endif %}
+                    )
+                {% endif %}
+            </div>
+            <div class="cart-prod-unit-price"><strong>{{ cart.product.sell_price }}</strong> ₴</div>
+            <div class="cart-prod-sku">{{ cart.product.sku|default:"" }}</div>
+        </div>
+
+        <div class="cart-row-qty">
+            <button class="qty-btn qty-decrement" data-cart-id="{{ cart.id }}" aria-label="{% if CUR_LANG == 'ru' %}Уменьшить{% else %}Зменшити{% endif %}">−</button>
+            <input class="qty-input" type="number" min="1" value="{{ cart.quantity }}" data-cart-id="{{ cart.id }}">
+            <button class="qty-btn qty-increment" data-cart-id="{{ cart.id }}" aria-label="{% if CUR_LANG == 'ru' %}Увеличить{% else %}Збільшити{% endif %}">+</button>
+        </div>
+
+        <div class="cart-row-price">
+            <div class="cart-prod-price">{{ cart.products_price }} ₴</div>
+            <button class="remove-from-cart" data-cart-id="{{ cart.id }}"
+                    data-cart-remove-url="{% url 'carts:cart_remove' %}" aria-label="{% if CUR_LANG == 'ru' %}Удалить{% else %}Видалити{% endif %}">{% if CUR_LANG == 'ru' %}Удалить{% else %}Видалити{% endif %}
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="cart-summary">
+    <div>{% if CUR_LANG == 'ru' %}Всего{% else %}Разом{% endif %}: <strong id="cart-summary-quantity">{{ total_quantity|default:"" }}</strong> {% if CUR_LANG == 'ru' %}шт{% else %}шт{% endif %}</div>
+    <div>{% if CUR_LANG == 'ru' %}Итого{% else %}Разом{% endif %}: <strong id="cart-summary-sum">{{ total_sum|default:"" }}</strong> ₴</div>
+</div>
+{% else %}
+    <p>{% if CUR_LANG == 'ru' %}Ваша корзина пуста{% else %}Ваш кошик порожній{% endif %}</p>
+{% endif %}

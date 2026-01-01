@@ -1,0 +1,363 @@
+{% load static carts_tags media_extras i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as CUR_LANG %}
+<html lang="{{ CUR_LANG|default:'uk' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grownica — {% if CUR_LANG == 'ru' %}Оформление заказа{% else %}Оформлення замовлення{% endif %}</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Favicon & app icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="{% static 'deps/favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+    <!-- Explicit favicon variants (Google prefers 48px multiples) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'deps/icons/logo48x48.png' %}">
+    <link rel="icon" href="{% static 'deps/icons/logo48x48.ico' %}" sizes="any">
+    <meta name="theme-color" content="#292f1b">
+
+    {% include 'includes/ga4.html' %}
+    {% include 'includes/clarity.html' %}
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <!-- Google Fonts used by header title -->
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Critical styles with preload -->
+    <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/templatemo-style.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/header-hero.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/header-hero.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/create_order.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/create_order.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/discount_badge.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/discount_badge.css' %}">
+    <!-- Secondary styles via preload+onload -->
+    <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+    
+    <style>
+      /* Adaptive header for the qty column so 'Количество' fits on small screens */
+      .checkout-order-summary th.col-qty { 
+        font-size: clamp(12px, 1.8vw, 14px);
+        white-space: nowrap;
+      }
+      /* Slightly tighten table header paddings on narrow screens */
+      @media (max-width: 576px) {
+        .checkout-order-summary thead th { padding: 0.4rem 0.35rem; }
+        .checkout-order-summary th.col-product { max-width: 40vw; }
+      }
+
+      /* Full-bleed layout on mobile to avoid right-side gap */
+      html, body { overflow-x: hidden; }
+      @media (max-width: 576px) {
+        .checkout-page .container.home-framed {
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .checkout-inner .row { margin-right: 0; margin-left: 0; }
+        .checkout-inner [class^="col-"] { padding-right: 0; padding-left: 0; }
+        .checkout-form-card, .checkout-order-summary { margin-left: 0; margin-right: 0; border-radius: 0; }
+      }
+    </style>
+    
+</head>
+<body class="checkout-page">
+  <div class="container home-framed">
+    {% include 'components/header-hero.html' %}
+
+    <main>
+    <div class="checkout-inner mt-4">
+        <div class="row">
+            <div class="col-xl-7">
+                <div class="card checkout-form-card mb-4 form-tint">
+                    <div class="card-body">
+                        <ol class="activity-checkout list-unstyled mb-0 px-4 mt-3">
+                            <li class="checkout-item">
+                                <div class="avatar checkout-icon p-1">
+                                    <div class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bxs-receipt text-white"></i>
+                                    </div>
+                                </div>
+                                <h5 class="fw-bold">{% if CUR_LANG == 'ru' %}Детали заказа{% else %}Деталі замовлення{% endif %}</h5>
+
+                                {% if messages %}
+                                <div class="mt-3" id="checkout-messages">
+                                  {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                                      {{ message }}
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                  {% endfor %}
+                                </div>
+                                {% endif %}
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        {% for field in form %}
+                                        {% for error in field.errors %}
+                                        <li>{{ field.label }}: {{ error }}</li>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for error in form.non_field_errors %}
+                                        <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                                <form action="{% url 'orders:create_order' %}" method="post" id="create_order_form">
+                                    {% csrf_token %}
+
+                                    <!-- Ім'я та Прізвище в одному рядку -->
+                                    <div class="row g-3">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="id_first_name">{% if CUR_LANG == 'ru' %}Имя{% else %}Ім'я{% endif %}<span class="req-star">*</span></label>
+                                            <input type="text" name="first_name" id="id_first_name"
+                                                   value="{{ form.first_name.value|default_if_none:'' }}" class="form-control"
+                                                   autocomplete="given-name" inputmode="text"
+                                                   required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="id_last_name">{% if CUR_LANG == 'ru' %}Фамилия{% else %}Прізвище{% endif %}<span class="req-star">*</span></label>
+                                            <input type="text" name="last_name" id="id_last_name"
+                                                   value="{{ form.last_name.value|default_if_none:'' }}" class="form-control"
+                                                   autocomplete="family-name" inputmode="text"
+                                                   required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Телефон і Email в одному рядку -->
+                                    <div class="row g-3">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="id_phone_number" class="form-label">{% if CUR_LANG == 'ru' %}Номер телефона{% else %}Номер телефону{% endif %}<span class="req-star">*</span>:</label>
+                                            <input type="tel" class="form-control" id="id_phone_number" name="phone_number"
+                                                   value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                                                   placeholder="+380 XX XXX XX XX" inputmode="tel"
+                                                   pattern="^\+?380\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$"
+                                                   title="{% if CUR_LANG == 'ru' %}Формат: +380 XX XXX XX XX{% else %}Формат: +380 XX XXX XX XX{% endif %}"
+                                                   autocomplete="tel" required>
+                                            {% if form.phone_number.errors %}
+                                            <div class="alert alert-danger alert-dismissible fade show">
+                                                {{form.phone_number.errors}}
+                                            </div>
+                                            {% endif %}
+                                            <div class="alert alert-danger alert-dismissible fade show" style="display: none"
+                                                 id="phone_number_error" aria-live="polite">{% if CUR_LANG == 'ru' %}Неверный формат номера{% else %}Невірний формат номера{% endif %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="id_email">Email<span class="req-star">*</span></label>
+                                            <input type="email" name="email" id="id_email"
+                                                   value="{{ form.email.value|default_if_none:'' }}" class="form-control"
+                                                   autocomplete="email" inputmode="email"
+                                                   required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label d-block">{% if CUR_LANG == 'ru' %}Способ доставки{% else %}Спосіб доставки{% endif %}<span class="req-star">*</span></label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="delivery_method"
+                                                   id="delivery_courier" value="courier" required checked>
+                                            <label class="form-check-label" for="delivery_courier">{% if CUR_LANG == 'ru' %}Новая Почта{% else %}Нова Пошта{% endif %}</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Населений пункт і Відділення/поштомат в одному рядку -->
+                                    <div class="row g-3">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="nova_city" class="form-label">{% if CUR_LANG == 'ru' %}Населённый пункт{% else %}Населений пункт{% endif %}<span class="req-star">*</span></label>
+                                            <input type="text" class="form-control" id="nova_city"
+                                                   placeholder="{% if CUR_LANG == 'ru' %}Начните вводить...{% else %}Почніть вводити...{% endif %}" autocomplete="address-level2" required>
+                                            <input type="hidden" name="city_ref" id="nova_city_ref">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="warehouse_display" class="form-label">{% if CUR_LANG == 'ru' %}Отделение или почтомат{% else %}Відділення або поштомат{% endif %}<span class="req-star">*</span></label>
+                                            <select class="form-select" id="warehouse_display" name="warehouse_ref" required>
+                                                <option value="">{% if CUR_LANG == 'ru' %}Сначала выберите город{% else %}Спочатку оберіть місто{% endif %}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Відновлені поля -->
+                                    <input type="hidden" name="delivery_address" id="id_delivery_address">
+
+                                    <div class="mb-3">
+                                        <label class="form-label d-block">{% if CUR_LANG == 'ru' %}Способ оплаты:{% else %}Спосіб оплати:{% endif %}</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="payment_on_get"
+                                                   id="payment_cash" value="1" checked>
+                                            <label class="form-check-label" for="payment_cash">{% if CUR_LANG == 'ru' %}Наложенный платёж{% else %}Післяплата{% endif %}</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="order_comment" class="form-label">{% if CUR_LANG == 'ru' %}Комментарий к товару{% else %}Коментар до товару{% endif %}</label>
+                                        <textarea class="form-control" id="order_comment" name="comment" rows="3"
+                                                  placeholder="{% if CUR_LANG == 'ru' %}Если у вас есть вопросы, пожелания, предложения — можете вписать это здесь. Каждый комментарий будет учтён и прочитан.{% else %}Якщо у вас є запитання, побажання, пропозиції — можете вписати це тут. Кожен коментар буде врахований і прочитаний.{% endif %}"></textarea>
+                                    </div>
+
+                                    <div class="text-center mt-4">
+                                        <button type="submit" class="btn btn-success btn-lg">{% if CUR_LANG == 'ru' %}Оформить заказ{% else %}Оформити замовлення{% endif %}</button>
+                                        <p class="form-text text-muted mt-2">{% if CUR_LANG == 'ru' %}Ваши контактные данные не будут сохранены в нашей базе данных{% else %}Ваші контактні дані не будуть збережені в нашій базі даних{% endif %}</p>
+                                    </div>
+                                </form>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'main:home' %}" class="btn btn-link continue-shopping-link">
+                            <i class="mdi mdi-arrow-left me-1"></i> {% if CUR_LANG == 'ru' %}Продолжить покупки{% else %}Продовжити покупки{% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5">
+                <div class="card checkout-order-summary" data-cart-change-url="{% url 'carts:cart_change' %}">
+                    <div class="card-body">
+                        <div class="p-3 summary-title mb-3">
+                            <h5>{% if CUR_LANG == 'ru' %}Итог заказа{% else %}Підсумок замовлення{% endif %}</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-centered mb-0">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="col-product">{% if CUR_LANG == 'ru' %}Товар{% else %}Товар{% endif %}</th>
+                                    <th scope="col" class="col-qty text-center">{% if CUR_LANG == 'ru' %}Количество{% else %}Кількість{% endif %}</th>
+                                    <th scope="col" class="col-sum text-end">{% if CUR_LANG == 'ru' %}Сумма{% else %}Сума{% endif %}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% user_carts request as carts %}
+                                {% for item in carts %}
+                                <tr class="order-item-row"
+                                    data-cart-id="{{ item.id }}"
+                                    data-unit-price="{{ item.product.price|floatformat:'2' }}"
+                                    data-sell-price="{{ item.product.sell_price|floatformat:'2' }}"
+                                    data-discount="{{ item.product.discount|floatformat:'2' }}"
+                                    data-quantity="{{ item.quantity }}">
+                                    <td>
+                                        <div class="product-cell d-flex align-items-start">
+                                            <a href="{{ item.product.get_absolute_url }}" class="rp-link me-3">
+                                                {% if CUR_LANG == 'ru' and item.product.name_ru %}
+                                                    {% product_image_picture item.product '128x128' 'rounded product-thumb' item.product.name_ru 64 64 'lazy' %}
+                                                {% else %}
+                                                    {% product_image_picture item.product '128x128' 'rounded product-thumb' item.product.name 64 64 'lazy' %}
+                                                {% endif %}
+                                            </a>
+                                            <div class="product-info">
+                                                <a href="{{ item.product.get_absolute_url }}" class="rp-link d-block">{% if CUR_LANG == 'ru' and item.product.name_ru %}{{ item.product.name_ru }}{% else %}{{ item.product.name }}{% endif %}</a>
+                                                {% if item.gift_choice %}
+                                                <div class="mt-1" style="font-size: .8em; line-height: 1.1; opacity:.9;">{% if CUR_LANG == 'ru' %}Стрейн{% else %}Стрейн{% endif %}: {{ item.gift_choice }}</div>
+                                                {% endif %}
+                                                {% if item.gift_choice_2 %}
+                                                <div class="mt-1" style="font-size: .8em; line-height: 1.1; opacity:.9;">{% if CUR_LANG == 'ru' %}Стрейн №2{% else %}Стрейн №2{% endif %}: {{ item.gift_choice_2 }}</div>
+                                                {% endif %}
+                                                <div class="unit-price mt-1">
+                                                    {% if item.product.discount %}
+                                                        <span class="old-price text-decoration-line-through me-2">{{ item.product.price|floatformat:'0' }} ₴</span>
+                                                        <span class="new-price text-success fw-semibold">{{ item.product.sell_price|floatformat:'0' }} ₴</span>
+                                                    {% else %}
+                                                        <span class="current-price fw-semibold">{{ item.product.sell_price|floatformat:'0' }} ₴</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        <div class="qty-controls" role="group" aria-label="{% if CUR_LANG == 'ru' %}Количество{% else %}Кількість{% endif %}">
+                                            <button class="btn btn-sm qty-btn order-qty-dec" type="button" aria-label="{% if CUR_LANG == 'ru' %}Уменьшить{% else %}Зменшити{% endif %}">−</button>
+                                            <span class="qty-value mx-2">{{ item.quantity }}</span>
+                                            <button class="btn btn-sm qty-btn order-qty-inc" type="button" aria-label="{% if CUR_LANG == 'ru' %}Увеличить{% else %}Збільшити{% endif %}">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="line-sum text-end align-middle">{{ item.products_price|floatformat:'0' }}&nbsp;₴</td>
+                                </tr>
+                                {% endfor %}
+                                <tr class="table-total-discount">
+                                    <td colspan="2" class="text-end"><strong>{% if CUR_LANG == 'ru' %}Общая скидка:{% else %}Загальна знижка:{% endif %}</strong></td>
+                                    <td class="text-end"><strong id="order-total-discount" class="text-success">0 ₴</strong></td>
+                                </tr>
+                                <tr class="table-shipping-info">
+                                    <td colspan="2" class="text-end"><strong>{% if CUR_LANG == 'ru' %}Доставка:{% else %}Доставка:{% endif %}</strong></td>
+                                    <td class="text-end"><span class="shipping-note">{% if CUR_LANG == 'ru' %}по тарифам перевозчика{% else %}за тарифами перевізника{% endif %}</span></td>
+                                </tr>
+                                <tr class="table-total">
+                                    <td colspan="2" class="text-end"><strong>{% if CUR_LANG == 'ru' %}Итого:{% else %}Разом:{% endif %}</strong></td>
+                                    <td class="text-end"><strong>{{ carts.total_price|floatformat:'0' }}&nbsp;₴</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    {% include 'components/footer.html' %}
+  </div>
+
+<!-- jQuery (sync) + immediate fallback to avoid race with deferred scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  if (!window.jQuery) {
+    document.write('<script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"><\/script>');
+  }
+  window.jQuery || (function(){
+    // as a last resort, load local jQuery asynchronously
+    var s=document.createElement('script'); s.src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"; document.head.appendChild(s);
+  })();
+  
+</script>
+<!-- Bootstrap JS (deferred) -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+<!-- jQuery UI for autocomplete -->
+<link rel="preload" as="style" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"></noscript>
+<script defer src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<!-- Select2 for better dropdowns -->
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/></noscript>
+<script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script defer src="{% static 'deps/js/create_order.js' %}?v=4"></script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+  var _smartsupp = _smartsupp || {};
+  _smartsupp.key = '5de87bf9af1b8fa48e3662bde83f62b0c5d164d0';
+  window.smartsupp||(function(d) {
+    var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+    s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+    c.type='text/javascript';c.charset='utf-8';c.async=true;
+    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+  })(document);
+  document.addEventListener('DOMContentLoaded', function(){
+    var el = document.getElementById('checkout-messages');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+</body>
+</html>

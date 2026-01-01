@@ -1,0 +1,748 @@
+/* ---------- header-hero.css (рефакторинг) ---------- */
+
+/* Load custom TTF only on desktop to reduce mobile blocking */
+@media (min-width: 992px) {
+  @font-face {
+    font-family: 'TagesschriftCyrillic';
+    src: url('/static/deps/webfonts/TagesschriftCyrillic-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+/* Base wrappers (apply for all viewports, desktop keeps old look) */
+.tm-site-title .tm-site-title-text { position: relative; display: inline-block; color: inherit; background-image: none; -webkit-text-fill-color: initial; }
+.tm-site-description .tm-site-subtitle-text { position: relative; display: inline-block; color: #dac299; background-image: none; -webkit-text-fill-color: initial; }
+/* By default no cloned layer; enabled only on mobile */
+.tm-site-title .tm-site-title-text::after { content: none; }
+.tm-site-description .tm-site-subtitle-text::after { content: none; }
+
+.header-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 122px; /* reduced by 25px */
+  box-sizing: border-box;
+  background-color: #07070a;
+  color: #fff;
+  z-index: 5000;
+  /* Принудительно задаем гарнитуру для хедера, независимо от внешних стилей */
+  font-family: 'TagesschriftCyrillic', cursive;
+}
+
+/* Усиливаем применение шрифта на ключевых элементах хедера,
+   если внешние стили используют более специфичные селекторы */
+.header-hero .tm-header,
+.header-hero .tm-site-title,
+.header-hero .tm-site-description,
+.header-hero .tm-nav-buttons .tm-nav-link,
+.header-hero .tm-header-social,
+.header-hero .tm-header-left {
+  font-family: 'TagesschriftCyrillic', cursive;
+}
+
+
+
+.header-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #ffc75bb3;
+  border-radius: 8px;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(255, 199, 91, 0.4);
+  z-index: 10; /* ниже контента; соц-иконки и текст будут над рамкой */
+}
+
+/* фон и overlay — оставляем прежние слои (вставлены как были) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-bg picture, .hero-bg img { display:block; width:100%; height:100%; }
+.hero-bg img.hero-image { object-fit: cover; object-position: top center; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* Ослабленный тёмный градиент */
+    linear-gradient(180deg, rgba(3,3,6,0.18), rgba(3,3,6,0.28)),
+    /* Бирюзовое пятно */
+    radial-gradient(circle at 12% 28%, rgba(0,184,184,0.06), transparent 18%),
+    /* Фиолетовое пятно */
+    radial-gradient(circle at 88% 72%, rgba(181,124,255,0.06), transparent 18%);
+}
+
+
+
+
+/* контейнер содержимого */
+.container-inner.header-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+.tm-header {
+  position: relative;
+  height: 95px;
+  display: block;
+}
+
+/* ----------------- LEFT: логотип (текстовый) ----------------- */
+/* Лого слева по вертикали центрируем: используем абсолют и translate */
+.tm-header-left {
+  position: absolute;
+  left: 16px;               /* отступ слева */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* текст логотипа */
+.tm-site-title {
+  position: relative;
+  bottom: 1.9rem;
+  left: -5rem;
+  margin: 0;
+  /* Bright gold as before */
+  color: #ffc75b;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'TagesschriftCyrillic', cursive;
+
+
+
+  text-shadow:
+    0 -1px 0 rgba(255,255,255,0.20),
+    0  1px 0 rgba(255,255,255,0.25),
+    0  2px 0 rgba(0,0,0,0.45),
+    0  3px 0 rgba(0,0,0,0.25),
+    1px 2px 0 rgba(0,0,0,0.18),
+    0  3px 6px rgba(0,0,0,0.25),
+    0 0 5px rgba(79,70,62,0.42),
+    0 0 8px rgba(255,168,60,0.34),
+    0 0 12px rgba(255,150,40,0.22);
+}
+
+.tm-site-description {
+  position: relative;
+  left: -1rem;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #dac299;
+  font-weight: 400;
+  bottom: 2.6rem;
+}
+
+.tm-site-title-link-block,
+.tm-site-title-link-block:link,
+.tm-site-title-link-block:visited,
+.tm-site-title-link-block:hover,
+.tm-site-title-link-block:active,
+.tm-site-title-link-block:focus,
+.tm-site-title-link-block:focus-visible {
+  display: inline-block;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ----------------- TOP-RIGHT: соцсети ----------------- */
+/* спектр: абсолютно сверху справа */
+.tm-header-social {
+  position: absolute;
+  top: 50%;
+  right: -3rem;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  z-index: 4;
+  padding-bottom: 3rem;
+}
+
+
+
+/* иконка-обёртка */
+.tm-social-link {
+  display: inline-flex;
+  width: 53px;
+  height:53px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+      border: 2px solid #515e30; /* цвет полупрозрачной рамки */
+  box-shadow: 0 0 10px rgba(255, 199, 91, 0.3); /* мягкое свечение */
+  text-decoration: none;
+  transition: transform .12s ease, background .12s ease;
+}
+.tm-social-link img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.header-hero .tm-social-link { border-radius: 50%; }
+.tm-social-link:hover, .tm-social-link:focus { transform: translateY(-3px); background: rgba(255,255,255,0.06); }
+
+
+.tm-social-link:hover,
+.tm-social-link:focus {
+  transform: translateY(-3px);
+  background: #515e30;
+  border-color: rgba(255, 199, 91, 0.8); /* при наведении ярче */
+  box-shadow: 0 0 14px rgba(255, 199, 91, 0.5);
+}
+
+/* ----------------- BOTTOM-RIGHT: навигационные кнопки ----------------- */
+/* отдельный блок внизу справа */
+.tm-header-nav {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  display: block;
+}
+.header-hero .tm-header-nav .tm-nav-note {
+  text-align: center;
+  color: #ffeec5;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45), 0 0 6px rgba(0,0,0,0.25);
+  padding: 6px 11px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(34,139,94,0.14), rgba(10,47,32,0.06));
+  border: 2px solid #b37a2e;
+}
+.header-hero .tm-header-nav .tm-nav-note-main {
+  display: block;
+}
+.header-hero .tm-header-nav .tm-nav-note-sub {
+  display: block;
+  font-size: 0.8em;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+@media (min-width: 992px) {
+  .tm-header-nav {
+    text-align: center;
+  }
+  .header-hero .tm-header-nav .tm-nav-note {
+    display: inline-block;
+  }
+  .header-hero .tm-header-nav .tm-nav-note-main {
+    font-size: 0.9em;
+  }
+}
+
+.tm-nav-buttons {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.tm-nav-buttons .tm-nav-li {}
+.tm-nav-buttons .tm-nav-link {
+  display: inline-block;
+  color: rgb(218 194 153);
+  text-decoration: none;
+  font-weight: 800;
+  /* Простое явное увеличение ~15% */
+  font-size: 1.3rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: color .2s ease, transform .12s ease;
+  background: transparent;
+}
+
+.tm-nav-buttons .tm-nav-link:hover { color: #ffd700; transform: translateY(-2px); }
+.tm-nav-buttons .tm-nav-link.active {
+  color: #ffc75b;
+  background: transparent !important; /* полностью без подложки */
+  box-shadow: none !important;
+  position: relative;
+  padding-left: inherit; padding-right: inherit; /* вернуть базовые паддинги */
+}
+.tm-nav-buttons .tm-nav-link.active::before,
+.tm-nav-buttons .tm-nav-link.active::after {
+  content: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== Desktop underlay for active nav (render on li to avoid text metrics shift) ===== */
+.tm-nav-buttons .tm-nav-li { position: relative; }
+/* Prefer class hook from template */
+.tm-nav-buttons .tm-nav-li.is-active::before,
+/* Fallback using :has for cases when only anchor has .active */
+.tm-nav-buttons .tm-nav-li:has(> .tm-nav-link.active)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ----------------- адаптив (сохраняем/подправляем прошлые брейкпоинты) ----------------- */
+
+@media (max-width: 992px) {
+  .header-hero { min-height: 360px; }
+  .tm-site-title { font-size: 1.6rem; }
+}
+
+/* На узких экранах: переводим все в поток (stack), чтобы ничего не перекрывалось */
+@media (max-width: 768px) {
+  /* On mobile use a lightweight system/Poppins stack to avoid TTF download */
+  .header-hero { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+  .container-inner.header-hero-content { padding: 0 12px; }
+  /* Перекладываем на grid: верх/центр/низ */
+  .tm-header {
+    height: auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    row-gap: 8px;
+    padding: 10px 0 14px;
+    min-height: 380px;             /* запас по высоте, чтобы нижняя кнопка не резалась */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  /* делаем элементы нормальным документным потоком (не absolute) */
+  .tm-header-left,
+  .tm-header-social,
+  .tm-header-nav {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+
+  .tm-header-left { margin: 6px 0 4px; }
+  /* Center the title + subtitle block horizontally */
+  .tm-header-left { justify-content: center; }
+  .tm-site-text-box { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  /* Social block goes below titles; increase spacing slightly */
+  .tm-header-social { grid-row: 1; display: flex; justify-content: center; margin: 6px 0 6px; gap: 10px; }
+  .tm-header-left   { grid-row: 2; display: flex; justify-content: center; }
+  .tm-header-nav    { grid-row: 3; display: flex; justify-content: center; padding-bottom: 4px; }
+
+  .tm-nav-buttons { gap: 10px; flex-wrap: wrap; justify-content: center; }
+  /* Responsive social size using clamp: 44px..64px depending on width */
+  .tm-social-link { width: clamp(36px, 9vw, 52px); height: clamp(36px, 9vw, 52px); border-radius: 50%; }
+  .tm-site-title {
+    /* responsive title size */
+    font-size: clamp(2rem, 6vw, 2.4rem);
+    text-align: center;
+    /* reset desktop offsets to avoid overflow on small screens */
+    left: 0;
+    bottom: 0;
+    margin: 0;
+  }
+  .tm-site-description {
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    /* responsive subtitle size */
+    font-size: clamp(0.88rem, 3.2vw, 1rem);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Общий след: оставляем компактный футпринт, при этом приподнимаем кнопки */
+  .header-hero { min-height: 320px; }
+  .tm-nav-buttons { margin-bottom: 0.5rem; }
+  /* Evenly distribute three nav links across the width */
+  .tm-nav-buttons { width: 100%; justify-content: space-between; column-gap: 8px; flex-wrap: wrap; }
+  .tm-nav-buttons .tm-nav-li { flex: 1 1 calc(33.333% - 8px); display: flex; justify-content: center; }
+  .tm-nav-buttons .tm-nav-link { flex: 0 1 auto; text-align: center; min-height: 42px; padding: 8px 10px; font-size: 1.05rem; }
+}
+
+/* Extra tightening for small phones */
+@media (max-width: 430px) {
+  /* Prevent text from forcing overflow in flex items */
+  .tm-header-nav,
+  .tm-header-left,
+  .tm-header-social { min-width: 0; }
+
+  .tm-nav-buttons { gap: 8px; }
+  .tm-nav-buttons .tm-nav-link {
+    padding: 8px 12px;
+    font-size: 1.1rem;
+  }
+
+  /* Чуть уменьшаем шрифт плашки на очень узких экранах, чтобы она не упиралась в корзину */
+  .header-hero .tm-header-nav .tm-nav-note {
+    font-size: 0.92rem;
+  }
+
+  .tm-header-social { gap: 10px; }
+}
+
+
+/* небольшая подстройка для очень узких экранов */
+@media (max-width: 360px) {
+  .tm-social-link { width: 28px; height: 28px; }
+  .tm-nav-buttons .tm-nav-link { padding: 7px 10px; font-size: 1rem; }
+  .tm-nav-buttons { gap: 6px; }
+  .tm-header-social { gap: 8px; }
+}
+
+
+
+/* ===== Mobile Hard Override (last wins) ===== */
+@media (max-width: 768px) {
+  /* Контейнер хедера — явная трёхрядная сетка */
+  .header-hero .tm-header {
+    position: static; /* позволяем абсолютному позиционированию соц.иконок от .header-hero */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    row-gap: 0;                         /* убрали межрядный зазор */
+    min-height: 340px; /* компактнее */
+    padding: 0 0 calc(10px + env(safe-area-inset-bottom)); /* убрали верхний внутренний отступ */
+  }
+
+  /* Верх: соц‑иконки с небольшим зазором */
+  /* Поднимаем соц‑иконки относительно всей шапки и выводим над рамкой (::after имеет z-index:1000) */
+  .header-hero .tm-header-social {
+    grid-row: 1;
+    position: absolute;
+    top: 26px; /* воздух сверху */
+    left: 50%;
+    transform: translateX(-50%); /* центрируем по горизонтали */
+    right: auto;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 0;
+    padding: 0;
+    z-index: 20; /* контент над рамкой */
+  }
+  /* +10% к текущему размеру */
+  .header-hero .tm-social-link { width: clamp(42px, 12vw, 64px); height: clamp(42px, 12vw, 64px); border-radius: 50%; }
+
+  /* Центр: заголовки строго по центру, без десктоп‑смещений */
+  .header-hero .tm-header-left { grid-row: 2; display: flex; justify-content: center; margin: 0; }
+  .header-hero .tm-site-title {
+    position: static;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    /* увеличили заголовок на ~25–30% в мобильном режиме */
+    font-size: clamp(3.4rem, 7vw, 3rem);
+    font-weight: 700; /* мягче, чем 800 */
+    /* Базовый цвет для fallback (если градиент недоступен) */
+    color: #ffc75b;
+    text-shadow: none;
+    /* Сглаживание шрифта для ровных краёв, яркость цвета не меняем */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Чуть повышаем читаемость без потери яркости */
+    letter-spacing: 0.01em;
+  }
+
+  /* Mobile: ЗОЛОТИСТЫЙ ГЛЯНЕЦ для заголовка */
+  .header-hero .tm-site-title .tm-site-title-text {
+    /* металлизированный золотой + несколько бликов для "перелива" */
+    /* центр вокруг #ffc75b: доминирует чистый золотистый оттенок */
+    --gold-top: #ffd480; --gold-mid: #ffc75b; --gold-bot: #ffb23a;
+    background-image:
+      /* основной золотой вертикальный градиент (чистый) */
+      linear-gradient(180deg, var(--gold-top) 0%, var(--gold-mid) 60%, var(--gold-bot) 100%),
+      /* узкая белая блик-полоска (глянец) */
+      linear-gradient(-18deg, rgba(255,255,255,0) 48%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0) 52%),
+      /* тонкая тёмная полоса для контраста */
+      linear-gradient(-18deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.14) 57%, rgba(0,0,0,0) 59%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* для движков без -webkit-text-fill-color */
+    background-repeat: no-repeat;
+    background-size: 100% 100%, 220% 100%, 220% 100%;
+    background-position: 0 0, -15% 0, -35% 0;
+    animation: goldShimmer 3.8s ease-in-out infinite alternate;
+    /* очень лёгкий embossed-эффект: верхний кант + нижний кант + мягкая тень */
+    text-shadow:
+      0 -1px 0 rgba(255,255,255,0.18),
+      0  1px 0 rgba(0,0,0,0.16),
+      0  3px 6px rgba(0,0,0,0.12);
+  }
+  .header-hero .tm-site-title .tm-site-title-text::after {
+    /* без второго слоя на мобайле, чтобы не было "двойной" надписи */
+    content: none;
+  }
+
+  /* Mobile subtitle: ГЛЯНЦЕВО-СЕРЕБРЯНЫЙ (чистый) С ПЕРЕЛИВОМ */
+  .header-hero .tm-site-description .tm-site-subtitle-text {
+    /* серебристый глянец с переливом, деликатнее заголовка */
+    --sub-silver-top: #f5f7fa; --sub-silver-mid: #d7dde4; --sub-silver-bot: #9aa5b1;
+    background-image:
+      linear-gradient(180deg, var(--sub-silver-top) 0%, var(--sub-silver-mid) 45%, var(--sub-silver-bot) 100%),
+      /* белая блик-полоска */
+      linear-gradient(-18deg, rgba(255,255,255,0) 48%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 52%),
+      /* тонкая тёмная полоса для контраста */
+      linear-gradient(-18deg, rgba(0,0,0,0) 56%, rgba(0,0,0,0.16) 58%, rgba(0,0,0,0) 60%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%, 220% 100%, 220% 100%;
+    background-position: 0 0, -20% 0, -40% 0;
+    animation: goldShimmer 4.6s ease-in-out infinite alternate; /* чуть медленнее и мягче */
+    text-shadow:
+      0 -1px 0 rgba(255,255,255,0.14),
+      0  1px 0 rgba(0,0,0,0.12),
+      0  2px 4px rgba(0,0,0,0.10);
+  }
+  .header-hero .tm-site-description .tm-site-subtitle-text::after {
+    content: none; /* без дубля */
+  }
+  .header-hero .tm-site-description {
+    position: static;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: clamp(1.2rem, 3.2vw, 1rem);
+    margin: 4px 0;
+  }
+
+  /* Слегка опускаем блок заголовка и подзаголовка, не влияя на поток (не выдавливаем навигацию) */
+  .header-hero .tm-site-text-box { transform: translateY(28px); }
+
+  /* Низ: навигация — плашка над кнопками (вертикальный стек) */
+  .header-hero .tm-header-nav {
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .header-hero .tm-nav-note {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
+    margin: 4px auto 6px;
+    padding: clamp(6px, 2.2vw, 10px) clamp(8px, 2.6vw, 11px);
+    border-radius: 10px;
+  }
+  .header-hero .tm-header-nav .tm-nav-note {
+    position: relative;
+    transform: translateY(-18px);
+    background: transparent !important;
+    border-color: transparent !important;
+  }
+  .header-hero .tm-nav-note-sub {
+    display: none;
+  }
+  .header-hero .tm-header-nav .tm-nav-note::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+    border-radius: inherit;
+    background: linear-gradient(50deg, rgb(15 97 5 / 16%), rgb(10 47 32 / 69%));
+    border: 2px solid #b37a2e;
+    z-index: -1;
+  }
+  .header-hero .tm-nav-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: clamp(6px, 3vw, 12px);
+    row-gap: 0;
+    margin: 0 0 8px 0;
+    padding: 0 clamp(6px, 2.5vw, 10px);
+    list-style: none;
+  }
+  .header-hero .tm-nav-buttons .tm-nav-li { display: flex; justify-content: center; min-width: 0; width: 100%; overflow: visible; }
+  .header-hero .tm-nav-buttons .tm-nav-link {
+    display: block;
+    width: 100%;
+    white-space: nowrap;               /* не переносим текст, лучше уменьшим кегль */
+    text-align: center;
+    min-height: clamp(40px, 6.5vw, 48px);
+    padding: clamp(6px, 2.2vw, 10px) clamp(8px, 3vw, 12px);
+    font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+    border-radius: 6px;
+    box-sizing: border-box;
+    position: relative; /* для точного позиционирования подложки */
+  }
+  /* скорректируем фон активной кнопки и на мобильных: псевдоэлемент занимает всю ширину элемента */
+  .header-hero .tm-nav-buttons .tm-nav-link.active::before { border-radius: 6px; }
+  /* Полный ресет старой подложки на мобилках */
+  .header-hero .tm-nav-buttons .tm-nav-link.active,
+  .header-hero .tm-nav-buttons .tm-nav-link.active::before {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  /* Удаляем подложку с якоря — переносим её на ячейку грида, чтобы не было сдвигов из-за метрик шрифта */
+  .header-hero .tm-nav-buttons .tm-nav-link.active::after { content: none !important; }
+  .header-hero .tm-nav-buttons .tm-nav-li { position: relative; }
+  .header-hero .tm-nav-buttons .tm-nav-li:has(> .tm-nav-link.active)::before {
+    content: "";
+    position: absolute;
+    inset: 0;                 /* ровно по ширине ячейки */
+    border-radius: 8px;       /* такой же радиус, что и у ссылки */
+    background: rgba(255,255,255,0.06); /* мягко-серая прозрачная подложка */
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Внешняя рамка: гарантируем запас по высоте */
+  .header-hero { min-height: 300px; }
+  /* Мобильная рамка: тоньше граница и мягче свечение */
+  .header-hero::after {
+    border-width: 1px;
+    box-shadow: 0 0 12px rgba(255, 199, 91, 0.3);
+  }
+  /* Pin language switch to top-right on mobile */
+  .header-hero .tm-lang-switch-wrap { top: 6px; right: 6px; }
+}
+
+
+
+/* Keyframes: subtle shimmer for mobile golden text */
+@keyframes goldShimmer {
+  0%   { background-position: 0 0, -25% 0, -45% 0, 0 0; }
+  50%  { background-position: 0 0, 40% 0, 10% 0, 0 0; }
+  100% { background-position: 0 0, 110% 0, 90% 0, 0 0; }
+}
+
+/* ===== Language switch: circular RU/UA button ===== */
+.lang-switch {
+  --size: 38px;
+  --border: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  border: var(--border) solid #000; /* black border */
+  border-radius: 50%;
+  background: #fff; /* light */
+  color: #000;
+  font: 700 12px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease, box-shadow .15s ease;
+}
+.lang-switch:hover { background: #f6f6f6; }
+.lang-switch:active { transform: translateY(1px); }
+.lang-switch:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(0,0,0,.18); }
+
+.lang-switch--sm { --size: 32px; --border: 2px; font-size: 11px; }
+.lang-switch--lg { --size: 44px; --border: 2px; font-size: 13px; }
+
+/* Dark background modifier */
+.lang-switch.is-dark {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.lang-switch.is-dark:hover { background: rgba(255,255,255,.08); }
+.lang-switch.is-dark:focus-visible { box-shadow: 0 0 0 3px rgba(255,255,255,.25); }
+
+/* Align the form inside top-right cluster */
+.tm-lang-switch-form { display: inline-block; }
+
+/* Language switch size = social buttons size by default */
+  .header-hero .tm-lang-image-switch {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;                      /* без внутреннего зазора */
+    border-radius: 50%;              /* строгий круг */
+    overflow: hidden;                /* обрезать по кругу */
+    clip-path: inset(0 round 50%);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    isolation: isolate;
+    background: transparent;         /* только обводка */
+    border: 0.13rem solid rgb(70 59 36 / 83%);
+    box-shadow: none;                /* без теней/свечения */
+    text-decoration: none;
+    transition: border-color .12s ease, transform .12s ease; /* рамка + лёгкий подъем */
+  }
+
+/* harden inner descendants to avoid external transforms/overflow */
+.header-hero .tm-lang-image-switch * {
+  transform: none !important;
+  border-radius: inherit !important;
+  overflow: hidden !important;
+  clip-path: inherit !important;
+}
+
+/* Make inner img follow the anchor size */
+.header-hero .tm-lang-image-switch picture,
+.header-hero .tm-lang-image-switch img {
+  display: block !important;
+  width: 100% !important;
+  border-radius: inherit !important;
+  object-fit: cover !important;
+  clip-path: inset(0 round 50%) !important;  /* keep inside circle */
+  transform: none !important;                /* neutralize external transforms */
+  transition: none;                          /* avoid inherited transitions */
+  margin: 0; padding: 0; background: transparent;
+}
+
+/* Hover/focus effects same as social buttons */
+.header-hero .tm-lang-image-switch:hover,
+.header-hero .tm-lang-image-switch:focus {
+  background: transparent;           /* без подложки */
+  border-color: rgba(255, 199, 91, 0.8); /* лёгкая реакция рамки */
+  box-shadow: none;                  /* без теней */
+  transform: translateY(-3px);       /* лёгкий подъем как у соц‑кнопок */
+}
+
+/* Separate wrapper: pin to the very top-right corner of header */
+.header-hero .tm-lang-switch-wrap {
+  position: absolute;
+  z-index: 30; /* above header frame (::after has z-index:10) */
+}
+
+/* Desktop positioning for language switch */
+@media (min-width: 769px) {
+  .header-hero .tm-lang-switch-wrap { top: -40px; right: -105px; }
+}
+
+/* Mobile positioning (placed after desktop rule to win on small screens) */
+@media (max-width: 768px) {
+  .header-hero .tm-lang-switch-wrap { top: 6px; right: 6px; }
+}
+
+.header-hero .tm-header-nav .tm-nav-note {
+  background: linear-gradient(50deg, rgb(15 97 5 / 16%), rgb(10 47 32 / 69%));
+  border: 2px solid #b37a2e;
+}
+

@@ -1,0 +1,229 @@
+/* Revert: keep title normal flow to avoid shifting product name */
+.tm-card-title { display: block; }
+.tm-card-title .badge-benefit {
+  order: 0;
+  display: inline-flex;
+  margin: 0 0 6px 8px; /* small gap to the right of name when inline */
+  width: auto;
+}
+/* Slight bump of price font-size on product cards only */
+.tm-product-card .tm-card-price .price,
+.tm-product-card .tm-card-price .price-new,
+.tm-product-card .tm-card-price .price-old {
+  font-size: 1.22rem;
+}
+
+/* ===== Product page: benefit color and badge near price/CTA ===== */
+.product-price-actions.is-benefit .tm-card-price .price,
+.product-price-actions.is-benefit .tm-card-price .price-new {
+  color: #2e7d32; /* same green as badge */
+}
+
+/* Add to cart button in green for benefit products */
+.product-price-actions.is-benefit .button.add-to-cart-btn,
+.product-price-actions.is-benefit .button.button-primary.add-to-cart-btn {
+  background-color: #2e7d32;
+  border-color: #1b5e20;
+  color: #fff;
+}
+.product-price-actions.is-benefit .button.add-to-cart-btn:hover,
+.product-price-actions.is-benefit .button.add-to-cart-btn:focus,
+.product-price-actions.is-benefit .button.button-primary.add-to-cart-btn:hover,
+.product-price-actions.is-benefit .button.button-primary.add-to-cart-btn:focus {
+  background-color: #27692b;
+  border-color: #1b5e20;
+  color: #fff;
+}
+.product-price-actions.is-benefit .button.add-to-cart-btn[disabled],
+.product-price-actions.is-benefit .button.add-to-cart-btn[aria-disabled="true"],
+.product-price-actions.is-benefit .button.button-primary.add-to-cart-btn[disabled],
+.product-price-actions.is-benefit .button.button-primary.add-to-cart-btn[aria-disabled="true"] {
+  background-color: #9e9e9e; /* keep disabled gray */
+  border-color: #9e9e9e;
+  color: #f5f5f5;
+}
+
+.product-price-actions .product-benefit-badge {
+  position: static;
+}
+/* Place the badge at the far right of the title row */
+.product-content-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product-content-title .badge-benefit { margin-left: 10px; }
+/* Make inline title badge look like a pill so border is visible */
+.product-content-title .badge-benefit,
+.tm-card-title .badge-benefit {
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* Product page only: make the badge a bit smaller */
+.container.product-page.page-wrapper .product-content-title .badge-benefit {
+  font-size: 0.8em;      /* чуть меньший шрифт только на странице товара */
+  padding: 2px 8px;       /* компактнее по высоте */
+  border-radius: 4px;     /* немного более узкая капсула */
+  line-height: 1;         /* плотнее по вертикали */
+  background: rgb(42 112 45 / 65%);
+}
+
+/* ===== Inline benefit badge near product name (card view) ===== */
+/* When badge is placed inside card info or inside the title, force inline layout */
+.tm-card-info > .badge-benefit {
+  position: static;
+  left: auto;
+  top: auto;
+  display: block;              /* отдельной строкой */
+  margin: 0 0 8px 0;           /* отступ снизу от названия */
+  width: 100%;                 /* на всю ширину карточки */
+  max-width: 100%;
+  min-width: 0;
+  border-radius: 10px;         /* тот же стиль, что у бейджа */
+  padding: clamp(4px, 1.2vw, 6px) clamp(10px, 2.4vw, 14px);
+}
+
+/* If the badge goes on a new line above the title, keep it compact */
+.tm-card-info > .badge-benefit { margin: 0 0 8px 0; }
+/* Shared discount badge styles for product cards */
+
+ .badge-discount,
+ .badge-benefit {
+   line-height: 1.05;
+   white-space: nowrap;
+   max-width: calc(100% - 20px);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   color: #ffffff; /* strong contrast */
+   background: rgba(46, 125, 50, 0.88); /* flat green, slightly transparent */
+   box-shadow: 0 2px 6px rgba(0,0,0,.25);
+   text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+ }
+
+ /* Explicit styles per badge type */
+ .badge-discount { border: 3px solid rgba(15, 60, 20, 0.85); }
+ .badge-benefit {
+   width: auto;
+   box-sizing: border-box;
+   max-width: none;
+   border: 1px solid #FFC41F;
+ }
+ 
+
+/* Context-specific: product page inline row */
+ .badge-row .badge-benefit { width: auto; min-width: 110px; flex: 0 0 110px; }
+ 
+ /* Context-specific: catalog/bestsellers stacked in image corner */
+ #catalog-products .tm-card-image-wrap .badge-benefit,
+  .tm-featured-wrapper .tm-card-image-wrap .badge-benefit,
+  .badge-stack .badge-benefit { width: auto; min-width: 96px !important; }
+ 
+ /* Cards (bestsellers and related): badge as full-width line above title */
+ .tm-featured-grid .tm-card-info > .badge-benefit,
+ .tm-featured-wrapper .tm-card-info > .badge-benefit,
+ .rp-card-body.tm-card-info > .badge-benefit {
+   display: block !important;
+   width: 100%;
+   max-width: 100%;
+   margin: 0 0 8px 0;
+   padding: 6px 12px;
+   border-radius: 10px;
+ }
+ 
+
+/* ====== Price color for BENEFIT products ====== */
+/* Catalog / carousels: use class on card (no :has) */
+.tm-product-card.is-benefit .tm-card-price .price,
+.tm-product-card.is-benefit .tm-card-price .price-new {
+  color: #2e7d32; /* match badge green (solid) */
+}
+
+/* Product page image: center the benefit badge inside the photo on desktop */
+@media (min-width: 992px) {
+  .container.product-page.page-wrapper .product-image-photo .product-benefit-badge {
+    display: inline-flex !important;
+    position: absolute;
+    top: 8px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  /* Hide title badge on desktop */
+  .container.product-page.page-wrapper .product-content-title .product-benefit-badge { display: none !important; }
+}
+
+/* Mobile: show badge in title, hide in image */
+@media (max-width: 991.98px) {
+  .container.product-page.page-wrapper .product-image-photo .product-benefit-badge { display: none !important; }
+  .container.product-page.page-wrapper .product-content-title { gap: 8px 12px; column-gap: 12px; row-gap: 8px; }
+  .container.product-page.page-wrapper .product-content-title .product-benefit-badge {
+    display: inline-flex !important;
+    flex-basis: 100%;         /* перенос на новую строку */
+    order: 1;                 /* идёт после текста названия */
+    align-self: flex-start;   /* выравниваем по левому краю как у заголовка */
+    margin-left: 0 !important;
+    margin-top: 4px;          /* небольшой вертикальный зазор */
+    white-space: nowrap;      /* не ломаем сам бейдж по словам */
+    justify-content: center;  /* центрируем текст внутри бейджа */
+    align-items: center;      /* вертикальное центрирование текста */
+    text-align: center;       /* на случай переноса внутри */
+  }
+}
+/* cleaned trailing malformed snippets removed */
+
+/* ====== Global badges for catalog/home (independent from product_page.css) ====== */
+/* Ensure image wrapper can host absolute badges */
+.tm-card-image-wrap { position: relative; }
+
+/* Stack container in image corner (discount, stock, etc.) */
+.badge-stack {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 3;
+}
+
+/* Discount badge base for cards/carousels */
+.badge-stack .badge-discount,
+.tm-card-image-wrap .badge-discount {
+  position: relative; /* relative within the stack slot */
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1;
+  color: #ffffff;
+  background: rgba(46, 125, 50, 0.88);
+  border: 1px solid rgba(15, 60, 20, 0.7);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+/* Small badge variant used in templates */
+.badge-discount--sm { padding: 4px 8px; font-size: 0.88rem; border-width: 1px; border-radius: 8px; }
+.badge-discount .bd-amt { font-size: 1.1em; font-weight: 900; letter-spacing: 0.15px; }
+.badge-discount--sm .bd-amt { font-size: 1.0em; }
+
+/* Stock badge (e.g., out of stock) */
+.badge-stack .badge-stock,
+.tm-card-image-wrap .badge-stock {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #f5f5f5;
+  background: rgba(120, 120, 120, 0.85);
+  border: 1px solid rgba(60, 60, 60, 0.7);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+.badge-stock.is-out { background: rgba(120, 120, 120, 0.85); border-color: rgba(60,60,60,0.7); color: #f5f5f5; }
+.badge-stock .st-amt { font-weight: 800; }

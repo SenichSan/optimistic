@@ -1,0 +1,607 @@
+{% load static %}
+{% load media_extras %}
+{% load i18n i18n_urls %}
+{% get_current_language as CUR_LANG %}
+
+<!DOCTYPE html>
+<html lang="{{ CUR_LANG|default:'uk' }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% if current_category and current_category != 'all' %}
+        {% for cat in categories %}{% if cat.slug == current_category %}
+          {# Prefer explicit meta_title fields when available #}
+          {% if CUR_LANG == 'ru' %}
+            {% if cat.meta_title_ru %}{{ cat.meta_title_ru }}{% elif cat.meta_title %}{{ cat.meta_title }}{% elif cat.name_ru %}{{ cat.name_ru }}{% else %}{{ cat.name }}{% endif %}
+          {% else %}
+            {% if cat.meta_title %}{{ cat.meta_title }}{% else %}{{ cat.name }}{% endif %}
+          {% endif %}
+          {% if species %}
+            — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}
+          {% endif %}
+          {% if page_obj and page_obj.number and page_obj.number|add:0 > 1 %} — {% if CUR_LANG == 'ru' %}страница{% else %}сторінка{% endif %} {{ page_obj.number }}{% endif %}
+          | Grownica
+        {% endif %}{% endfor %}
+      {% else %}
+        {% if CUR_LANG == 'ru' %}
+          Каталог для гровинга Psilocybe Cubensis и Panaeolus от Grownica{% if page_obj and page_obj.number and page_obj.number|add:0 > 1 %} — страница {{ page_obj.number }}{% endif %}
+        {% else %}
+          Каталог для гровинга Psilocibe Cubensis і Panaeolus від Grownica{% if page_obj and page_obj.number and page_obj.number|add:0 > 1 %} — сторінка {{ page_obj.number }}{% endif %}
+        {% endif %}
+      {% endif %}
+    </title>
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href="{% canonical_url %}">
+    <link rel="alternate" hreflang="uk-UA" href="{% alternate_url 'uk' %}">
+    <link rel="alternate" hreflang="ru-UA" href="{% alternate_url 'ru' %}">
+    <link rel="alternate" hreflang="x-default" href="{% alternate_url 'uk' %}">
+
+    {% if page_obj %}
+      {% if page_obj.has_previous %}
+        <link rel="prev" href="{% canonical_url %}?page={{ page_obj.previous_page_number }}">
+      {% endif %}
+      {% if page_obj.has_next %}
+        <link rel="next" href="{% canonical_url %}?page={{ page_obj.next_page_number }}">
+      {% endif %}
+    {% endif %}
+
+    {# JSON-LD: BreadcrumbList + ItemList for catalog #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Grownica",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'main:home' %}"
+        }{% if current_category and current_category != 'all' %}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{% if CUR_LANG == 'ru' %}Каталог{% else %}Каталог{% endif %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'catalog:catalog_all' %}"
+        },{
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{% for cat in categories %}{% if cat.slug == current_category %}{{ cat.name|escapejs }}{% endif %}{% endfor %}",
+          "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'catalog:index' current_category %}{% if species %}?species={{ species }}{% endif %}"
+        }{% else %}
+        ,{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Каталог",
+          "item": "{% canonical_url %}"
+        }
+        {% endif %}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "url": "{% canonical_url %}",
+      "numberOfItems": {% if cubensis_list or panaeolus_list %}{% with cub_len=cubensis_list|length pan_len=panaeolus_list|length %}{{ cub_len|add:pan_len }}{% endwith %}{% else %}{{ goods|length }}{% endif %},
+      "itemListElement": [
+        {% if cubensis_list or panaeolus_list %}
+          {% for product in cubensis_list %}
+          {"@type":"ListItem","position": {{ forloop.counter }},"url":"{{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}","name":"{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru|escapejs }}{% else %}{{ product.name|escapejs }}{% endif %}"}{% if not forloop.last or panaeolus_list %},{% endif %}
+          {% endfor %}
+          {% with cub_len=cubensis_list|length %}
+            {% for product in panaeolus_list %}
+            {"@type":"ListItem","position": {{ forloop.counter|add:cub_len }},"url":"{{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}","name":"{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru|escapejs }}{% else %}{{ product.name|escapejs }}{% endif %}"}{% if not forloop.last %},{% endif %}
+            {% endfor %}
+          {% endwith %}
+        {% else %}
+          {% for product in goods %}
+          {"@type":"ListItem","position": {{ forloop.counter }},"url":"{{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}","name":"{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru|escapejs }}{% else %}{{ product.name|escapejs }}{% endif %}"}{% if not forloop.last %},{% endif %}
+          {% endfor %}
+        {% endif %}
+      ]
+    }
+    </script>
+
+    <!-- Favicon & app icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="{% static 'deps/favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+    <!-- Explicit favicon variants (Google prefers 48px multiples) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'deps/icons/logo48x48.png' %}">
+    <link rel="icon" href="{% static 'deps/icons/logo48x48.ico' %}" sizes="any">
+    <meta name="theme-color" content="#292f1b">
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Dynamic meta description (prefers category.meta_description[_ru]) -->
+    {% if current_category and current_category != 'all' %}
+      {% for cat in categories %}{% if cat.slug == current_category %}
+        {% if CUR_LANG == 'ru' %}
+          {% if cat.meta_description_ru %}
+            <meta name="description" content="{{ cat.meta_description_ru|striptags|truncatechars:160 }}">
+          {% elif cat.meta_description %}
+            <meta name="description" content="{{ cat.meta_description|striptags|truncatechars:160 }}">
+          {% elif cat.short_description_ru %}
+            <meta name="description" content="{{ cat.short_description_ru|striptags|truncatechars:160 }}">
+          {% elif cat.short_description %}
+            <meta name="description" content="{{ cat.short_description|striptags|truncatechars:160 }}">
+          {% else %}
+            <meta name="description" content="Купить {{ cat.name }}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %} в Grownica: цены, наличие, доставка по Украине.">
+          {% endif %}
+        {% else %}
+          {% if cat.meta_description %}
+            <meta name="description" content="{{ cat.meta_description|striptags|truncatechars:160 }}">
+          {% elif cat.short_description %}
+            <meta name="description" content="{{ cat.short_description|striptags|truncatechars:160 }}">
+          {% else %}
+            <meta name="description" content="Категорія {{ cat.name }}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %} в Grownica: ціни, наявність, доставка по Україні.">
+          {% endif %}
+        {% endif %}
+      {% endif %}{% endfor %}
+    {% else %}
+      <meta name="description" content="{% if CUR_LANG == 'ru' %}Закажите и получите консультацию. К вашему вниманию 50+ разнообразных товаров для эффективного выращивания Cubensis и Panaeolus в домашних условиях 🔬🦠 (в целях биологических исследований и таксономии){% else %}Замовте та отримайте консультацію. До вашої уваги 50+ різноманітних товарів для еффективного вирощування Cubensis та Panaeolus в домашніх умовах  🔬🦠 (в цілях біологічних досліджень та таксономії){% endif %}">
+    {% endif %}
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if current_category and current_category != 'all' %}{% for cat in categories %}{% if cat.slug == current_category %}{% if CUR_LANG == 'ru' and cat.name_ru %}{{ cat.name_ru }}{% else %}{{ cat.name }}{% endif %}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %}{% endif %}{% endfor %}{% else %}{% if CUR_LANG == 'ru' %}Широкий каталог товаров для микологии Psilocybe Cubensis и Panaeolus от Grownica{% else %}Широкий каталог товарів для мікології Psilocibe Cubensis і Panaeolus від Grownica{% endif %}{% endif %}">
+    <meta property="og:description" content="{% if current_category and current_category != 'all' %}{% for cat in categories %}{% if cat.slug == current_category %}{% if CUR_LANG == 'ru' and cat.meta_description_ru %}{{ cat.meta_description_ru|striptags|truncatechars:160 }}{% elif cat.meta_description %}{{ cat.meta_description|striptags|truncatechars:160 }}{% elif CUR_LANG == 'ru' and cat.short_description_ru %}{{ cat.short_description_ru|striptags|truncatechars:160 }}{% elif cat.short_description %}{{ cat.short_description|striptags|truncatechars:160 }}{% else %}{% if CUR_LANG == 'ru' %}Купить{% else %}Купити{% endif %} {{ cat.name }}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %} {% if CUR_LANG == 'ru' %}в Grownica: цены, наличие, доставка по Украине.{% else %}в Grownica: ціни, наявність, доставка по Україні.{% endif %}{% endif %}{% endif %}{% endfor %}{% else %}{% if CUR_LANG == 'ru' %}Закажите и получите консультацию. К вашему вниманию 50+ разнообразных товаров для эффективного выращивания Cubensis и Panaeolus в домашних условиях 🔬🦠 (в целях биологических исследований и таксономии){% else %}Замовте та отримайте консультацію. До вашої уваги 50+ різноманітних товарів для еффективного вирощування Cubensis та Panaeolus в домашніх умовах  🔬🦠 (в цілях біологічних досліджень та таксономії){% endif %}{% endif %}">
+    <meta property="og:url" content="{% canonical_url %}">
+    <meta property="og:image" content="{% static 'deps/images/og/catalog-1200x630.jpg' %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if current_category and current_category != 'all' %}{% for cat in categories %}{% if cat.slug == current_category %}{% if CUR_LANG == 'ru' and cat.name_ru %}{{ cat.name_ru }}{% else %}{{ cat.name }}{% endif %}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %}{% endif %}{% endfor %}{% else %}{% if CUR_LANG == 'ru' %}Широкий каталог товаров для микологии Psilocybe Cubensis и Panaeolus от Grownica{% else %}Широкий каталог товарів для мікології Psilocibe Cubensis і Panaeolus від Grownica{% endif %}{% endif %}">
+    <meta name="twitter:description" content="{% if current_category and current_category != 'all' %}{% for cat in categories %}{% if cat.slug == current_category %}{% if CUR_LANG == 'ru' and cat.meta_description_ru %}{{ cat.meta_description_ru|striptags|truncatechars:160 }}{% elif cat.meta_description %}{{ cat.meta_description|striptags|truncatechars:160 }}{% elif CUR_LANG == 'ru' and cat.short_description_ru %}{{ cat.short_description_ru|striptags|truncatechars:160 }}{% elif cat.short_description %}{{ cat.short_description|striptags|truncatechars:160 }}{% else %}{% if CUR_LANG == 'ru' %}Купить{% else %}Купити{% endif %} {{ cat.name }}{% if species %} — {% if current_category == 'sporovi-vidbitki' and species == 'cubensis' %}Psilocybe cubensis{% elif current_category == 'sporovi-vidbitki' and species == 'panaeolus' %}Psilocybe Panaeolus{% else %}{{ species|capfirst }}{% endif %}{% endif %} {% if CUR_LANG == 'ru' %}в Grownica: цены, наличие, доставка по Украине.{% else %}в Grownica: ціни, наявність, доставка по Україні.{% endif %}{% endif %}{% endif %}{% endfor %}{% else %}{% if CUR_LANG == 'ru' %}Закажите и получите консультацию. К вашему вниманию 50+ разнообразных товаров для эффективного выращивания Cubensis и Panaeolus в домашних условиях 🔬🦠 (в целях биологических исследований и таксономии){% else %}Замовте та отримайте консультацію. До вашої уваги 50+ різноманітних товарів для еффективного вирощування Cubensis та Panaeolus в домашніх умовах  🔬🦠 (в цілях біологічних досліджень та таксономії){% endif %}{% endif %}">
+    <meta name="twitter:image" content="{% static 'deps/images/og/catalog-1200x630.jpg' %}">
+
+    {% include 'includes/ga4.html' %}
+    {% include 'includes/clarity.html' %}
+
+    <!-- Global styles matching home (container visuals) -->
+    <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}">
+    <link href="{% static 'deps/css/templatemo-style.css' %}" rel="stylesheet"/>
+    <!-- Page-specific (currently empty/minimal) -->
+    <link rel="preload" as="style" href="{% static 'deps/css/header-hero.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/header-hero.css' %}">
+    <!-- Secondary styles (robust: keep preload hint + guaranteed stylesheet) -->
+    <link rel="preload" as="style" href="{% static 'deps/css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/catalog.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/bestsellers-carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/bestsellers-carousel.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/footer.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Async load Poppins; Google Fonts v2 не поддерживает subset=, загрузка подберётся автоматически -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"></noscript>
+    <link href="{% static 'deps/css/discount_badge.css' %}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="container home-framed">
+    {% include 'components/header-hero.html' %}
+    
+    <!-- Catalog categories block (new, catalog-scoped) -->
+    <div class="catalog-categories">
+        <nav class="catalog-categories-nav" aria-label="{% trans 'Категорії' %}">
+            <div class="catalog-title">{% trans 'Каталог' %}</div>
+            <div class="catalog-categories-subtitle"> {% if CUR_LANG == 'ru' %}Нажмите на категорию для фильтрации товаров{% else %}Натисніть на категорію для фільтрації товарів{% endif %}</div>
+            <ul class="catalog-categories-list">
+                {% for category in categories %}
+                <li class="catalog-category-item">
+                    <a href="{% url 'catalog:index' category.slug %}"
+                       class="catalog-category-card"
+                       data-category="{{ category.slug }}"
+                       aria-current="{% if category.slug == current_category %}true{% endif %}">
+                        <div class="catalog-category-icon-wrap">
+                            {% category_icon_picture category '128x128' 'catalog-category-icon' category.name 128 128 %}
+                        </div>
+                        {% if category.slug != current_category %}
+                        <h3 class="catalog-category-label">{% if CUR_LANG == 'ru' and category.name_ru %}{{ category.name_ru }}{% else %}{{ category.name }}{% endif %}</h3>
+                        {% else %}
+                        <div class="catalog-category-label">{% if CUR_LANG == 'ru' and category.name_ru %}{{ category.name_ru }}{% else %}{{ category.name }}{% endif %}</div>
+                        {% endif %}
+                        {# Removed short description from catalog category card #}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- Products container: initial SSR render; later replaced via AJAX -->
+    <div class="tm-featured-wrapper tm-fw-mobile">
+      <section id="catalog-products" class="catalog-products container-bestsellers basic-grid" aria-live="polite">
+          {% include 'goods/_products_list.html' %}
+      </section>
+    </div>
+
+    {# Standalone container for category presentation; will be filled from partial via JS #}
+    <div id="category-presentation-container"></div>
+
+    {% include 'components/footer.html' %}
+</div>
+
+{% include 'components/cart_button.html' %}
+{% include 'components/cart_modal.html' %}
+
+<!-- jQuery core (needed for jquery-ajax.js handlers) with robust fallback -->
+<script defer
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"
+        onload="window.__jQLoaded=1"
+        onerror="this.onerror=null;(function(){var s=document.createElement('script');s.defer=true;s.src='{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}';document.head.appendChild(s);}())"></script>
+
+<!-- Toast notifications stack and helper -->
+<script>
+  (function(){
+    // create stack once per page
+    let stack = document.querySelector('.tm-toast-stack');
+    if (!stack) {
+      stack = document.createElement('div');
+      stack.className = 'tm-toast-stack';
+      stack.setAttribute('aria-live', 'polite');
+      stack.setAttribute('aria-atomic', 'true');
+      document.body.appendChild(stack);
+    }
+
+    function showToast(options){
+      const o = typeof options === 'string' ? { message: options } : (options || {});
+      const title = o.title || '';
+      const message = o.message || '';
+      const actionText = o.actionText || '';
+      const onAction = typeof o.onAction === 'function' ? o.onAction : null;
+      const duration = Math.max(1200, Math.min(6000, o.duration || 2000));
+      const variant = o.variant || 'bare'; // 'bare' | 'default'
+      const closable = o.closable !== false && variant !== 'bare';
+
+      let toast = document.createElement('div');
+      toast.className = 'tm-toast';
+      toast.setAttribute('role', 'status');
+
+      const content = document.createElement('div');
+      content.className = 'tm-toast-content';
+      if (title) {
+        const h = document.createElement('div');
+        h.className = 'tm-toast-title';
+        h.textContent = title;
+        content.appendChild(h);
+      }
+      const p = document.createElement('div');
+      p.className = 'tm-toast-message';
+      p.textContent = message;
+      content.appendChild(p);
+
+      let closeBtn = null;
+      if (closable) {
+        closeBtn = document.createElement('button');
+        closeBtn.className = 'tm-toast-close';
+        closeBtn.type = 'button';
+        closeBtn.setAttribute('aria-label', 'Закрыть');
+        closeBtn.innerHTML = '&times;';
+      }
+
+      let actionBtn = null;
+      if (actionText && variant !== 'bare') {
+        actionBtn = document.createElement('button');
+        actionBtn.type = 'button';
+        actionBtn.className = 'tm-toast-action';
+        actionBtn.textContent = actionText;
+      }
+
+      toast.appendChild(content);
+      if (actionBtn) toast.appendChild(actionBtn);
+      if (closeBtn) toast.appendChild(closeBtn);
+      if (variant === 'bare') toast.classList.add('tm-toast--bare');
+      stack.appendChild(toast);
+
+      requestAnimationFrame(() => toast.classList.add('visible'));
+
+      let timer = setTimeout(dismiss, duration);
+      function dismiss(){
+        if (!toast) return;
+        toast.classList.remove('visible');
+        setTimeout(() => { if (toast) toast.remove(); toast = null; }, 220);
+      }
+      if (closeBtn) closeBtn.addEventListener('click', dismiss);
+      toast.addEventListener('mouseenter', () => { clearTimeout(timer); });
+      toast.addEventListener('mouseleave', () => { timer = setTimeout(dismiss, 900); });
+      if (actionBtn && onAction) {
+        actionBtn.addEventListener('click', () => { try { onAction(); } catch(_){} dismiss(); });
+      }
+
+      return { dismiss };
+    }
+
+    window.showToast = showToast;
+  })();
+</script>
+
+<!-- Global AJAX handlers for cart actions (legacy + .add-to-cart-btn) -->
+<script defer src="{% static 'deps/js/jquery-ajax.js' %}"></script>
+
+<!-- New cart component (modal + counter sync) -->
+<script defer src="{% static 'deps/js/cart-component.js' %}"></script>
+
+<script>
+(function() {
+  const productsEl = document.getElementById('catalog-products');
+  const categoriesWrap = document.querySelector('.catalog-categories');
+
+  function setActiveCategory(slug) {
+    document.querySelectorAll('.catalog-category-card').forEach(a => {
+      const isActive = a.getAttribute('data-category') === slug;
+      if (isActive) {
+        a.setAttribute('aria-current', 'true');
+        a.classList.add('is-active');
+      } else {
+        a.removeAttribute('aria-current');
+        a.classList.remove('is-active');
+      }
+    });
+  }
+
+  // Dynamic 3D tilt similar to bestsellers; safe to call repeatedly
+  function initTilt(){
+    if (!productsEl) return;
+    // Disable tilt on touch/coarse pointers and small screens (match home logic)
+    try {
+      const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+      const noHover = window.matchMedia('(hover: none)').matches;
+      const isSmall = window.matchMedia('(max-width: 768px)').matches;
+      if (isCoarse || noHover || isSmall) {
+        document.documentElement.classList.add('tilt-disabled');
+        return; // do not bind tilt on mobile/coarse devices
+      }
+    } catch(_) {}
+    const cards = productsEl.querySelectorAll('.tm-featured-grid article.tm-product-card');
+    if (!cards.length) return;
+    const maxTilt = 8;     // degrees
+    const maxTrans = 10;   // px for image parallax
+
+    function onMove(e, card){
+      const rect = card.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const px = (clientX - rect.left) / rect.width;   // 0..1
+      const py = (clientY - rect.top) / rect.height;   // 0..1
+      const rotateY = (px - 0.5) * (maxTilt * 2) * -1; // left/right
+      const rotateX = (py - 0.5) * (maxTilt * 2);      // up/down
+      card.setAttribute('data-tilt-active', '1');
+      card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.03)`;
+      card.style.willChange = 'transform';
+      const img = card.querySelector('.tm-card-img');
+      if (img) {
+        const tx = (px - 0.5) * maxTrans;
+        const ty = (py - 0.5) * maxTrans * -1;
+        img.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(1.04)`;
+        img.style.willChange = 'transform';
+      }
+    }
+
+    function onLeave(card){
+      // remove active flag immediately so glow disappears at once
+      card.removeAttribute('data-tilt-active');
+      // smoothly return transform
+      card.style.transition = 'transform 420ms cubic-bezier(.2,.9,.25,1)';
+      card.style.transform = '';
+      const img = card.querySelector('.tm-card-img');
+      if (img) {
+        img.style.transition = 'transform 420ms cubic-bezier(.2,.9,.25,1)';
+        img.style.transform = '';
+      }
+      setTimeout(() => {
+        card.style.transition = '';
+        card.style.willChange = '';
+        if (img) { img.style.transition = ''; img.style.willChange = ''; }
+      }, 450);
+    }
+
+    cards.forEach(card => {
+      if (card.dataset.tiltBound) return; // avoid double-binding
+      card.dataset.tiltBound = '1';
+      card.addEventListener('mousemove', (e) => onMove(e, card));
+      card.addEventListener('mouseleave', () => onLeave(card));
+      card.addEventListener('touchstart', (e) => onMove(e, card), {passive: true});
+      card.addEventListener('touchmove', (e) => onMove(e, card), {passive: true});
+      card.addEventListener('touchend', () => onLeave(card));
+    });
+  }
+
+  function buildURL(href, page) {
+    try {
+      const url = new URL(href, window.location.origin);
+      if (page) url.searchParams.set('page', String(page));
+      return url.toString();
+    } catch (e) {
+      return href; // fallback
+    }
+  }
+
+  async function loadProducts(url, {pushState=true} = {}) {
+    if (!productsEl) return;
+    const controller = new AbortController();
+    const loadingHTML = '<div class="loading" role="status">{% if CUR_LANG == 'ru' %}Загрузка…{% else %}Завантаження…{% endif %}</div>';
+    productsEl.innerHTML = loadingHTML;
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'text/html'
+        },
+        credentials: 'same-origin',
+        cache: 'no-store',
+        signal: controller.signal
+      });
+      if (!res.ok) throw new Error('Network error');
+      const html = await res.text();
+      // Create a detached DOM to query both products and category presentation
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      const newPresentation = tmp.querySelector('#category-presentation');
+      const newProducts = tmp.innerHTML; // full partial content
+      productsEl.innerHTML = newProducts;
+      // Move category presentation out into a standalone container (replace existing)
+      try {
+        const host = document.getElementById('category-presentation-container');
+        const inProducts = productsEl.querySelector('#category-presentation');
+        if (host) {
+          host.innerHTML = '';
+          if (inProducts) {
+            host.appendChild(inProducts);
+          } else if (newPresentation) {
+            host.appendChild(newPresentation);
+          }
+        } else if (inProducts) {
+          // Fallback: if host not found, keep it inside products
+        }
+      } catch(_) {}
+
+      // scroll into view for better UX
+      productsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Bind pagination clicks inside the newly injected content
+      bindPagination();
+
+      // Re-init tilt handlers for newly injected cards
+      initTilt();
+
+      // Bind species filter buttons inside the newly injected content
+      bindSpeciesFilter();
+
+
+      if (pushState) {
+        history.pushState({ url }, '', url);
+      }
+    } catch (err) {
+      productsEl.innerHTML = '<div class="error">{% if CUR_LANG == 'ru' %}Не удалось загрузить товары.{% else %}Не вдалося завантажити товари.{% endif %} <button type="button" class="retry">{% if CUR_LANG == 'ru' %}Повторить{% else %}Повторити{% endif %}</button></div>';
+      const btn = productsEl.querySelector('.retry');
+      if (btn) btn.addEventListener('click', () => loadProducts(url, {pushState:false}));
+    }
+  }
+
+  function onCategoryClick(e) {
+    const a = e.target.closest('a.catalog-category-card');
+    if (!a) return;
+    // Allow Ctrl/Meta click to open in new tab
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    const slug = a.getAttribute('data-category');
+    setActiveCategory(slug);
+    const url = buildURL(a.href, 1);
+    loadProducts(url, {pushState:true});
+  }
+
+  function bindPagination() {
+    productsEl.querySelectorAll('a.pagination-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        const url = buildURL(this.href);
+        loadProducts(url, {pushState:true});
+      });
+    });
+  }
+
+  function bindSpeciesFilter(){
+    if (!productsEl) return;
+    productsEl.querySelectorAll('.species-filter-nav a.catalog-category-card').forEach(link => {
+      if (link.dataset.sfBound) return;
+      link.dataset.sfBound = '1';
+      link.addEventListener('click', function(e){
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        const url = this.href;
+        loadProducts(url, {pushState:true});
+      });
+    });
+  }
+
+  // Initial bindings
+  if (categoriesWrap) {
+    categoriesWrap.addEventListener('click', onCategoryClick);
+  }
+  bindPagination();
+  initTilt();
+  bindSpeciesFilter();
+  // On first render (SSR), if the partial included category presentation, move it out
+  (function initialMovePresentation(){
+    try {
+      const host = document.getElementById('category-presentation-container');
+      if (!host) return;
+      const inProducts = productsEl && productsEl.querySelector('#category-presentation');
+      if (inProducts) {
+        host.innerHTML = '';
+        host.appendChild(inProducts);
+      }
+    } catch(_) {}
+  })();
+
+  // Handle back/forward
+  window.addEventListener('popstate', (e) => {
+    const url = (e.state && e.state.url) ? e.state.url : window.location.href;
+    loadProducts(url, {pushState:false});
+    // Try to sync active category based on URL path
+    try {
+      const u = new URL(url, window.location.origin);
+      const pathParts = u.pathname.split('/').filter(Boolean);
+      const slug = pathParts[pathParts.length - 1]; // expects .../catalog/<slug>/
+      if (slug) setActiveCategory(slug);
+    } catch (_) {}
+  });
+})();
+</script>
+
+<!-- bfcache fix: ensure styles are applied when returning via browser Back -->
+<script>
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return; // only when restored from bfcache
+    try {
+      // For every preload hint, ensure there's a corresponding stylesheet tag
+      document.querySelectorAll('link[rel="preload"][as="style"]').forEach(function (pre) {
+        var href = pre.getAttribute('href');
+        if (!href) return;
+        var exists = document.querySelector('link[rel="stylesheet"][href="' + href + '"]');
+        if (!exists) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          document.head.appendChild(link);
+        }
+      });
+    } catch (_) {}
+  });
+</script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+  var _smartsupp = _smartsupp || {};
+  _smartsupp.key = '5de87bf9af1b8fa48e3662bde83f62b0c5d164d0';
+  window.smartsupp||(function(d) {
+    var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+    s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+    c.type='text/javascript';c.charset='utf-8';c.async=true;
+    c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+  })(document);
+</script>
+
+</body>
+
+</html>

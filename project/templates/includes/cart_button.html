@@ -1,0 +1,21 @@
+{% load static carts_tags %}
+{% user_carts request as carts %}
+
+<button id="modalButton" type="button" class="btn btn-dark">
+    <img src="{% static 'deps/icons/basket2-fill.svg' %}" width="24" height="24" alt="">
+    <span id="goods-in-cart-count">{{ carts.total_quantity }}</span>
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="text-center mb-4">Корзина</h3>
+                <div id="cart-items-container">{% include "carts/includes/included_cart.html" %}</div>
+            </div>
+        </div>
+    </div>
+</div>

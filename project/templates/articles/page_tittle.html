@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+{% block title %}{{ article.meta_title|default:article.title }}{% endblock %}
+{% block meta_description %}
+  {% if CUR_LANG == 'ru' %}
+    {% with desc=article.meta_description_ru|default:article.excerpt_ru|default:article.meta_description|default:article.excerpt %}
+      <meta name="description" content="{{ desc }}">
+    {% endwith %}
+  {% else %}
+    {% with desc=article.meta_description_uk|default:article.excerpt_uk|default:article.meta_description|default:article.excerpt %}
+      <meta name="description" content="{{ desc }}">
+    {% endwith %}
+  {% endif %}
+{% endblock %}
+{% block seo_head_extra %}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ article.meta_title|default:article.title }}">
+  <meta property="og:description" content="{{ article.meta_description|default:article.excerpt }}">
+  {% if article.cover_image %}
+    <meta property="og:image" content="{{ article.cover_image.url }}">
+  {% else %}
+    <meta property="og:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ article.meta_title|default:article.title }}">
+  <meta name="twitter:description" content="{{ article.meta_description|default:article.excerpt }}">
+  {% if article.cover_image %}
+    <meta name="twitter:image" content="{{ article.cover_image.url }}">
+  {% else %}
+    <meta name="twitter:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+  {% endif %}
+{% endblock %}
+
+{% block css %}
+  <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/templatemo-style.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/security-text.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/security-text.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/faq.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/faq.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/welcome-block.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/welcome-block.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap"></noscript>
+
+  <style>
+    main.container.my-4 { margin-top: 0 !important; margin-bottom: 0 !important; min-height: 100dvh; display: flex; flex-direction: column; }
+    .container.home-framed { display: flex; flex-direction: column; flex: 1 0 auto; }
+    .container.home-framed > .row.section-block:last-child { margin-top: auto; margin-bottom: 0; }
+    @media (max-width: 575.98px) {
+      main.container.my-4 { padding-left: 0; padding-right: 0; }
+      .container { padding-left: 0 !important; padding-right: 0 !important; }
+      .container.home-framed { padding-left: 0; padding-right: 0; }
+      .row.section-block { margin-left: 0; margin-right: 0; }
+      .row.section-block > .col-12 { padding-left: 0; padding-right: 0; }
+      .header-hero,
+      .header-hero .container-inner,
+      .header-hero .header-hero-content,
+      .tm-header { max-width: 100%; width: 100%; padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
+    }
+
+    .article-breadcrumb { margin: 8px 0 10px; }
+    .article-breadcrumb a { color: #ffc75b; text-decoration: none; }
+    .article-breadcrumb a:hover { text-decoration: underline; }
+    .article-breadcrumb .current { opacity: .85; color: #ffe3b0; }
+
+    @media (max-width: 575.98px) {
+      .article-breadcrumb { font-size: 70%; margin-bottom: 25px; }
+    }
+
+    .article-detail { position: relative; padding: 12px; border: 2px solid #4f463e; border-radius: 10px; overflow: hidden; }
+    .article-detail {
+      background-image: url('/static/deps/images/news-slider-bg.jpg');
+      background-image: -webkit-image-set(
+        url('/static/deps/images/news-slider-bg.avif') 1x,
+        url('/static/deps/images/news-slider-bg.webp') 1x,
+        url('/static/deps/images/news-slider-bg.jpg') 1x
+      );
+      background-image: image-set(
+        url('/static/deps/images/news-slider-bg.avif') type('image/avif') 1x,
+        url('/static/deps/images/news-slider-bg.webp') type('image/webp') 1x,
+        url('/static/deps/images/news-slider-bg.jpg') type('image/jpeg') 1x
+      );
+      background-position: center; background-repeat: no-repeat; background-size: cover;
+    }
+    .article-detail::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url('/static/deps/images/news-slider-bg.jpg');
+      background-image: -webkit-image-set(
+        url('/static/deps/images/news-slider-bg.avif') 1x,
+        url('/static/deps/images/news-slider-bg.webp') 1x,
+        url('/static/deps/images/news-slider-bg.jpg') 1x
+      );
+      background-image: image-set(
+        url('/static/deps/images/news-slider-bg.avif') type('image/avif') 1x,
+        url('/static/deps/images/news-slider-bg.webp') type('image/webp') 1x,
+        url('/static/deps/images/news-slider-bg.jpg') type('image/jpeg') 1x
+      );
+      background-position: center; background-repeat: no-repeat; background-size: cover;
+      filter: blur(4px);
+      transform: scale(1.06);
+      z-index: 0;
+    }
+    .article-detail::before {
+      content: ""; position: absolute; inset: 0; border-radius: 10px; pointer-events: none; z-index: 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.80) 55%, rgba(0,0,0,0.92) 100%);
+    }
+    .article-detail__inner { position: relative; z-index: 2; }
+
+    .article-title { font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem); font-weight: 700; text-align: center; color: #edc16b; margin: 0; }
+    .article-title::after {
+      content: ""; display: block; height: 2px; width: 60%; max-width: 320px; margin: 8px auto 12px;
+      background: linear-gradient(to right, rgba(255,199,91,0), rgba(255,199,91,0.9), rgba(255,199,91,0)); border-radius: 2px;
+    }
+
+    .article-cover-wrap { margin: 10px 0 18px; }
+    .article-cover { width: 66%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 10px; margin: 0 auto; }
+    .article-cover-caption { margin-top: 6px; font-size: .9rem; line-height: 1.35; color: #ffe3b0cc; text-align: center; }
+
+    .article-excerpt { opacity: .95; font-size: clamp(1rem, 0.5vw + 0.9rem, 1.15rem); text-align: center; color: #ffe3b0; margin: 0 0 12px; }
+    .article-body { color: #ffe3b0; font-family: 'PT Serif', serif; }
+    .article-detail .article-body,
+    .article-detail .article-body p,
+    .article-detail .article-body li,
+    .article-detail .article-body td,
+    .article-detail .article-body th { color: #ffe3b0; }
+    .article-body p { margin: 0 0 12px; font-size: clamp(1rem, 0.4vw + 0.92rem, 1.08rem); line-height: 1.6; }
+    .article-body,
+    .article-body p,
+    .article-body li,
+    .article-body td,
+    .article-body th,
+    .article-body blockquote,
+    .article-body code,
+    .article-body pre { word-break: normal; overflow-wrap: break-word; hyphens: none; white-space: normal; }
+    .article-body span,
+    .article-body em,
+    .article-body strong,
+    .article-body a { word-break: break-word; overflow-wrap: anywhere; hyphens: none; }
+    .article-body code, .article-body pre { white-space: pre-wrap; }
+    .article-body h2, .article-body h3, .article-body h4 { color: #ffc75b; margin: 18px 0 8px; text-align: center; }
+    .article-body ul, .article-body ol { padding-left: 1.2rem; margin: 0 0 12px; }
+    .article-body a { color: #ffd27a; text-decoration: underline; }
+    .article-body img { max-width: 100%; height: auto; border-radius: 8px; }
+    .article-body blockquote { margin: 12px 0; padding: 10px 14px; border-left: 3px solid #ffc75b; background: rgba(0,0,0,0.25); border-radius: 6px; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 12px 0; table-layout: fixed; display: table; }
+    .article-body thead, .article-body tbody { width: 100%; }
+    .article-body th, .article-body td { border: 1px solid rgba(255,199,91,0.35); padding: 8px; word-break: break-word; overflow-wrap: anywhere; max-width: 100%; }
+
+    @media (max-width: 575.98px) {
+      .article-detail { padding: 8px; border-width: 1.5px; }
+      .article-title { font-size: clamp(1.3rem, 2.6vw + 0.9rem, 1.7rem); }
+      .article-title::after { width: clamp(140px, 62%, 220px); margin: 6px auto 10px; }
+      .article-excerpt, .article-body { hyphens: none; word-break: normal; overflow-wrap: break-word; }
+      /* Force-safe wrapping for all descendants in article text on mobile */
+      .article-detail .article-body, .article-detail .article-body * {
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+        white-space: normal;
+      }
+      .article-cover { width: 99%; }
+      .article-body table { font-size: 0.95rem; overflow-x: auto; -webkit-overflow-scrolling: touch; display: block; }
+      .article-body th, .article-body td { padding: 6px; }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="container home-framed">
+    <div class="row section-block">
+      <div class="col-12">
+        {% include 'components/header-hero.html' %}
+      </div>
+    </div>
+
+    <div class="row section-block">
+      <div class="col-12">
+        <div class="article-detail">
+          <div class="article-detail__inner">
+            <article>
+              <nav class="article-breadcrumb">
+                <a href="{% url 'articles:list' %}">{% if CUR_LANG == 'ru' %}Статьи{% else %}Статті{% endif %}</a>
+                <span class="current">/ {{ article.title }}</span>
+              </nav>
+              <h1 class="article-title">{{ article.title }}</h1>
+
+
+              {% if CUR_LANG == 'ru' %}
+                {% if article.excerpt_ru %}<h2 class="article-excerpt">{{ article.excerpt_ru }}</h2>{% endif %}
+              {% else %}
+                {% if article.excerpt_uk %}<h2 class="article-excerpt">{{ article.excerpt_uk }}</h2>{% endif %}
+              {% endif %}
+
+              {% if article.cover_image %}
+                <figure class="article-cover-wrap">
+                  <img class="article-cover" src="{{ article.cover_image.url }}" alt="{{ article.title }}" loading="lazy" decoding="async" />
+                  {% if CUR_LANG == 'ru' %}
+                    {% if article.cover_caption_ru %}<figcaption class="article-cover-caption">{{ article.cover_caption_ru }}</figcaption>{% endif %}
+                  {% else %}
+                    {% if article.cover_caption_uk %}<figcaption class="article-cover-caption">{{ article.cover_caption_uk }}</figcaption>{% endif %}
+                  {% endif %}
+                </figure>
+              {% endif %}
+
+              <div class="article-body">
+                {{ article.body|safe }}
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row section-block">
+      <div class="col-12">
+        {% include 'components/footer.html' %}
+      </div>
+    </div>
+  </div>
+
+  {% include 'components/cart_button.html' %}
+  {% include 'components/cart_modal.html' %}
+{% endblock %}

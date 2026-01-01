@@ -1,0 +1,125 @@
+{% load static %}
+{% load i18n %}
+{% load i18n_urls %}
+{% get_current_language as CUR_LANG %}
+<!DOCTYPE html>
+<html lang="{{ CUR_LANG|default:'uk' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#292f1b">
+    <meta name="msapplication-TileColor" content="#292f1b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>{% block title %}Grownica — Магазин. Консультації. Мікологія. {% endblock %}</title>
+    {% block meta_description %}
+    <meta name="description" content="{% if CUR_LANG == 'ru' %}Волнуетесь, будет ли первый опыт удачным, или хотите избежать лишней рутины? Мы поможем! С Grownica — это просто и безопасно благодаря мощной поддержке и протестированной продукции.{% else %}Хвилюєтесь чи буде перший досвід вдалим або хочете уникнути зайвої рутини? Ми допоможемо! З Grownica — це просто та безпечно завдяки потужній підтримці та протестованої продукції.{% endif %}">
+    {% endblock %}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    {% if request %}
+      <link rel="canonical" href="{% canonical_url %}">
+      <link rel="alternate" hreflang="uk-UA" href="{% alternate_url 'uk' %}">
+      <link rel="alternate" hreflang="ru-UA" href="{% alternate_url 'ru' %}">
+      <link rel="alternate" hreflang="x-default" href="{% alternate_url 'uk' %}">
+    {% else %}
+      <link rel="canonical" href="/">
+    {% endif %}
+    {% block seo_head_extra %}{% endblock %}
+    {% include 'includes/ga4.html' %}
+    {% include 'includes/clarity.html' %}
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+
+    <!-- Bootstrap CSS (non-blocking) -->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    </noscript>
+
+    <!-- Project global styles -->
+    <link rel="stylesheet" href="{% static 'deps/css/header-hero.css' %}">
+    <link rel="preload" as="style" href="{% static 'deps/css/discount_badge.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/discount_badge.css' %}">
+    <!-- Global container width to match home (does not change backgrounds) -->
+    <style>
+        .container,
+        .container-sm,
+        .container-md,
+        .container-lg,
+        .container-xl,
+        .container-xxl { max-width: 1450px; width: 100%; }
+    </style>
+    <style>
+      /* Global: lift cart button by 2px on mobile */
+      @media (max-width: 575.98px) {
+        #tm-cart-component.tm-cart-component { transform: translateY(-4px); }
+      }
+    </style>
+
+    <!-- Favicon & app icons (site-wide) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'deps/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
+    <link rel="shortcut icon" href="{% static 'deps/favicon/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+
+    {# New explicit favicon variants to satisfy Google favicon requirements #}
+    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'deps/icons/logo48x48.png' %}">
+    <link rel="icon" href="{% static 'deps/icons/logo48x48.ico' %}" sizes="any">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+<main class="container my-4">
+    {% if messages %}
+    <div class="mb-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags|default:'info' }} mb-2" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</main>
+
+    <!-- jQuery (sync) + immediate fallback to avoid race with deferred app scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script>
+      if (!window.jQuery) {
+        document.write('<script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"><\/script>');
+      }
+    </script>
+
+<!-- Bootstrap JS (deferred) -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+{% block extra_js %}{% endblock %}
+
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '5de87bf9af1b8fa48e3662bde83f62b0c5d164d0';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+</script>
+<noscript> Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+</body>
+</html>

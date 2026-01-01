@@ -1,0 +1,34 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+<section class="reviews-section" role="region" aria-labelledby="reviews-title">
+  <div class="reviews-inner container">
+    <h2 id="reviews-title" class="tm-section-title">{% if CUR_LANG == 'ru' %}Отзывы покупателей{% else %}Відгуки покупців{% endif %}</h2>
+
+    <div class="reviews-grid" role="list" aria-label="{% if CUR_LANG == 'ru' %}Скриншоты отзывов{% else %}Скріншоти відгуків{% endif %}">
+      {% for r in reviews %}
+      <figure class="review-card" role="listitem">
+        <div class="review-media">
+          <img class="review-img" src="{{ r.image.url }}" alt="{{ r.alt_text }}" loading="lazy" decoding="async">
+        </div>
+        {% if r.title or r.caption %}
+        <figcaption class="review-caption">
+          {% if r.title %}<div class="review-title">{{ r.title }}</div>{% endif %}
+          {% if r.caption %}<div class="review-text">{{ r.caption }}</div>{% endif %}
+        </figcaption>
+        {% endif %}
+      </figure>
+      {% empty %}
+      <p class="text-center" style="margin:0 0 1rem;">{% if CUR_LANG == 'ru' %}Пока нет отзывов{% else %}Поки немає відгуків{% endif %}</p>
+      {% endfor %}
+    </div>
+    
+    <!-- Lightbox-модалка для отзывов -->
+    <div id="image-modal" class="image-modal" style="display:none;">
+      <div class="image-modal__backdrop"></div>
+      <span class="image-modal__close" aria-label="Закрыть">&times;</span>
+      <img class="image-modal__img" src="" alt="Review Image">
+    </div>
+  </div>
+</section>

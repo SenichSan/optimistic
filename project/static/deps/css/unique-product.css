@@ -1,0 +1,197 @@
+/* Unique product block, styled alike to news-slider */
+.unique-offer { position: relative; isolation: isolate; min-height: 220px; }
+.unique-offer {
+  /* Move visual background into ::after so we can blur without affecting content */
+  background: transparent;
+  border: 1px solid #ffca65;
+  box-shadow: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.unique-block { position: relative; padding: 12px; border: 0; background: transparent; box-shadow: none; overflow: visible; }
+.unique-offer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Single image-set with AVIF/WebP/PNG candidates (PNG is true fallback) */
+  background-image: -webkit-image-set(
+    url('/static/deps/images/unique_product.avif') 1x,
+    url('/static/deps/images/unique_product.webp') 1x,
+    url('/static/deps/images/unique_product.png') 1x
+  );
+  background-image: image-set(
+    url('/static/deps/images/unique_product.avif') type('image/avif') 1x,
+    url('/static/deps/images/unique_product.webp') type('image/webp') 1x,
+    url('/static/deps/images/unique_product.png') type('image/png') 1x
+  );
+  background-position: center, center;
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  filter: blur(3px) saturate(91%);
+  will-change: filter;
+  z-index: 0;
+}
+.unique-offer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(18 16 22 / 75%); /* stronger solid tint so text stands out */
+  pointer-events: none;
+  z-index: 1;
+}
+.unique-offer .container { position: relative; z-index: 2; }
+.unique-offer .tm-section-title { margin-top: 3.2rem; display: block; width: max-content; position: relative; margin-left: auto; margin-right: auto; }
+@media (min-width: 992px) {
+  .unique-offer .tm-section-title { margin-top: 6rem; }
+}
+
+/* Remove duplicate arrows that might have been appended to the container */
+.unique-offer .container > .slick-prev,
+.unique-offer .container > .slick-next { display: none !important; }
+
+/* Narrow the decorative underline just slightly wider than the text */
+.unique-offer .tm-section-title::after {
+  left: 50% !important;   /* override global left/right centering */
+  right: auto !important;
+  width: 100% !important; /* base width equals text width (inline-block) */
+  transform: translateX(-50%) scaleX(1.08); /* make line ~8% wider than text */
+  transform-origin: center;
+}
+.unique-slide__price { text-align: center; margin: 6px 0 12px; }
+.unique-slide__price .price-val { color: #238B5C; font-weight: 800; font-size: clamp(1.1rem, 1vw + .9rem, 1.6rem); text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+
+.unique-slide__actions { display:flex; justify-content:center; gap:10px; }
+.unique-slide__actions .btn-more { display:inline-flex; align-items:center; justify-content:center; padding:8px 14px; min-height: 44px; border-radius:8px; background:#242424; color:#efe8da; text-decoration:none; font-weight:700; border:1px solid rgba(217,183,122,.35); text-shadow: 0 1px 2px rgba(0,0,0,.5); text-align:center; }
+.unique-slide__actions .btn-more:hover { background:#2c2c2c; }
+.unique-slide__actions .add-to-cart-btn { padding:8px 14px; border-radius:8px; border:1px solid rgba(200,170,110,.55); background:#ffffff; color:#1a1712; font-weight:700; cursor:pointer; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+.unique-slide__actions .add-to-cart-btn:hover { background:#f5f5f5; }
+.unique-slide__actions .add-to-cart-btn[disabled] { opacity:.55; cursor:not-allowed; }
+
+/* Bottom small nav under actions (hidden by default, shown on mobile) */
+.unique-bottom-nav { display:none; justify-content:center; align-items:center; gap:8px; margin-top: 10px; }
+.unique-bottom-nav__btn { width: 34px; height: 34px; border-radius: 50%; border: 2px solid #E6BF5A; background: transparent; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; box-shadow: 0 0 0 1px rgba(230,191,90,0.35); }
+.unique-bottom-nav__btn:hover { background:#ffffff; border-color: rgba(200,170,110,.55); }
+.unique-bottom-nav__icon { width: 60%; height: 60%; display:block; }
+.unique-bottom-nav__icon polyline { fill:none; stroke:#E6BF5A; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.unique-bottom-nav__btn:hover .unique-bottom-nav__icon polyline { stroke:#1a1712; }
+
+.unique-product-slider { position: relative; overflow: hidden; z-index: 2; }
+.unique-slide { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; align-items: center; padding: 8px; background: transparent; }
+/* Restore missing media/content and image rules */
+.unique-slide__media, .unique-slide__content { position: relative; z-index: 2; }
+.unique-slide__media { display: flex; justify-content: center; justify-self: center; width: 540px; margin: 0 auto; }
+.unique-slide__media picture, .unique-slide__media img { width: 100%; height: auto; }
+.unique-slide__img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; border: 2px solid #E6BF5A; border-radius: 16px; box-shadow: 0 0 0 1px rgba(230,191,90,0.35); background: #222; }
+.unique-slide__title { margin: 0 0 8px; color: #edc16b; text-align: center; font-weight: 700; font-size: clamp(1.25rem, 1.6vw + .9rem, 1.9rem); text-shadow: 0 2px 6px rgba(0,0,0,.7), 0 0 1px rgba(0,0,0,.9); }
+.unique-slide__title .unique-slide__title-link,
+.unique-slide__title .unique-slide__title-link:visited,
+.unique-slide__title .unique-slide__title-link:hover,
+.unique-slide__title .unique-slide__title-link:focus {
+  color: inherit;
+  text-decoration: none;
+}
+.unique-slide__subtitle { margin: 0 0 10px; color: #ffe3b0; font-family: 'PT Serif', serif; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,.65); font-size: clamp(0.92rem, 0.8vw + .68rem, 1.05rem); }
+
+/* Custom nav buttons (gold circles with golden arrows) */
+.unique-block .unique-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 2px solid #E6BF5A;   /* gold ring */
+  background: transparent;      /* no inner fill */
+  color: #E6BF5A;               /* golden arrow glyph */
+  font-size: 28px;              /* bigger arrow, same circle */
+  line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(230,191,90,0.35);
+  user-select: none;
+}
+.unique-block .unique-nav:hover { background:#ffffff; border-color: rgba(200,170,110,.55); color: #1a1712; box-shadow: 0 1px 2px rgba(0,0,0,.15); }
+.unique-block .unique-nav:active { background:#f5f5f5; }
+.unique-block .unique-nav:focus { outline: none; box-shadow: 0 0 0 3px rgba(210,184,121,0.35); }
+.unique-block .unique-nav[disabled] { opacity: .5; cursor: default; }
+.unique-block .unique-nav.unique-nav--prev { left: 8px; }
+.unique-block .unique-nav.unique-nav--next { right: 8px; }
+
+/* SVG arrow styling */
+.unique-block .unique-nav .unique-nav__icon { width: 60%; height: 60%; display: block; }
+.unique-block .unique-nav .unique-nav__icon polyline {
+  fill: none;
+  stroke: #E6BF5A;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.unique-block .unique-nav:hover .unique-nav__icon polyline { stroke: #1a1712; }
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .unique-slide { grid-template-columns: 1fr; display: flex; flex-direction: column; align-items: center; }
+  .unique-slide__media, .unique-slide__content { width: 100%; grid-column: 1 / -1; }
+  .unique-slide__media { justify-self: center; width: min(450px, 92vw); margin: 0 auto; }
+  .unique-slide__img { aspect-ratio: 4 / 3; border-radius: 14px; }
+  .unique-block .unique-nav { width: 42px; height: 42px; font-size: 26px; }
+  .unique-block .unique-nav.unique-nav--prev { left: 4px; }
+  .unique-block .unique-nav.unique-nav--next { right: 4px; }
+  /* Prevent neighboring slides/images from showing on mobile */
+  .unique-product-slider { overflow: visible; }
+  .unique-product-slider .slick-list { overflow: hidden !important; box-sizing: border-box; }
+  .unique-product-slider .slick-track { overflow: visible; }
+  .unique-product-slider .slick-slide { display: flex !important; justify-content: center; }
+  .unique-product-slider .slick-slide { opacity: 0; pointer-events: none; }
+  .unique-product-slider .slick-slide.slick-active { opacity: 1; pointer-events: auto; }
+  /* Safety: ensure media never exceeds container */
+  .unique-slide__media picture, .unique-slide__media img { max-width: 100%; height: auto; }
+  /* Tight vertical rhythm for mobile */
+  .unique-offer .tm-section-title { margin-bottom: 0.8rem; }
+  .unique-slide__media { margin-bottom: 0.6rem; }
+  .unique-slide__title { margin-bottom: 0.4rem; }
+  .unique-slide__subtitle { margin-bottom: 0.6rem; }
+  .unique-slide__price { margin: 4px 0 8px; }
+  /* Stack action buttons vertically */
+  .unique-slide__actions { flex-direction: column; align-items: center; gap: 8px; }
+  .unique-slide__actions .btn-more,
+  .unique-slide__actions .add-to-cart-btn { width: 100%; max-width: 320px; }
+}
+
+/* Hide custom nav arrows on mobile (<=768px) */
+@media (max-width: 767.98px) {
+  .unique-block .unique-nav { display: none !important; }
+  .unique-bottom-nav { display:flex; }
+}
+
+@media (min-width: 992px) {
+  .unique-block .unique-nav { width: 58px; height: 58px; font-size: 36px; }
+  /* Raise arrows a bit higher */
+  .unique-block .unique-nav { top: 45%; }
+}
+
+/* Constrain content width so text wraps earlier (wider) */
+.unique-slide__content { max-width: 620px; margin-left: auto; margin-right: auto; }
+@media (min-width: 992px) {
+  .unique-slide__content { max-width: 680px; justify-self: center; }
+}
+@media (max-width: 575.98px) {
+  /* Make heading fit on small screens */
+  .unique-offer .tm-section-title {
+    width: auto;               /* allow normal wrapping */
+    max-width: 92vw;           /* respect viewport */
+    text-wrap: balance;        /* nicer wrapping where supported */
+    font-size: clamp(1.1rem, 4.4vw + 0.4rem, 1.6rem);
+    line-height: 1.15;
+  }
+  .unique-slide__content { max-width: 92%; }
+  /* Move inner gutters to slick-list so Slick correctly computes widths */
+  .unique-product-slider .slick-list { padding: 0 12px; }
+  /* Trim media width a bit more to avoid edge clipping */
+  .unique-slide__media { width: min(320px, 88vw); }
+  /* Stack elements vertically with tight margins */
+  .unique-slide__content > * { margin: 0.4rem 0; }
+  /* Stack action buttons vertically */
+  .unique-slide__actions { flex-direction: column; align-items: center; gap: 8px; }
+  .unique-offer .tm-section-title { margin-top: 1.6rem; }
+}

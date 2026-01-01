@@ -1,0 +1,285 @@
+.tm-paging-links {
+position: relative;
+  /* Поменяйте значения ниже для других палитр (см. пояснения дальше) */
+  --card-bg: rgba(39,18,60,0.12);
+  --card-fallback: #2e2637;
+  --card-border: rgba(255,255,255,0.06);
+  --text-strong: #F3EFFF;
+  --accent-rgba: 181,124,255;
+  --shadow-dark: rgba(30,18,50,0.36);
+}
+
+/* Надёжная «прокладка» снизу блока (не зависит от padding и overflow детей) */
+.tm-paging-links::after {
+  content: "";
+  display: block;
+  height: 26px; /* воздух снизу */
+}
+
+@media (max-width: 991px) {
+  .tm-paging-links::after { height: 28px; }
+}
+@media (max-width: 576px) {
+  .tm-paging-links::after { height: 22px; }
+}
+
+/* контейнер: даём боковые отступы, чтобы карточки могли "выходить" при hover */
+.tm-paging-links {
+  /* 1) Plain JPG fallback for older Safari/iOS */
+  background: url('/static/deps/images/categories-bg.jpg') center/contain no-repeat;
+  /* 2) Safari-compatible image-set (no type descriptors) */
+  background-image: -webkit-image-set(
+    url('/static/deps/images/categories-bg.avif') 1x,
+    url('/static/deps/images/categories-bg.webp') 1x,
+    url('/static/deps/images/categories-bg.jpg') 1x
+  );
+  /* 3) Standard image-set with type descriptors */
+  background-image: image-set(
+    url('/static/deps/images/categories-bg.avif') type('image/avif') 1x,
+    url('/static/deps/images/categories-bg.webp') type('image/webp') 1x,
+    url('/static/deps/images/categories-bg.jpg') type('image/jpeg') 1x
+  );
+  background-size: 100% 100%;
+  overflow: visible;
+  padding: 0 26px; /* десктоп: как было */
+  padding-top: 1.2rem; /* базовый отступ сверху (уменьшен, но оставлен воздух) */
+  padding-bottom: 24px !important; /* принудительный воздух снизу — перебивает критические inline-стили */
+  box-sizing: border-box;
+  text-align: center; /* center the heading inline-block */
+}
+
+/* Robust bottom spacer inside the block */
+.tm-paging-links::after {
+  content: "";
+  display: block;
+  height: 24px;
+}
+
+@media (max-width: 991px) { .tm-paging-links::after { height: 28px; } }
+@media (max-width: 576px) { .tm-paging-links::after { height: 20px; } }
+
+/* Внешний зазор под блоком на всякий случай (между секциями) */
+.tm-paging-links-wrap { margin-bottom: 16px; }
+/* Heading style — mirror bestsellers title (.tm-section-title) */
+.category-section-title,
+.tm-paging-links .category-section-title { /* bump specificity */
+  position: relative;
+  text-align: center;
+  display: block;            /* full width to allow full-width underline */
+  width: 100%;
+  margin: 0 0 2.2rem;        /* отступ снизу как у бестселлеров */
+  padding-bottom: 14px;      /* резерв под линию */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #dcc49a;
+}
+
+/* Больше воздуха под заголовком на адаптивах (reinserted) */
+@media (max-width: 991px) {
+  .tm-paging-links .category-section-title { margin: 0 auto 1.8rem; }
+}
+@media (max-width: 576px) {
+  .tm-paging-links .category-section-title { margin: 0 auto 1rem; }
+}
+
+/* Narrow, centered underline a bit wider than text */
+.category-section-title::after,
+.tm-paging-links .category-section-title::after,
+.tm-paging-links .tm-section-title.category-section-title::after { /* override global */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px; /* линия строго под заголовком — как в бестселлерах */
+  height: 2px;
+  background: linear-gradient(90deg, #2f2d28, #ab9964, #2f2d28);
+}
+
+/* grid: десктоп — 3 колонки (как было) */
+.tm-paging-links .tm-paging-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    column-gap: 40px; /* горизонтальное расстояние */
+    row-gap: 60px;    /* вертикальное расстояние — больше, чем column-gap */
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: visible;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 90px;
+}
+
+/* li — растянуть ссылку внутри */
+.tm-paging-list .tm-paging-item {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* карточка */
+.tm-paging-list .tm-paging-item .category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+
+  background: var(--card-bg);
+  background-color: #2f26397d;
+
+  /* Тонкая мягкая рамка в указанных тонах */
+  border: 0.8px solid #ddc69a;
+  box-shadow: 0 0 100px rgba(80, 40, 120, 0.25);
+
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+
+  color: var(--text-strong);
+  text-decoration: none;
+
+  transition: transform 320ms cubic-bezier(.2,.9,.25,1),
+              border-color 220ms,
+              box-shadow 220ms;
+  transform-origin: center;
+  will-change: transform;
+  overflow: visible;
+}
+
+/* иконка и подпись (десктоп как было) */
+/* Image area: keep images fully contained inside the card, no overflow */
+.category-icon-wrap,
+.catalog-category-icon-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;           /* square area that scales with card width */
+  max-height: 180px;             /* safety cap on very wide screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;            /* spacing from text */
+  overflow: hidden;               /* never let image bleed out of the card */
+  z-index: 2;
+}
+/* Ensure <picture>/<img> scales correctly and stays inside */
+.category-icon-wrap picture,
+.catalog-category-icon-wrap picture,
+.category-icon-wrap img,
+.catalog-category-icon-wrap img,
+.category-icon,
+.catalog-category-icon {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;           /* fit within box without cropping */
+  display: block;
+}
+/* Reduce aggressive hover scale to avoid touching text */
+.tm-paging-list .tm-paging-item .category-card:hover .category-icon,
+.tm-paging-list .tm-paging-item .category-card:hover .catalog-category-icon,
+.tm-paging-list .tm-paging-item .category-card:hover .category-icon-wrap img,
+.tm-paging-list .tm-paging-item .category-card:hover .catalog-category-icon-wrap img { transform: scale(1.03); }
+
+.category-label {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 4px 0 0;               /* add a small top gap from image */
+  z-index: 2;
+  text-align: center;
+  color: #ddc69a;
+  text-shadow: 0 1px 0 #ddc69a;
+}
+
+/* Планшеты и ниже — включаем новый адаптив (макс. 2 колонки в ряд) */
+@media (max-width: 991px) {
+  /* phones/tablets spacing (reinserted) */
+  .tm-paging-links { padding: 0 clamp(16px, 4vw, 24px); padding-top: 3rem; padding-bottom: 28px !important; }
+  .tm-paging-links .tm-paging-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    column-gap: clamp(12px, 3vw, 24px);
+    row-gap: clamp(16px, 4vw, 28px);
+    padding-bottom: 70px;
+  }
+  .category-icon-wrap,
+  .catalog-category-icon-wrap {
+    aspect-ratio: 1 / 1;
+    max-height: 140px;
+    margin-bottom: 10px;
+  }
+  .category-label { font-size: 1.1rem; }
+}
+
+/* Subtitle under category name — match product card subtitle */
+.category-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  color: #9C9EA8;
+  text-align: center;
+}
+
+/* hover / focus */
+.tm-paging-list .tm-paging-item .category-card:hover,
+.tm-paging-list .tm-paging-item .category-card:focus {
+  transform: translateY(-10px) scale(1.04);
+
+  /* Толще и ярче рамка */
+  border-width: 1.5px;
+  border-color: #ffe9b0;
+
+  /* Более яркий фон (насыщенный фиолетово-золотистый оттенок) */
+  background-color: rgba(50, 25, 75, 0.22);
+
+  /* Более выраженное свечение */
+  box-shadow: 0 0 14px rgba(221, 198, 154, 0.85),
+              0 0 28px rgba(120, 60, 180, 0.35);
+
+  z-index: 5;
+}
+.tm-paging-list .tm-paging-item .category-card:hover::before,
+.tm-paging-list .tm-paging-item .category-card:focus::before {
+  opacity: 1;
+  transform: translateY(-6px) scale(1.02);
+}
+.tm-paging-list .tm-paging-item .category-card:hover .category-icon {
+  transform: translateY(-8px) scale(1.06);
+  filter: drop-shadow(0 16px 32px rgba(10,40,36,0.28));
+}
+
+/* active/current */
+.tm-paging-list .tm-paging-item .category-card[aria-current="true"] {
+  outline: 3px solid rgba(var(--accent-rgba),0.12);
+  box-shadow: 0 30px 70px var(--shadow-dark), 0 0 28px rgba(var(--accent-rgba),0.16);
+}
+
+/* responsive */
+@media (max-width: 576px) {
+  .tm-paging-links { padding: 0 clamp(10px, 4vw, 16px); padding-top: 1.6rem; padding-bottom: 20px !important; } /* добавляем воздух снизу */
+  .tm-paging-links-wrap { margin-bottom: 20px; }
+  .tm-paging-list {
+    grid-template-columns: repeat(2, 1fr); /* две карточки в ряд на телефонах */
+    column-gap: clamp(8px, 3vw, 12px);
+    row-gap: clamp(10px, 3vw, 14px);
+  }
+  .category-icon-wrap,
+  .catalog-category-icon-wrap {
+    aspect-ratio: 1 / 1;
+    max-height: 84px;           /* компактнее, чтобы текст не налезал */
+  }
+  .tm-paging-list .tm-paging-item .category-card {
+    padding: 10px; /* компактнее без потери читаемости */
+  }
+}

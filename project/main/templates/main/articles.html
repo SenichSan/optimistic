@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+{% block title %}{% if CUR_LANG == 'ru' %}Авторские статьи о выращивании грибов Cubensis и Panaeolus — Grownica{% else %}Авторські статті про гровінг Cubensis і Panaeolus — Grownica{% endif %}{% endblock %}
+
+{% block meta_description %}
+  <meta name="description" content="{% if CUR_LANG == 'ru' %}Как не испортить материалы и добиться результата? Качественная подборка детальных статей с ответами на все вопросы для гроверов. Профессиональный справочник для опытных и не очень микологов.{% else %}Як не зіпсувати дорогі матеріали та досягти результату? Якісна збірка детальних статей з відповідями на всі питання для гроверів. Професійний довідник для досвідчених та не дуже мікологів.{% endif %}">
+{% endblock %}
+
+{% block seo_head_extra %}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{% if CUR_LANG == 'ru' %}Авторские статьи о выращивании грибов Cubensis и Panaeolus — Grownica{% else %}Авторські статті про гровінг Cubensis і Panaeolus — Grownica{% endif %}">
+  <meta property="og:description" content="{% if CUR_LANG == 'ru' %}Как не испортить материалы и добиться результата? Качественная подборка детальных статей с ответами на все вопросы для гроверов. Профессиональный справочник для опытных и не очень микологов.{% else %}Як не зіпсувати дорогі матеріали та досягти результату? Якісна збірка детальних статей з відповідями на всі питання для гроверів. Професійний довідник для досвідчених та не дуже мікологів.{% endif %}">
+  <meta property="og:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if CUR_LANG == 'ru' %}Авторские статьи о выращивании грибов Cubensis и Panaeolus — Grownica{% else %}Авторські статті про гровінг Cubensis і Panaeolus — Grownica{% endif %}">
+  <meta name="twitter:description" content="{% if CUR_LANG == 'ru' %}Как не испортить материалы и добиться результата? Качественная подборка детальных статей с ответами на все вопросы для гроверов. Профессиональный справочник для опытных и не очень микологов.{% else %}Як не зіпсувати дорогі матеріали та досягти результату? Якісна збірка детальних статей з відповідями на всі питання для гроверів. Професійний довідник для досвідчених та не дуже мікологів.{% endif %}">
+  <meta name="twitter:image" content="{% static 'deps/images/og/home-1200x630.jpg' %}">
+{% endblock %}
+
+{% block css %}
+  <link rel="preload" as="style" href="{% static 'deps/css/templatemo-style.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/templatemo-style.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/security-text.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/security-text.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/footer.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/footer.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/cart-component.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/cart-component.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/faq.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/faq.css' %}"></noscript>
+
+  <link rel="preload" as="style" href="{% static 'deps/css/welcome-block.css' %}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'deps/css/welcome-block.css' %}"></noscript>
+  
+  <!-- Ensure Marck Script is available for cart label, same as Home -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap"></noscript>
+  <style>
+    /* Sticky footer scaffold */
+    main.container.my-4 { margin-top: 0 !important; margin-bottom: 0 !important; min-height: 100dvh; display: flex; flex-direction: column; }
+    .container.home-framed { display: flex; flex-direction: column; flex: 1 0 auto; }
+    .articles-content { flex: 1 0 auto; display: flex; flex-direction: column; min-height: 0; }
+    /* Push the final footer row to the bottom when content is short */
+    .container.home-framed > .row.section-block:last-child { margin-top: auto; margin-bottom: 0; }
+    .section-block + .section-block { margin-top: 3px; }
+    .section-fill { flex: 1 1 auto; display: flex; min-height: 0; }
+    .section-fill > .col-12 { flex: 1 1 auto; display: flex; min-height: 0; }
+    .section-fill .welcome-block { flex: 1 1 auto; height: auto; }
+    .articles-content + .row.section-block { margin-top: 3px; }
+    /* Apply PT Serif to article/category typography */
+    .articles-category__title,
+    .article-card__title,
+    .article-card__excerpt {
+      font-family: 'PT Serif', serif;
+    }
+    /* Ensure gap between header (first section) and the first categories block */
+    .row.section-block.section-fill { margin-top: 3px; }
+  </style>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap"></noscript>
+{% endblock %}
+
+{% block content %}
+  <div class="container home-framed">
+    <div class="articles-content d-flex flex-column flex-fill">
+      <div class="row section-block">
+        <div class="col-12">
+          {% include 'components/header-hero.html' %}
+        </div>
+      </div>
+
+      <style>
+        .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        @media (min-width: 992px) { .articles-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+        .article-card { position: relative; background: rgba(255,255,255,0.04); border: 1px solid rgb(218 194 153); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease; }
+        /* Яркий ховер только на десктопе */
+        @media (min-width: 992px) {
+          .article-card:hover {
+            border-color: rgb(218 194 153);
+            box-shadow: 0 0 0 3px rgba(218,194,153,.55), 0 10px 28px rgba(0,0,0,.35);
+            transform: translateY(-2px);
+          }
+        }
+        /* При наведении на сетку — остальные карточки приглушаются (только десктоп/устройства с hover) */
+        @media (min-width: 992px) and (hover: hover) {
+          .articles-grid .article-card { transition: opacity .18s ease; }
+          .articles-grid:hover .article-card { opacity: .45; }
+          .articles-grid:hover .article-card:hover { opacity: 1; }
+        }
+        .article-card__link { position: relative; display: block; color: inherit; text-decoration: none; }
+        .article-card__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; filter: blur(2px); transform: scale(1.03); transform-origin: center; }
+        .article-card__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.72) 55%, rgba(0,0,0,0.88) 100%); z-index: 1; }
+        .article-card__content { position: absolute; inset: 0; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+        .article-card__title { font-size: 1.45rem; margin: 0 0 6px; font-weight: 700; text-align: center; color: #edc16b; }
+        /* Base golden underline under article title (visible on all sizes) */
+        .article-card__title::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 60%;
+          max-width: 240px;
+          margin: 6px auto 8px;
+          background: linear-gradient(to right, rgba(255,199,91,0), rgba(255,199,91,0.9), rgba(255,199,91,0));
+          border-radius: 2px;
+        }
+        .article-card__excerpt { margin: 0; opacity: 1; font-size: 1.1rem; text-align: center; color: #ffe3b0; }
+        .articles-category { margin: 8px 0 24px; }
+        .articles-category + .articles-category { margin-top: 32px; }
+        .articles-category__title { margin: 0 auto; font-size: 1.4rem; font-weight: 700; text-align: center; color: #ffc75b; display: block; }
+        .articles-category__title::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 500px;
+          max-width: 90%;
+          margin: 6px auto 0;
+          background: linear-gradient(to right, rgba(255,199,91,0), rgba(255,199,91,0.9), rgba(255,199,91,0));
+          border-radius: 2px;
+        }
+        /* Add spacing between the underline and cards */
+        .articles-category .articles-grid { margin-top: 12px; }
+      </style>
+      <style>
+        /* Small tablets: show golden underline and shrink fonts, no truncation */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+          .article-card__title {
+            display: block;
+            overflow: visible;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: initial;
+            font-size: clamp(0.98rem, 1.2vw + 0.7rem, 1.12rem);
+            line-height: 1.16;
+            word-break: normal;
+            overflow-wrap: normal;
+            hyphens: auto;
+            margin-bottom: 4px;
+            text-align: center;
+          }
+          .article-card__title::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: clamp(140px, 58%, 200px);
+            margin: 4px auto 8px;
+            background: linear-gradient(to right, rgba(255,199,91,0), rgba(255,199,91,0.9), rgba(255,199,91,0));
+            border-radius: 2px;
+          }
+          .article-card__excerpt {
+            display: block;
+            overflow: visible;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: initial;
+            font-size: clamp(0.9rem, 0.8vw + 0.7rem, 1.02rem);
+            line-height: 1.24;
+            word-break: normal;
+            overflow-wrap: normal;
+            hyphens: auto;
+            text-align: center;
+            margin: 0;
+          }
+          /* Slightly taller image for overlay text */
+          .article-card__img { aspect-ratio: 4 / 6; }
+        }
+      </style>
+      <style>
+        /* Mobile width-fit overrides: keep 2 columns, no horizontal scroll, prevent clipping */
+        @media (max-width: 575.98px) {
+          /* Prevent any horizontal overflow on grid only; allow container to show full borders */
+          .container.home-framed { overflow-x: visible; }
+          .articles-grid { overflow-x: hidden; }
+
+          /* Ensure tracks never overflow and reduce gaps */
+          .articles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+
+          /* Make header block flush to edges like footer */
+          .header-hero,
+          .header-hero .container-inner,
+          .header-hero .header-hero-content,
+          .tm-header { max-width: 100%; width: 100%; padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
+
+          /* Provide gutters by neutralizing row negative margins and adding column padding */
+          .row.section-block { margin-left: 0; margin-right: 0; }
+          .row.section-block > .col-12 { padding-left: 0; padding-right: 0; }
+          main.container.my-4 { padding-left: 0; padding-right: 0; }
+          .container { padding-left: 0 !important; padding-right: 0 !important; }
+          .container.home-framed { padding-left: 0; padding-right: 0; }
+          .articles-list { padding-left: 0; padding-right: 0; }
+          .articles-block { box-sizing: border-box; margin-left: 0; margin-right: 0; border-width: 1.5px; max-width: 100%; }
+
+          /* Cards strictly fit the column */
+          .article-card, .article-card__link { width: 100%; box-sizing: border-box; overflow: hidden; }
+          .article-card__title, .article-card__excerpt { overflow-wrap: anywhere; word-break: break-word; }
+
+          /* Keep overlay/blur but avoid width bleed; make image taller for overlay text */
+          .article-card__img { transform: none; aspect-ratio: 4 / 6.5; }
+          .article-card__content { padding: 6px; }
+
+          /* Tighter typography: shrink fonts instead of truncating words */
+          .article-card__title { font-size: clamp(1.22rem, 2.4vw + 0.5rem, 1.12rem); margin: 0 0 2px; line-height: 1.35; word-break: normal; overflow-wrap: normal; hyphens: none; display: block; overflow: visible; }
+          /* Golden underline visible on mobile, adaptive width */
+          .article-card__title::after { content: ""; display: block; height: 2px; width: clamp(120px, 56%, 160px); margin: 3px auto 8px; background: linear-gradient(to right, rgba(255,199,91,0), rgba(255,199,91,0.9), rgba(255,199,91,0)); border-radius: 2px; }
+          .article-card__excerpt { font-size: clamp(0.78rem, 1.8vw + 0.38rem, 0.95rem); line-height: 1.22; word-break: normal; overflow-wrap: normal; hyphens: none; display: block; overflow: visible; }
+
+          /* Category underline not to exceed screen width */
+          .articles-category__title::after { width: 220px; max-width: 65%; }
+        }
+      </style>
+      <style>
+        /* Outer block like other site blocks: border + background (same as old articles page) */
+        .articles-block { position: relative; padding: 2px; border: 2px solid #4f463e; border-radius: 10px; }
+        .articles-block {
+          background-image: url('/static/deps/images/news-slider-bg.jpg');
+          background-image: -webkit-image-set(
+            url('/static/deps/images/news-slider-bg.avif') 1x,
+            url('/static/deps/images/news-slider-bg.webp') 1x,
+            url('/static/deps/images/news-slider-bg.jpg') 1x
+          );
+          background-image: image-set(
+            url('/static/deps/images/news-slider-bg.avif') type('image/avif') 1x,
+            url('/static/deps/images/news-slider-bg.webp') type('image/webp') 1x,
+            url('/static/deps/images/news-slider-bg.jpg') type('image/jpeg') 1x
+          );
+          background-position: center; background-repeat: no-repeat; background-size: cover;
+        }
+        .articles-block::before { content: ""; position: absolute; inset: 0; background-color: rgba(0,0,0,0.36); pointer-events: none; border-radius: 10px; }
+        .articles-block__inner { position: relative; z-index: 1; }
+        .articles-block { width: 100%; }
+        .articles-list { display: flex; flex-direction: column; gap: 1px; }
+      </style>
+
+      <div class="row section-block section-fill">
+        <div class="col-12">
+          <div class="articles-list">
+          {% for cat in article_categories %}
+            <div class="articles-block">
+              <div class="articles-block__inner">
+                <section class="articles-category">
+                  <header class="articles-category__header">
+                    <h2 class="articles-category__title">
+                      {% if CUR_LANG == 'ru' %}{{ cat.name_ru|default:cat.name_uk }}{% else %}{{ cat.name_uk|default:cat.name_ru }}{% endif %}
+                    </h2>
+                  </header>
+                  <div class="articles-grid">
+                    {% for article in cat.published_articles %}
+                      <article class="article-card">
+                        <a class="article-card__link" href="{{ article.get_absolute_url }}">
+                          {% if article.cover_image %}
+                            <img class="article-card__img" src="{{ article.cover_image.url }}" alt="{% if CUR_LANG == 'ru' %}{{ article.title_ru|default:article.title_uk }}{% else %}{{ article.title_uk|default:article.title_ru }}{% endif %}" loading="lazy" decoding="async" />
+                          {% endif %}
+                          <span class="article-card__overlay" aria-hidden="true"></span>
+                          <div class="article-card__content">
+                            <h3 class="article-card__title">
+                              {% if CUR_LANG == 'ru' %}{{ article.title_ru|default:article.title_uk }}{% else %}{{ article.title_uk|default:article.title_ru }}{% endif %}
+                            </h3>
+                            {% if CUR_LANG == 'ru' %}
+                              {% if article.excerpt_ru %}<p class="article-card__excerpt">{{ article.excerpt_ru }}</p>{% endif %}
+                            {% else %}
+                              {% if article.excerpt_uk %}<p class="article-card__excerpt">{{ article.excerpt_uk }}</p>{% endif %}
+                            {% endif %}
+                          </div>
+                        </a>
+                      </article>
+                    {% endfor %}
+                  </div>
+                </section>
+              </div>
+            </div>
+          {% empty %}
+            <p>{% if CUR_LANG == 'ru' %}Пока нет опубликованных статей.{% else %}Поки немає опублікованих статей.{% endif %}</p>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row section-block">
+      <div class="col-12">
+        {% include 'components/footer.html' %}
+      </div>
+    </div>
+  </div>
+
+  {% include 'components/cart_button.html' %}
+  {% include 'components/cart_modal.html' %}
+{% endblock %}
+
+{% block extra_js %}
+  <script defer src="{% static 'deps/js/jquery-ajax.js' %}"></script>
+  <script defer src="{% static 'deps/js/cart-component.js' %}"></script>
+{% endblock %}

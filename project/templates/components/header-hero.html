@@ -1,0 +1,129 @@
+{% load static %}
+{% load i18n i18n_urls %}
+{% get_current_language as CUR_LANG %}
+
+<section class="header-hero" role="region" aria-label="{% if CUR_LANG == 'ru' %}Главный баннер{% else %}Головний банер{% endif %}">
+    <!-- фон -->
+    <div class="hero-bg" aria-hidden="true">
+        <picture>
+            <!-- Prefer AVIF -->
+            <source media="(max-width:599px)" srcset="{% static 'deps/images/bg-image-blur-800.avif' %}" type="image/avif">
+            <source media="(min-width:600px)" srcset="{% static 'deps/images/bg-image-blur-1600.avif' %}" type="image/avif">
+            <!-- Then WebP -->
+            <source media="(max-width:599px)" srcset="{% static 'deps/images/bg-image-blur-800.webp' %}" type="image/webp">
+            <source media="(min-width:600px)" srcset="{% static 'deps/images/bg-image-blur-1600.webp' %}" type="image/webp">
+            <!-- Fallback JPEG -->
+            <source media="(max-width:599px)"
+                    srcset="{% static 'deps/images/bg-image-blur-800.jpg' %} 1x, {% static 'deps/images/bg-image-blur-1600.jpg' %} 2x"
+                    type="image/jpeg">
+            <source media="(min-width:600px)"
+                    srcset="{% static 'deps/images/bg-image-blur-1600.jpg' %} 1x, {% static 'deps/images/bg-image-blur-2400.jpg' %} 2x"
+                    type="image/jpeg">
+            <img class="hero-image"
+                 src="{% static 'deps/images/bg-image-blur-1600.jpg' %}" alt=""
+                 width="1600" height="400" loading="eager" decoding="async" fetchpriority="high">
+        </picture>
+    </div>
+
+    <!-- overlay (оставляем как есть) -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- контентный контейнер (центрует ширину) -->
+    <div class="container-inner header-hero-content">
+        <header class="tm-header" role="banner" aria-label="{% if CUR_LANG == 'ru' %}Шапка сайта{% else %}Шапка сайту{% endif %}">
+
+            <!-- 1) LEFT: логотип / текст (вертикально выровнен) -->
+            <div class="tm-header-left">
+                <a href="{% url 'main:home' %}" class="tm-site-title-link-block" aria-label="На главную">
+                    <div class="tm-site-text-box">
+                        {% if request and request.resolver_match %}
+                          {% with ns=request.resolver_match.namespace name=request.resolver_match.url_name %}
+                            {% if name == 'home' or ns == 'main' %}
+                              <h1 class="tm-site-title"><span class="tm-site-title-text" data-text="Grownica">Grownica</span></h1>
+                            {% else %}
+                              <div class="tm-site-title" role="heading" aria-level="2"><span class="tm-site-title-text" data-text="Grownica">Grownica</span></div>
+                            {% endif %}
+                          {% endwith %}
+                        {% else %}
+                          <div class="tm-site-title" role="heading" aria-level="2">Grownica</div>
+                        {% endif %}
+                        <h6 class="tm-site-description">
+                          {% if CUR_LANG == 'ru' %}
+                            <span class="tm-site-subtitle-text" data-text="Магазин. Консультации. Микология.">Магазин. Консультации. Микология.</span>
+                          {% else %}
+                            <span class="tm-site-subtitle-text" data-text="Магазин. Консультації. Мікологія.">Магазин. Консультації. Мікологія.</span>
+                          {% endif %}
+                        </h6>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 2) TOP-RIGHT: соцсети (абсолютно сверху справа) -->
+            <div class="tm-header-social" aria-hidden="false">
+                
+
+                <a href="https://t.me/Grownicabot" class="tm-social-link" title="Telegram" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+                    <picture>
+                        <source srcset="{% static 'deps/images/telegram_48x48.avif' %} 1x, {% static 'deps/images/telegram_96x96.avif' %} 2x" type="image/avif">
+                        <source srcset="{% static 'deps/images/telegram_48x48.webp' %} 1x, {% static 'deps/images/telegram_96x96.webp' %} 2x" type="image/webp">
+                        <img src="{% static 'deps/images/telegram.png' %}" alt="Telegram" width="49" height="49" loading="lazy" decoding="async">
+                    </picture>
+                </a>
+
+                <a href="#" class="tm-social-link" title="Viber" aria-label="Viber">
+                    <picture>
+                        <source srcset="{% static 'deps/images/viber_48x48.avif' %} 1x, {% static 'deps/images/viber_96x96.avif' %} 2x" type="image/avif">
+                        <source srcset="{% static 'deps/images/viber_48x48.webp' %} 1x, {% static 'deps/images/viber_96x96.webp' %} 2x" type="image/webp">
+                        <img src="{% static 'deps/images/viber.png' %}" alt="Viber" width="49" height="49" loading="lazy" decoding="async">
+                    </picture>
+                </a>
+
+                <a href="#" class="tm-social-link" title="Whatsapp" aria-label="Whatsapp">
+                    <picture>
+                        <source srcset="{% static 'deps/images/whatsapp_48x48.avif' %} 1x, {% static 'deps/images/whatsapp_96x96.avif' %} 2x" type="image/avif">
+                        <source srcset="{% static 'deps/images/whatsapp_48x48.webp' %} 1x, {% static 'deps/images/whatsapp_96x96.webp' %} 2x" type="image/webp">
+                        <img src="{% static 'deps/images/whatsapp.png' %}" alt="Whatsapp" width="49" height="49" loading="lazy" decoding="async">
+                    </picture>
+                </a>
+                <!-- при необходимости добавь ещё ссылки -->
+            </div>
+
+            <!-- 3) BOTTOM-RIGHT: навигация (кнопки) -->
+            
+            <!-- Separate top-right language switch (outside social block) -->
+            <div class="tm-lang-switch-wrap" aria-hidden="false">
+                <a href="{% if CUR_LANG == 'ru' %}{% switch_lang_url 'uk' %}{% else %}{% switch_lang_url 'ru' %}{% endif %}"
+                   class="tm-lang-image-switch"
+                   title="{% if CUR_LANG == 'ru' %}UA{% else %}RU{% endif %}"
+                   aria-label="{% if CUR_LANG == 'ru' %}Переключить на украинский{% else %}Переключить на русский{% endif %}">
+                    <picture>
+                        <source srcset="{% if CUR_LANG == 'ru' %}{% static 'deps/images/lang_ua_48x48.avif' %} 1x, {% static 'deps/images/lang_ua_96x96.avif' %} 2x{% else %}{% static 'deps/images/lang_ru_48x48.avif' %} 1x, {% static 'deps/images/lang_ru_96x96.avif' %} 2x{% endif %}" type="image/avif">
+                        <source srcset="{% if CUR_LANG == 'ru' %}{% static 'deps/images/lang_ua_48x48.webp' %} 1x, {% static 'deps/images/lang_ua_96x96.webp' %} 2x{% else %}{% static 'deps/images/lang_ru_48x48.webp' %} 1x, {% static 'deps/images/lang_ru_96x96.webp' %} 2x{% endif %}" type="image/webp">
+                        <img src="{% if CUR_LANG == 'ru' %}{% static 'deps/images/lang_ua.png' %}{% else %}{% static 'deps/images/lang_ru.png' %}{% endif %}"
+                             alt="{% if CUR_LANG == 'ru' %}UA{% else %}RU{% endif %}"
+                             width="26" height="26" loading="lazy" decoding="async">
+                    </picture>
+                </a>
+            </div>
+            <nav class="tm-header-nav" aria-label="{% if CUR_LANG == 'ru' %}Главная навигация{% else %}Головна навігація{% endif %}">
+                <ul class="tm-nav-buttons">
+                    {% with ns=request.resolver_match.namespace name=request.resolver_match.url_name %}
+                    <li class="tm-nav-li {% if name == 'home' %}is-active{% endif %}">
+                        <a href="{% url 'main:home' %}"
+                           class="tm-nav-link {% if name == 'home' %}active{% endif %}">{% if CUR_LANG == 'ru' %}Главная{% else %}Головна{% endif %}</a>
+                    </li>
+                    <li class="tm-nav-li {% if ns == 'catalog' or name|default:''|slice:"0:7" == 'catalog' %}is-active{% endif %}">
+                        <a href="{% url 'catalog:catalog_all' %}"
+                           class="tm-nav-link {% if ns == 'catalog' or name|default:''|slice:"0:7" == 'catalog' %}active{% endif %}">{% if CUR_LANG == 'ru' %}Каталог{% else %}Каталог{% endif %}</a>
+                    </li>
+                    <li class="tm-nav-li {% if name == 'articles' or ns == 'articles' %}is-active{% endif %}">
+                        <a href="{% url 'main:articles' %}" class="tm-nav-link {% if name == 'articles' or ns == 'articles' %}active{% endif %}">{% if CUR_LANG == 'ru' %}Статьи{% else %}Статті{% endif %}</a>
+                    </li>
+                    {% endwith %}
+                </ul>
+            </nav>
+        </header>
+    </div>
+</section>
+
+

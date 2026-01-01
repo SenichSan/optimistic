@@ -1,0 +1,139 @@
+{% load static %}
+{% load media_extras %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+
+<section class="unique-offer">
+  <div class="container" role="region" aria-labelledby="unique-offer-title">
+    <h2 id="unique-offer-title" class="tm-section-title text-center">{% if CUR_LANG == 'ru' %}Уникальные предложения от Grownica{% else %}Унікальні пропозиції від Grownica{% endif %}</h2>
+
+    {% if unique_products %}
+    <div class="unique-block">
+      <button type="button" class="unique-nav unique-nav--prev" aria-label="Previous">
+        <svg class="unique-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <polyline points="15 6 9 12 15 18" />
+        </svg>
+      </button>
+      <div class="unique-product-slider">
+      {% for product in unique_products %}
+        <article class="unique-slide" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+          <div class="unique-slide__media">
+            <a href="{{ product.get_absolute_url }}" class="unique-slide__link" aria-label="{% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}">
+              {% if CUR_LANG == 'ru' and product.name_ru %}
+                {% responsive_product_picture product 'unique-slide__img' product.name_ru 800 600 'lazy' %}
+              {% else %}
+                {% responsive_product_picture product 'unique-slide__img' product.name 800 600 'lazy' %}
+              {% endif %}
+            </a>
+          </div>
+          <div class="unique-slide__content">
+            <h3 class="unique-slide__title">
+              <a href="{{ product.get_absolute_url }}" class="unique-slide__title-link">
+                {% if CUR_LANG == 'ru' and product.name_ru %}{{ product.name_ru }}{% else %}{{ product.name }}{% endif %}
+              </a>
+            </h3>
+            {% if CUR_LANG == 'ru' and product.short_description_ru %}
+              <p class="unique-slide__subtitle">{{ product.short_description_ru }}</p>
+            {% elif product.short_description %}
+              <p class="unique-slide__subtitle">{{ product.short_description }}</p>
+            {% endif %}
+            <div class="unique-slide__price">
+              <span class="price-val">{{ product.sell_price }}₴</span>
+            </div>
+
+            <div class="unique-slide__actions">
+            <a href="{{ product.get_absolute_url }}" class="btn-more">{% if CUR_LANG == 'ru' %}Подробнее{% else %}Докладніше{% endif %}</a>
+            {% if product.quantity > 0 %}
+            <button class="add-to-cart-btn"
+                    data-product-id="{{ product.id }}"
+                    data-cart-add-url="{% url 'carts:cart_add' %}">
+              {% if CUR_LANG == 'ru' %}Добавить в корзину{% else %}Додати в кошик{% endif %}
+            </button>
+            {% else %}
+            <button class="add-to-cart-btn" disabled aria-disabled="true">
+              {% if CUR_LANG == 'ru' %}Нет в наличии{% else %}Немає в наявності{% endif %}
+            </button>
+            {% endif %}
+            <div class="unique-bottom-nav" aria-hidden="false">
+              <button type="button" class="unique-bottom-nav__btn unique-bottom-nav--prev" aria-label="Previous">
+                <svg class="unique-bottom-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <polyline points="15 6 9 12 15 18" />
+                </svg>
+              </button>
+              <button type="button" class="unique-bottom-nav__btn unique-bottom-nav--next" aria-label="Next">
+                <svg class="unique-bottom-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <polyline points="9 6 15 12 9 18" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          </div>
+        </article>
+      {% endfor %}
+      </div>
+      <button type="button" class="unique-nav unique-nav--next" aria-label="Next">
+        <svg class="unique-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <polyline points="9 6 15 12 9 18" />
+        </svg>
+      </button>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function(){
+    var slider = document.querySelector('.unique-product-slider');
+    if (!slider) return;
+    function loadSlick(cb){
+      if (window.jQuery && $.fn && $.fn.slick) { cb && cb(); return; }
+      var s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js';
+      s.defer=true; s.onload=function(){ cb && cb(); };
+      document.head.appendChild(s);
+    }
+    function init(){
+      if (!window.jQuery) { loadSlick(init); return; }
+      if (!($.fn && $.fn.slick)) { loadSlick(init); return; }
+      if (slider.getAttribute('data-slick-initialized')) return;
+      slider.setAttribute('data-slick-initialized','1');
+      var slideCount = slider.querySelectorAll('.unique-slide').length || 0;
+      $(slider).slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        infinite: slideCount > 1,
+        adaptiveHeight: true,
+        appendDots: $('.unique-offer .container')
+      });
+      // Ensure correct height after images load (fixes initial clipping)
+      $(slider).find('img').on('load', function(){
+        try { $(slider).slick('setPosition'); } catch(e){}
+      });
+      // Fallback: recalc shortly after init
+      setTimeout(function(){ try { $(slider).slick('setPosition'); } catch(e){} }, 60);
+      // And on window resize/orientation changes
+      window.addEventListener('resize', function(){
+        try { $(slider).slick('setPosition'); } catch(e){}
+      });
+      // Delegated handlers
+      // Bottom small nav lives inside slides -> delegate on slider
+      $(slider).on('click', '.unique-bottom-nav--prev', function(e){ e.preventDefault(); $(slider).slick('slickPrev'); });
+      $(slider).on('click', '.unique-bottom-nav--next', function(e){ e.preventDefault(); $(slider).slick('slickNext'); });
+      // Top desktop nav buttons are siblings of slider -> delegate on common container
+      var $block = $(slider).closest('.unique-block');
+      $block.on('click', '.unique-nav--prev', function(e){ e.preventDefault(); $(slider).slick('slickPrev'); });
+      $block.on('click', '.unique-nav--next', function(e){ e.preventDefault(); $(slider).slick('slickNext'); });
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(e){ if (e.isIntersecting) { init(); obs.disconnect(); } });
+      }, { rootMargin: '120px 0px' });
+      io.observe(slider);
+    } else {
+      if (document.readyState === 'complete' || document.readyState === 'interactive') init();
+      else document.addEventListener('DOMContentLoaded', init);
+    }
+  })();
+  </script>

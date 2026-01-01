@@ -1,0 +1,411 @@
+/* Основные селекторы (несколько вариантов на случай разной структуры в проекте) */
+html body #security-text-section,
+section#security-text-section,
+#security-text-section.seo-text-section,
+.page-wrapper #security-text-section,
+.content-area #security-text-section {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+  width: 100%;
+  font-family: 'Hind', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #f3eade;          /* основной кремовый тон */
+  line-height: 1.65;
+  /* FAQ-like frame */
+  border: 2px solid #4f463e;
+  border-radius: 10px;
+}
+
+/* Mobile fixes: allow content to fully expand without clipping */
+@media (max-width: 768px) {
+  html body #security-text-section,
+  section#security-text-section,
+  #security-text-section.seo-text-section,
+  .page-wrapper #security-text-section,
+  .content-area #security-text-section {
+    overflow: visible !important;   /* убрать обрезание контента */
+    padding: 1.25rem 1rem;          /* компактнее отступы, больше полезной области */
+    min-height: auto;               /* не фиксировать высоту */
+  }
+
+  html body #security-text-section .seo-text-container,
+  section#security-text-section .seo-text-container,
+  #security-text-section.seo-text-section .seo-text-container,
+  .page-wrapper #security-text-section .seo-text-container,
+  .content-area #security-text-section .seo-text-container {
+    max-width: 100%;                /* убрать лишние ограничения ширины */
+    padding: 0;                     /* избегаем горизонтальной прокрутки */
+  }
+
+  /* Ослабляем фоновые эффекты на мобиле, чтобы не мешали восприятию */
+  html body #security-text-section::before,
+  section#security-text-section::before,
+  #security-text-section.seo-text-section::before,
+  .page-wrapper #security-text-section::before,
+  .content-area #security-text-section::before {
+    filter: blur(1px) saturate(.9) contrast(.95);
+    opacity: 0.82;
+    transform: none;                /* избегаем масштабирования, которое может создавать «края» */
+  }
+
+  html body #security-text-section::after,
+  section#security-text-section::after,
+  #security-text-section.seo-text-section::after,
+  .page-wrapper #security-text-section::after,
+  .content-area #security-text-section::after {
+    background: radial-gradient(900px 540px at 50% 40%, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.06) 32%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0.42) 100%);
+  }
+}
+
+/* Контейнер текста поверх фоновых слоёв */
+html body #security-text-section .seo-text-container,
+section#security-text-section .seo-text-container,
+#security-text-section.seo-text-section .seo-text-container,
+.page-wrapper #security-text-section .seo-text-container,
+.content-area #security-text-section .seo-text-container {
+  position: relative;
+  z-index: 2;
+  max-width: 69rem;
+  margin: 0 auto;
+}
+
+/* Фон — псевдоэлемент ::before (текстура + размытие) */
+html body #security-text-section::before,
+section#security-text-section::before,
+#security-text-section.seo-text-section::before,
+.page-wrapper #security-text-section::before,
+.content-area #security-text-section::before {
+  content: "";
+  position: absolute;
+  inset: 2px;                 /* не перекрывать рамку в 2px */
+  z-index: 0;
+  /* Use only AVIF to avoid multiple candidates */
+  background-image: url('/static/deps/images/seo-text-bg.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* приглушение орнамента + лёгкое размытие */
+  filter: blur(2px) saturate(.85) contrast(.92);
+  opacity: 0.88;
+  transform: scale(1.02);
+  will-change: filter, transform;
+  border-radius: 8px;          /* внутренняя скруглённость (10px - 2px рамки) */
+}
+
+/* Виниетирование — псевдоэлемент ::after (центр светлее, края темнее) */
+html body #security-text-section::after,
+section#security-text-section::after,
+#security-text-section.seo-text-section::after,
+.page-wrapper #security-text-section::after,
+.content-area #security-text-section::after {
+  content: "";
+  position: absolute;
+  inset: 2px;                 /* не перекрывать рамку в 2px */
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(1200px 700px at 50% 40%,
+      rgba(0,0,0,0.00) 0%,
+      rgba(0,0,0,0.06) 30%,
+      rgba(0,0,0,0.18) 65%,
+      rgba(0,0,0,0.48) 100%);
+  mix-blend-mode: multiply;
+  border-radius: 8px;          /* внутренняя скруглённость */
+}
+
+/* Заголовки — повышенная специфичность для надёжного применения */
+html body #security-text-section h1,
+section#security-text-section h1,
+#security-text-section.seo-text-section h1,
+.page-wrapper #security-text-section h1,
+.content-area #security-text-section h1,
+html body #security-text-section h2,
+section#security-text-section h2,
+#security-text-section.seo-text-section h2,
+.page-wrapper #security-text-section h2,
+.content-area #security-text-section h2,
+html body #security-text-section h3,
+section#security-text-section h3,
+#security-text-section.seo-text-section h3,
+.page-wrapper #security-text-section h3,
+.content-area #security-text-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  margin: 1.25rem 0 0.6rem;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #ccb58d; /* золотистый резервный тон */
+
+  /* градиент внутри букв (работает в современных браузерах) + лёгкая тень */
+  background: linear-gradient(180deg, #e8d8b6, #ccb58d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  letter-spacing: 0.2px;
+}
+
+/* Размеры заголовков */
+html body #security-text-section h1,
+section#security-text-section h1,
+#security-text-section.seo-text-section h1,
+.page-wrapper #security-text-section h1,
+.content-area #security-text-section h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+
+html body #security-text-section h2,
+section#security-text-section h2,
+#security-text-section.seo-text-section h2,
+.page-wrapper #security-text-section h2,
+.content-area #security-text-section h2 { font-size: 1.6rem; }
+
+html body #security-text-section h3,
+section#security-text-section h3,
+#security-text-section.seo-text-section h3,
+.page-wrapper #security-text-section h3,
+.content-area #security-text-section h3 { font-size: 1.15rem; }
+
+/* Параграфы и списки — повышенная специфичность */
+html body #security-text-section p,
+section#security-text-section p,
+#security-text-section.seo-text-section p,
+.page-wrapper #security-text-section p,
+.content-area #security-text-section p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(243,234,222,0.95);
+  opacity: 0.98;
+  line-height: 1.65;
+}
+
+html body #security-text-section ul,
+section#security-text-section ul,
+#security-text-section.seo-text-section ul,
+.page-wrapper #security-text-section ul,
+.content-area #security-text-section ul {
+  margin: 0.5rem 0 1rem 1.25rem;
+  list-style: disc;
+  color: rgba(243,234,222,0.95);
+}
+html body #security-text-section ul li,
+section#security-text-section ul li,
+#security-text-section.seo-text-section ul li,
+.page-wrapper #security-text-section ul li,
+.content-area #security-text-section ul li { margin-bottom: 0.6rem; }
+
+/* Ссылки — с высокой специфичностью */
+html body #security-text-section a,
+section#security-text-section a,
+#security-text-section.seo-text-section a,
+.page-wrapper #security-text-section a,
+.content-area #security-text-section a {
+  color: #d9c7a3;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(217,199,163,0.25);
+  transition: text-shadow .25s ease, transform .12s ease;
+}
+html body #security-text-section a:hover,
+section#security-text-section a:hover,
+#security-text-section.seo-text-section a:hover,
+.page-wrapper #security-text-section a:hover,
+.content-area #security-text-section a:hover {
+  text-shadow: 0 4px 18px rgba(204,181,141,0.12);
+  transform: translateY(-1px);
+}
+
+/* Кнопки/акценты */
+html body #security-text-section .btn,
+section#security-text-section .btn,
+#security-text-section.seo-text-section .btn,
+.page-wrapper #security-text-section .btn,
+.content-area #security-text-section .btn {
+  display: inline-block;
+  padding: .5rem 1rem;
+  background: linear-gradient(180deg, rgba(220,190,140,0.12), rgba(200,160,90,0.06));
+  color: rgba(243,234,222,0.95);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+/* Небольшой декоративный штрих для заголовка (опция) */
+html body #security-text-section .headline-subtle,
+section#security-text-section .headline-subtle,
+#security-text-section.seo-text-section .headline-subtle,
+.page-wrapper #security-text-section .headline-subtle,
+.content-area #security-text-section .headline-subtle {
+  display: inline-block;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Фокус/Доступность */
+html body #security-text-section a:focus,
+section#security-text-section a:focus,
+#security-text-section.seo-text-section a:focus,
+.page-wrapper #security-text-section a:focus,
+.content-area #security-text-section a:focus,
+html body #security-text-section .btn:focus,
+section#security-text-section .btn:focus,
+#security-text-section.seo-text-section .btn:focus,
+.page-wrapper #security-text-section .btn:focus,
+.content-area #security-text-section .btn:focus {
+  outline: 3px solid rgba(204,181,141,0.12);
+  outline-offset: 2px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+/* Адаптивные корректировки (высокая специфичность сохранена) */
+@media (max-width: 1024px) {
+  html body #security-text-section .seo-text-container,
+  section#security-text-section .seo-text-container,
+  #security-text-section.seo-text-section .seo-text-container,
+  .page-wrapper #security-text-section .seo-text-container,
+  .content-area #security-text-section .seo-text-container {
+    max-width: 640px;
+  }
+  html body #security-text-section h1,
+  section#security-text-section h1,
+  #security-text-section.seo-text-section h1,
+  .page-wrapper #security-text-section h1,
+  .content-area #security-text-section h1 { font-size: 2.0rem; }
+}
+
+@media (max-width: 768px) {
+  html body #security-text-section,
+  section#security-text-section,
+  #security-text-section.seo-text-section,
+  .page-wrapper #security-text-section,
+  .content-area #security-text-section {
+    padding: 2rem 1rem;
+  }
+  html body #security-text-section h1,
+  section#security-text-section h1,
+  #security-text-section.seo-text-section h1,
+  .page-wrapper #security-text-section h1,
+  .content-area #security-text-section h1 { font-size: 1.6rem; }
+  html body #security-text-section h2,
+  section#security-text-section h2,
+  #security-text-section.seo-text-section h2,
+  .page-wrapper #security-text-section h2,
+  .content-area #security-text-section h2 { font-size: 1.25rem; }
+  html body #security-text-section p,
+  section#security-text-section p,
+  #security-text-section.seo-text-section p,
+  .page-wrapper #security-text-section p,
+  .content-area #security-text-section p { font-size: 1rem; line-height: 1.6; }
+}
+
+/* --- Tables inside security section: theme-aligned --- */
+html body #security-text-section .table-responsive,
+section#security-text-section .table-responsive,
+#security-text-section.seo-text-section .table-responsive {
+  background: transparent;
+  border: 1px solid #4f463e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+html body #security-text-section table.table,
+section#security-text-section table.table,
+#security-text-section.seo-text-section table.table {
+  margin: 0;
+  width: 100%;
+  color: rgba(243,234,222,0.95);
+  background-color: transparent;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+html body #security-text-section thead th,
+section#security-text-section thead th,
+#security-text-section.seo-text-section thead th {
+  background: rgba(0,0,0,0.20);
+  color: #e8d8b6;
+  border-bottom: 1px solid #4f463e;
+  font-weight: 600;
+}
+
+html body #security-text-section tbody tr,
+section#security-text-section tbody tr,
+#security-text-section.seo-text-section tbody tr {
+  background: transparent; /* фон зададим на ячейках, чтобы перекрыть bootstrap */
+}
+
+html body #security-text-section tbody tr:hover,
+section#security-text-section tbody tr:hover,
+#security-text-section.seo-text-section tbody tr:hover {
+  background: transparent;
+}
+
+/* Задаём фон непосредственно ячейкам, т.к. Bootstrap красит их, а не tr */
+html body #security-text-section tbody td,
+section#security-text-section tbody td,
+#security-text-section.seo-text-section tbody td {
+  background-color: rgba(0,0,0,0.20);
+}
+html body #security-text-section tbody tr:hover td,
+section#security-text-section tbody tr:hover td,
+#security-text-section.seo-text-section tbody tr:hover td {
+  background-color: rgba(0,0,0,0.18);
+}
+
+html body #security-text-section td,
+html body #security-text-section th,
+section#security-text-section td,
+section#security-text-section th,
+#security-text-section.seo-text-section td,
+#security-text-section.seo-text-section th {
+  padding: .75rem 1rem;
+  border-top: 1px solid #4f463e;
+}
+
+/* Cell text styling within body */
+html body #security-text-section tbody td,
+section#security-text-section tbody td,
+#security-text-section.seo-text-section tbody td {
+  color: #e8d8b6;
+  font-weight: 500;
+}
+
+/* --- Mobile table responsiveness & readability --- */
+@media (max-width: 768px) {
+  /* горизонтальная прокрутка при нехватке ширины */
+  html body #security-text-section .table-responsive,
+  section#security-text-section .table-responsive,
+  #security-text-section.seo-text-section .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -0.5rem;          /* немного шире области контента */
+    padding-bottom: 0.5rem;     /* место под скроллбар */
+    border-radius: 10px;        /* согласовано с секцией */
+  }
+
+  /* упрощаем таблицу под узкий экран */
+  html body #security-text-section table.table,
+  section#security-text-section table.table,
+  #security-text-section.seo-text-section table.table {
+    width: 100%;
+    table-layout: fixed;        /* фиксированная раскладка для переноса слов */
+  }
+
+  html body #security-text-section th,
+  html body #security-text-section td,
+  section#security-text-section th,
+  section#security-text-section td,
+  #security-text-section.seo-text-section th,
+  #security-text-section.seo-text-section td {
+    padding: .6rem .65rem;      /* компактнее отступы */
+    font-size: .95rem;          /* чуть меньше текст */
+    white-space: normal;        /* разрешаем перенос строк */
+    word-break: break-word;     /* переносим длинные слова */
+    overflow-wrap: anywhere;    /* агрессивный перенос при необходимости */
+  }
+
+  /* заголовок таблицы не слишком высокий */
+  html body #security-text-section thead th,
+  section#security-text-section thead th,
+  #security-text-section.seo-text-section thead th {
+    padding-top: .55rem;
+    padding-bottom: .55rem;
+  }
+}

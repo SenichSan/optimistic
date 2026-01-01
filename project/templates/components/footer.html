@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as CUR_LANG %}
+<footer class="site-footer site-footer--parchment" role="contentinfo" aria-labelledby="footer-heading">
+    <!-- фон как у хедера -->
+    <div class="footer-bg" aria-hidden="true">
+        <picture>
+            <!-- Prefer AVIF -->
+            <source media="(max-width:599px)" srcset="{% static 'deps/images/bg-image-blur-800.avif' %}" type="image/avif">
+            <source media="(min-width:600px)" srcset="{% static 'deps/images/bg-image-blur-1600.avif' %}" type="image/avif">
+            <!-- Then WebP -->
+            <source media="(max-width:599px)" srcset="{% static 'deps/images/bg-image-blur-800.webp' %}" type="image/webp">
+            <source media="(min-width:600px)" srcset="{% static 'deps/images/bg-image-blur-1600.webp' %}" type="image/webp">
+            <!-- Fallback JPEG -->
+            <source media="(max-width:599px)"
+                    srcset="{% static 'deps/images/bg-image-blur-800.jpg' %} 1x, {% static 'deps/images/bg-image-blur-1600.jpg' %} 2x"
+                    type="image/jpeg">
+            <source media="(min-width:600px)"
+                    srcset="{% static 'deps/images/bg-image-blur-1600.jpg' %} 1x, {% static 'deps/images/bg-image-blur-2400.jpg' %} 2x"
+                    type="image/jpeg">
+            <img class="footer-image"
+                 src="{% static 'deps/images/bg-image-blur-1600.jpg' %}" alt="" width="1600" height="400" loading="lazy" decoding="async">
+        </picture>
+    </div>
+
+    <!-- overlay как у хедера -->
+    <div class="footer-overlay" aria-hidden="true"></div>
+
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <p class="brand-title parchment-title">Grownica</p>
+            <p class="brand-sub">{% if CUR_LANG == 'ru' %}Магазин. Консультации. Микология.{% else %}Магазин. Консультації. Мікологія.{% endif %}</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="/security/" class="footer-btn" role="button" rel="nofollow">{% if CUR_LANG == 'ru' %}Ваша безопасность{% else %}Ваша безпека{% endif %}</a>
+            <p class="copy" style="margin: 0 0 0 0;">© 2025 Grownica. {% if CUR_LANG == 'ru' %}Все права защищены.{% else %}Всі права захищені.{% endif %}</p>
+        </nav>
+
+        <div class="footer-meta">
+            <p class="small">{% if CUR_LANG == 'ru' %}Поддержка{% else %}Підтримка{% endif %}: <a href="mailto:shroomer0ua@gmail.com">shroomer0ua@gmail.com</a></p>
+        </div>
+    </div>
+</footer>
